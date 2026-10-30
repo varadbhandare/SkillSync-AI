@@ -1,0 +1,1538 @@
+[
+  {
+    "topic": "Containerization",
+    "difficulty": "Easy",
+    "text": "What is Docker, and how does a container differ from a traditional Virtual Machine (VM)?",
+    "idealAnswer": "Docker packages applications and dependencies into standardized containers that share the host OS kernel via Linux namespaces and cgroups, achieving sub-second startup and minimal memory footprint. Traditional Virtual Machines require a Hypervisor (Type 1 or 2) that virtualizes entire physical hardware stacks, running a full guest OS with heavy disk and memory overhead.",
+    "conditions": [
+      {
+        "name": "Host OS Kernel Sharing and Namespaces / cgroups",
+        "keywords": [
+          "docker",
+          "container",
+          "namespaces",
+          "cgroups",
+          "kernel sharing"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hypervisor Hardware Virtualization and Guest OS Overhead",
+        "keywords": [
+          "virtual machine",
+          "vm",
+          "hypervisor",
+          "guest os",
+          "overhead"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Startup Latency and Resource Efficiency Comparison",
+        "keywords": [
+          "startup time",
+          "memory footprint",
+          "lightweight",
+          "efficiency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "CI/CD Pipelines",
+    "difficulty": "Easy",
+    "text": "Explain Continuous Integration (CI) and Continuous Delivery (CD) principles in modern software engineering.",
+    "idealAnswer": "Continuous Integration automates merging developer code changes into a shared trunk frequently, automatically triggering builds, static analysis (linting), and automated test suites to detect integration bugs early. Continuous Delivery extends CI by automatically packaging, containerizing, and staging deployable artifacts to production-like environments, ready for one-click or automated deployment.",
+    "conditions": [
+      {
+        "name": "Frequent Trunk Merging and Automated Test Verification",
+        "keywords": [
+          "continuous integration",
+          "ci",
+          "automated testing",
+          "builds",
+          "linting",
+          "merge"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Automated Artifact Packaging and Staging Environment Deployments",
+        "keywords": [
+          "continuous delivery",
+          "cd",
+          "artifact",
+          "staging",
+          "release candidate"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Shortened Feedback Loops and Risk Mitigation",
+        "keywords": [
+          "feedback loop",
+          "risk mitigation",
+          "deployment frequency",
+          "lead time"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Cloud Infrastructure",
+    "difficulty": "Easy",
+    "text": "Compare Cloud Service Models: Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS).",
+    "idealAnswer": "IaaS provides raw compute VMs, storage, and networking (e.g. AWS EC2, GCP GCE) where users manage the OS, runtime, and applications. PaaS provides managed application environments (e.g. Heroku, AWS Elastic Beanstalk) where the cloud provider manages hardware, OS, and runtimes, allowing developers to focus solely on code. SaaS delivers complete software applications (e.g. Google Workspace, Jira) managed entirely by the vendor over the internet.",
+    "conditions": [
+      {
+        "name": "IaaS Hardware and OS Management Scope",
+        "keywords": [
+          "iaas",
+          "infrastructure",
+          "ec2",
+          "virtual machines",
+          "os management"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "PaaS Managed Runtime and Application Deployment Scope",
+        "keywords": [
+          "paas",
+          "platform",
+          "runtime",
+          "managed service",
+          "developer focus"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SaaS Turnkey Application Delivery Model",
+        "keywords": [
+          "saas",
+          "software as a service",
+          "vendor managed",
+          "cloud applications"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Infrastructure as Code",
+    "difficulty": "Easy",
+    "text": "What is Infrastructure as Code (IaC), and what benefits does declarative configuration (e.g. Terraform) provide?",
+    "idealAnswer": "Infrastructure as Code manages and provisions cloud infrastructure through machine-readable definition files rather than manual console clicks. Declarative IaC (like Terraform) defines the desired end-state infrastructure, allowing the engine to compute execution plans and handle resource dependencies automatically, preventing configuration drift and enabling version control with automated rollbacks.",
+    "conditions": [
+      {
+        "name": "Machine-Readable Provisioning Files vs Manual UI Clicks",
+        "keywords": [
+          "infrastructure as code",
+          "iac",
+          "automation",
+          "version control",
+          "configuration"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Declarative Desired State vs Imperative Scripting",
+        "keywords": [
+          "declarative",
+          "desired state",
+          "terraform",
+          "execution plan",
+          "imperative"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Configuration Drift Prevention and Reproducibility",
+        "keywords": [
+          "configuration drift",
+          "reproducibility",
+          "idempotency",
+          "rollback"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Kubernetes Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is a Pod in Kubernetes, and why does Kubernetes wrap containers inside pods rather than managing them directly?",
+    "idealAnswer": "A Pod is the smallest deployable execution unit in Kubernetes, representing a group of one or more co-located containers that share storage volumes, an IP address, and a Linux network namespace (localhost communication). Wrapping containers in pods allows sidecar patterns (e.g. logging sidecars, service mesh proxies) where auxiliary containers share the primary container network and storage boundary.",
+    "conditions": [
+      {
+        "name": "Smallest Deployable Unit and Shared Network Namespace (localhost)",
+        "keywords": [
+          "pod",
+          "smallest unit",
+          "kubernetes",
+          "localhost",
+          "ip address",
+          "network namespace"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Shared Storage Volumes and Lifecycle Management",
+        "keywords": [
+          "shared storage",
+          "volumes",
+          "lifecycle",
+          "scheduling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sidecar Pattern and Multi-Container Co-location",
+        "keywords": [
+          "sidecar",
+          "proxy",
+          "multi-container",
+          "co-located",
+          "logging"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Observability",
+    "difficulty": "Easy",
+    "text": "What are the Three Pillars of Observability in distributed systems (Metrics, Logs, and Traces)?",
+    "idealAnswer": "Metrics are numeric aggregations measured over time intervals (e.g. CPU, latency, error counts) used for dashboard alerting and capacity monitoring. Logs are structured timestamped records of discrete events detailing contextual application state during failures. Distributed Traces track the end-to-end journey of an individual user request across microservices via trace and span IDs, pinpointing latency bottlenecks.",
+    "conditions": [
+      {
+        "name": "Metrics Numeric Aggregations and Alerting",
+        "keywords": [
+          "metrics",
+          "numeric",
+          "time series",
+          "aggregation",
+          "alerting",
+          "cpu"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Logs Discrete Timestamped Event Records",
+        "keywords": [
+          "logs",
+          "structured logs",
+          "events",
+          "timestamp",
+          "debugging"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Distributed Tracing and Request Propagation Paths",
+        "keywords": [
+          "traces",
+          "distributed tracing",
+          "spans",
+          "latency",
+          "microservices"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Linux & Systems",
+    "difficulty": "Easy",
+    "text": "Explain Linux file permissions (rwx) and how chmod octal notation (e.g. 755 vs 644) works.",
+    "idealAnswer": "Linux manages access using three permission types: Read (r=4), Write (w=2), and Execute (x=1), applied to three entity levels: Owner (User), Group, and Others. The octal value is the sum of permissions for each level: chmod 755 assigns rwx (7) to owner, and rx (5) to group and others, typical for executable binaries and directories. Chmod 644 assigns rw- (6) to owner and r-- (4) to others, standard for secure configuration files.",
+    "conditions": [
+      {
+        "name": "Read (4), Write (2), and Execute (1) Bitwise Weights",
+        "keywords": [
+          "rwx",
+          "read",
+          "write",
+          "execute",
+          "octal",
+          "weights",
+          "4 2 1"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Owner, Group, and Others Target Entity Triad",
+        "keywords": [
+          "owner",
+          "group",
+          "others",
+          "user",
+          "permissions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "chmod 755 vs 644 Practical Security Configurations",
+        "keywords": [
+          "chmod",
+          "755",
+          "644",
+          "executable",
+          "security"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Networking",
+    "difficulty": "Easy",
+    "text": "What is a Reverse Proxy, and how does it differ from a Forward Proxy?",
+    "idealAnswer": "A forward proxy sits in front of client devices, intercepting outbound requests to the internet to enforce company security policies, content filtering, or client IP anonymization. A reverse proxy sits in front of web servers, intercepting inbound internet traffic to provide SSL/TLS termination, load balancing, response caching, compression, and server protection from direct exposure.",
+    "conditions": [
+      {
+        "name": "Forward Proxy Client-Side Outbound Interception",
+        "keywords": [
+          "forward proxy",
+          "client-side",
+          "outbound",
+          "anonymity",
+          "filtering"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Reverse Proxy Server-Side Inbound Load Balancing",
+        "keywords": [
+          "reverse proxy",
+          "server-side",
+          "inbound",
+          "load balancing",
+          "nginx"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Security Hardening and SSL Termination Capabilities",
+        "keywords": [
+          "ssl termination",
+          "caching",
+          "server protection",
+          "compression"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "DNS & Networking",
+    "difficulty": "Easy",
+    "text": "How does the Domain Name System (DNS) resolve human-readable domains into IP addresses?",
+    "idealAnswer": "When a client queries a domain (e.g. api.example.com), the local DNS resolver checks its cache. On a miss, it queries a Root Nameserver, which directs it to the Top-Level Domain (TLD) nameserver (.com). The TLD nameserver directs to the Authoritative Nameserver for example.com, which returns the mapped A record (IPv4) or AAAA record (IPv6). The resolver caches the record according to its TTL and returns the IP to the client.",
+    "conditions": [
+      {
+        "name": "DNS Hierarchical Architecture (Root, TLD, Authoritative)",
+        "keywords": [
+          "dns",
+          "root nameserver",
+          "tld",
+          "authoritative nameserver",
+          "resolver"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Record Types (A, AAAA, CNAME) and IP Mapping",
+        "keywords": [
+          "a record",
+          "aaaa",
+          "cname",
+          "ip address",
+          "resolution"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Time to Live (TTL) Caching Protocol",
+        "keywords": [
+          "ttl",
+          "caching",
+          "recursive resolver",
+          "propagation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Cloud Security",
+    "difficulty": "Easy",
+    "text": "What is the Principle of Least Privilege in Cloud Identity & Access Management (IAM)?",
+    "idealAnswer": "The Principle of Least Privilege dictates that users, service accounts, and applications should be granted only the minimum necessary permissions required to perform their specific duties, and for the minimum duration required. In cloud IAM, this involves assigning fine-grained roles (rather than admin roles) and using temporary security credentials (like AWS IAM roles/STS or GCP service account impersonation).",
+    "conditions": [
+      {
+        "name": "Minimum Necessary Access Scope Definition",
+        "keywords": [
+          "least privilege",
+          "iam",
+          "minimum permissions",
+          "access control",
+          "roles"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Fine-Grained Role Scoping vs Over-Privileged Admin Anti-pattern",
+        "keywords": [
+          "fine-grained",
+          "admin roles",
+          "over-privileged",
+          "policies",
+          "scope"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Temporary Credentials and Security Blast Radius Reduction",
+        "keywords": [
+          "temporary credentials",
+          "sts",
+          "blast radius",
+          "service account",
+          "security"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Git & Deployment",
+    "difficulty": "Easy",
+    "text": "Explain GitOps and how tools like ArgoCD automate Kubernetes state synchronization.",
+    "idealAnswer": "GitOps is an operational framework where a Git repository serves as the single source of truth for declared infrastructure and application state. Tools like ArgoCD run as controllers inside Kubernetes, continuously comparing the live cluster state with desired manifests in the Git repository; when discrepancies (configuration drift) occur, ArgoCD flags them and automatically syncs the cluster to match Git.",
+    "conditions": [
+      {
+        "name": "Git Repository as Single Source of Truth for State",
+        "keywords": [
+          "gitops",
+          "single source of truth",
+          "git repository",
+          "declarative manifests"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Continuous Reconciliation Loop and Drift Detection",
+        "keywords": [
+          "argocd",
+          "reconciliation loop",
+          "configuration drift",
+          "controller",
+          "sync"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Auditability and Rollback Mechanisms via Git Commits",
+        "keywords": [
+          "auditability",
+          "rollback",
+          "git commit",
+          "automated deployment"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Container Security",
+    "difficulty": "Easy",
+    "text": "What are container security best practices when building production Dockerfiles?",
+    "idealAnswer": "Production Dockerfile best practices include: using minimal base images (like Alpine or Distroless), creating and switching to a non-root user (USER appuser), utilizing multi-stage builds to exclude compiler tools from the final image, pinning package versions to guarantee reproducibility, scanning images for CVEs using Trivy or Snyk, and never hardcoding secrets or API keys.",
+    "conditions": [
+      {
+        "name": "Minimal Base Images (Distroless/Alpine) and Attack Surface",
+        "keywords": [
+          "minimal base image",
+          "alpine",
+          "distroless",
+          "attack surface",
+          "vulnerabilities"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Non-Root User Execution and Multi-Stage Builds",
+        "keywords": [
+          "non-root",
+          "user directive",
+          "multi-stage builds",
+          "compiler tools",
+          "layer caching"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CVE Vulnerability Scanning and Secret Leakage Prevention",
+        "keywords": [
+          "cve scan",
+          "secrets",
+          "trivy",
+          "snyk",
+          "security scanning"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "High Availability",
+    "difficulty": "Easy",
+    "text": "Explain Load Balancing algorithms: Round Robin, Least Connections, and IP Hash.",
+    "idealAnswer": "Round Robin distributes incoming requests sequentially across healthy backend instances, suitable for identical servers and uniform task durations. Least Connections routes traffic to the server with the fewest active connections, ideal for long-lived sessions or variable processing times. IP Hash computes a hash of the client IP address to map them deterministically to the same backend server, maintaining session state.",
+    "conditions": [
+      {
+        "name": "Round Robin Sequential Request Distribution",
+        "keywords": [
+          "round robin",
+          "sequential",
+          "uniform distribution",
+          "stateless"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Least Connections Dynamic Load Distribution",
+        "keywords": [
+          "least connections",
+          "active connections",
+          "variable latency",
+          "dynamic load"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "IP Hash Deterministic Client Stickiness",
+        "keywords": [
+          "ip hash",
+          "sticky session",
+          "client ip",
+          "affinity",
+          "session persistence"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Cloud Storage",
+    "difficulty": "Easy",
+    "text": "Compare Block Storage, Object Storage, and File Storage in cloud environments.",
+    "idealAnswer": "Block Storage (e.g. AWS EBS, GCP Persistent Disk) provisions raw storage volumes formatted with a filesystem and attached to a single VM, providing high IOPS and low latency for databases. Object Storage (e.g. AWS S3, GCS) manages unstructured data as objects via REST APIs with global scalability and flat metadata structures. File Storage (e.g. AWS EFS, NFS) provides hierarchical network filesystems concurrently mountable by hundreds of VMs.",
+    "conditions": [
+      {
+        "name": "Block Storage Low-Latency Disk Volumes for Databases",
+        "keywords": [
+          "block storage",
+          "ebs",
+          "persistent disk",
+          "iops",
+          "low latency",
+          "raw volume"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Object Storage Unstructured Data REST APIs and Metadata",
+        "keywords": [
+          "object storage",
+          "s3",
+          "gcs",
+          "unstructured",
+          "metadata",
+          "http api"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "File Storage Multi-Node Concurrent Network Mounts",
+        "keywords": [
+          "file storage",
+          "efs",
+          "nfs",
+          "posix",
+          "shared filesystem"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Deployment Strategies",
+    "difficulty": "Medium",
+    "text": "Describe your approach to designing a zero-downtime microservices deployment pipeline using Docker, Kubernetes, and canary releases.",
+    "idealAnswer": "Microservices achieve zero-downtime using Docker containerization, Kubernetes Deployments and ReplicaSets, combined with Canary releases to route a small percentage of traffic to new pods while monitoring readiness probes and metric baselines for automated rollback. Traffic splitting is managed via service mesh or ingress weights (e.g. 5% to canary, 95% to stable), with Prometheus automated metric verification watching error rates before full promotion.",
+    "conditions": [
+      {
+        "name": "Container Isolation and Pod Orchestration",
+        "keywords": [
+          "docker",
+          "container",
+          "kubernetes",
+          "pod",
+          "image",
+          "replicaset"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Canary Release Traffic Splitting and Ingress Routing",
+        "keywords": [
+          "canary",
+          "traffic",
+          "percentage",
+          "weight",
+          "routing",
+          "ingress",
+          "rollout"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Health Probes and Automated Metric Rollback",
+        "keywords": [
+          "probe",
+          "health",
+          "readiness",
+          "rollback",
+          "zero-downtime",
+          "metrics"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Deployment Strategies",
+    "difficulty": "Medium",
+    "text": "Compare Blue-Green Deployments with Rolling Updates in Kubernetes, evaluating risk, rollback speed, and resource costs.",
+    "idealAnswer": "Rolling Updates incrementally replace old pods with new pods using maxSurge and maxUnavailable settings, requiring zero additional cluster compute infrastructure but temporarily running mixed application versions simultaneously. Blue-Green Deployments maintain two identical production environments (Blue active, Green staging); the router/ingress switches traffic instantly to Green after verification, providing immediate instant rollback by switching back, but requiring double the infrastructure capacity.",
+    "conditions": [
+      {
+        "name": "Rolling Updates Incremental Replacement and maxSurge/maxUnavailable",
+        "keywords": [
+          "rolling update",
+          "maxsurge",
+          "maxunavailable",
+          "incremental",
+          "mixed versions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Blue-Green Instant Traffic Cutover and Immediate Rollback",
+        "keywords": [
+          "blue-green",
+          "cutover",
+          "instant rollback",
+          "router switch",
+          "identical environments"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Resource Overhead and State Synchronization Trade-offs",
+        "keywords": [
+          "infrastructure cost",
+          "resource overhead",
+          "database migration",
+          "capacity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Kubernetes Reliability",
+    "difficulty": "Medium",
+    "text": "How do Kubernetes Liveness, Readiness, and Startup Probes protect applications from crashing and traffic black-holing?",
+    "idealAnswer": "Kubernetes uses three distinct probes: Startup probes verify slow-starting applications have initialized, disabling liveness and readiness checks during boot to prevent premature kills. Liveness probes check whether the application container is healthy; if it fails, the kubelet kills and restarts the container. Readiness probes check whether the container is ready to accept user network traffic; if it fails, the pod is removed from Service Endpoints to prevent 502/503 errors.",
+    "conditions": [
+      {
+        "name": "Startup Probes for Boot Grace Periods",
+        "keywords": [
+          "startup probe",
+          "boot time",
+          "initialization",
+          "grace period",
+          "slow start"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Liveness Probes Container Restart Protocol",
+        "keywords": [
+          "liveness probe",
+          "kubelet",
+          "restart container",
+          "deadlock",
+          "recovery"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Readiness Probes Service Endpoint Traffic Isolation",
+        "keywords": [
+          "readiness probe",
+          "service endpoints",
+          "traffic isolation",
+          "black-holing",
+          "load balancing"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Kubernetes Autoscaling",
+    "difficulty": "Medium",
+    "text": "Explain how Horizontal Pod Autoscaler (HPA) and Cluster Autoscaler (CA) cooperate to scale workloads dynamically.",
+    "idealAnswer": "Horizontal Pod Autoscaler (HPA) monitors pod metrics (CPU/Memory utilization from Metrics Server or custom Prometheus metrics) and dynamically scales the number of pod replicas up or down via the Deployment controller. When HPA scales up and pending pods cannot be scheduled due to insufficient CPU/memory nodes, the Cluster Autoscaler (CA) detects pending unschedulable pods and provisions new cloud worker nodes (VMs) in the node pool.",
+    "conditions": [
+      {
+        "name": "Horizontal Pod Autoscaler Metrics and Replica Adjustment",
+        "keywords": [
+          "hpa",
+          "horizontal pod autoscaler",
+          "metrics server",
+          "replicas",
+          "cpu utilization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cluster Autoscaler Pending Pod Detection and Node Provisioning",
+        "keywords": [
+          "cluster autoscaler",
+          "pending pods",
+          "node pool",
+          "provisioning vms",
+          "unschedulable"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Scale-Down Cooldowns and Graceful Workload Eviction",
+        "keywords": [
+          "scale down",
+          "cooldown",
+          "eviction",
+          "pdb",
+          "pod disruption budget"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Infrastructure as Code",
+    "difficulty": "Medium",
+    "text": "How does Terraform manage state, and why is remote state locking (e.g. S3 + DynamoDB) critical for team collaboration?",
+    "idealAnswer": "Terraform stores mappings between declared configuration code and real-world deployed cloud resources in a state file (terraform.tfstate). Storing state remotely in encrypted object storage (like AWS S3 or GCS) allows team access and audit logging. Pairing remote state with a distributed lock mechanism (like DynamoDB) prevents concurrent Terraform executions from running simultaneously, avoiding race conditions, state file corruption, and duplicate resources.",
+    "conditions": [
+      {
+        "name": "Terraform State Mapping Configuration to Cloud Resources",
+        "keywords": [
+          "terraform state",
+          "tfstate",
+          "resource mapping",
+          "metadata",
+          "state management"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Remote State Storage (S3 / GCS) Encryption and Versioning",
+        "keywords": [
+          "remote state",
+          "s3",
+          "gcs",
+          "backend",
+          "encryption"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Distributed State Locking (DynamoDB) Against Race Conditions",
+        "keywords": [
+          "state locking",
+          "dynamodb",
+          "race condition",
+          "corruption",
+          "concurrency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Service Mesh Architecture",
+    "difficulty": "Medium",
+    "text": "What problems does a Service Mesh (e.g. Istio) solve in microservices, detailing the data plane vs control plane?",
+    "idealAnswer": "A Service Mesh abstracts cross-service communication management out of application code into infrastructure. The Data Plane consists of high-performance sidecar proxies (Envoy) injected next to each application pod, intercepting all inbound and outbound network traffic. The Control Plane (Istiod) manages proxy configurations, certificate distribution for mutual TLS (mTLS) encryption, traffic routing rules, circuit breaking, and telemetry collection.",
+    "conditions": [
+      {
+        "name": "Data Plane Envoy Sidecar Proxy Traffic Interception",
+        "keywords": [
+          "service mesh",
+          "data plane",
+          "envoy",
+          "sidecar proxy",
+          "traffic interception"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Control Plane Configuration and Certificate Management",
+        "keywords": [
+          "control plane",
+          "istio",
+          "istiod",
+          "routing rules",
+          "configuration"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mutual TLS (mTLS) Encryption and Circuit Breaking Capabilities",
+        "keywords": [
+          "mtls",
+          "mutual tls",
+          "circuit breaking",
+          "resilience",
+          "zero-trust"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Monitoring & Alerting",
+    "difficulty": "Medium",
+    "text": "Explain Prometheus pull-based metrics collection architecture compared to push-based monitoring systems.",
+    "idealAnswer": "Prometheus uses a pull-based model where the server periodically scrapes HTTP /metrics endpoints exposed by targets at configured scrape intervals, relying on service discovery (e.g. Kubernetes API) to track dynamic workloads. Pull models make it easy to detect dead nodes (scrape failure = down), prevent monitoring servers from being overwhelmed by client floods, and require no agent installation beyond standard client libraries, whereas ephemeral batch jobs push to a Pushgateway.",
+    "conditions": [
+      {
+        "name": "Prometheus Pull-Based HTTP Scraping and Service Discovery",
+        "keywords": [
+          "prometheus",
+          "pull-based",
+          "scrape",
+          "http metrics",
+          "service discovery"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Push-Based Architecture Comparison (Datadog/CloudWatch)",
+        "keywords": [
+          "push-based",
+          "agent",
+          "metrics flood",
+          "backpressure",
+          "network traffic"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pushgateway for Short-Lived Ephemeral Batch Workloads",
+        "keywords": [
+          "pushgateway",
+          "ephemeral",
+          "cron jobs",
+          "batch workloads"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Security Engineering",
+    "difficulty": "Medium",
+    "text": "How do you securely manage secrets across CI/CD and production Kubernetes using HashiCorp Vault or Cloud KMS?",
+    "idealAnswer": "Hardcoding secrets or storing raw base64 secrets in Git violates security standards. Modern architectures use HashiCorp Vault or Cloud KMS: secrets are encrypted at rest, versioned, and injected dynamically into Kubernetes pods at runtime as in-memory tmpfs volumes via Vault Agent sidecars or External Secrets Operator (ESO), with automated credential rotation and short-lived lease durations.",
+    "conditions": [
+      {
+        "name": "Secrets at Rest Encryption and Anti-Git Commits Invariant",
+        "keywords": [
+          "secrets management",
+          "encryption at rest",
+          "kms",
+          "vault",
+          "git hygiene"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Runtime Dynamic Injection via Sidecars or External Secrets Operator",
+        "keywords": [
+          "vault agent",
+          "external secrets operator",
+          "eso",
+          "tmpfs",
+          "injection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Automated Credential Rotation and Lease Timeouts",
+        "keywords": [
+          "rotation",
+          "lease duration",
+          "audit logging",
+          "least privilege"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Container Orchestration",
+    "difficulty": "Medium",
+    "text": "What are Kubernetes Resource Requests and Limits, and how does the Linux OOM Killer handle over-committed memory?",
+    "idealAnswer": "Requests specify the minimum compute resources guaranteed to a pod, used by the kube-scheduler to place pods on nodes. Limits specify the hard cap of resources a container may consume. For CPU (compressible), exceeding limits causes throttling. For memory (non-compressible), exceeding limits causes the Linux kernel OOM Killer to terminate the container with Exit Code 137 (OOMKilled) based on its oom_score_adj.",
+    "conditions": [
+      {
+        "name": "Resource Requests for Kube-Scheduler Node Placement",
+        "keywords": [
+          "resource requests",
+          "kube-scheduler",
+          "node capacity",
+          "guaranteed resources"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Resource Limits and CPU Throttling Mechanics",
+        "keywords": [
+          "resource limits",
+          "cpu throttling",
+          "cgroups",
+          "quota",
+          "enforcement"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Linux OOM Killer Termination (Exit Code 137)",
+        "keywords": [
+          "oom killer",
+          "oomkilled",
+          "exit code 137",
+          "memory limit",
+          "eviction"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Disaster Recovery",
+    "difficulty": "Medium",
+    "text": "Explain Recovery Time Objective (RTO) and Recovery Point Objective (RPO) in cloud disaster recovery planning.",
+    "idealAnswer": "Recovery Time Objective (RTO) is the maximum acceptable duration of system downtime from the moment of disruption until services are fully operational. Recovery Point Objective (RPO) is the maximum acceptable amount of data loss measured in time (e.g. data lost between the last backup and the crash). Disaster recovery strategies range from Backup & Restore (high RTO/RPO, low cost) to Pilot Light, Warm Standby, and Multi-Region Active-Active (near-zero RTO/RPO, high cost).",
+    "conditions": [
+      {
+        "name": "RTO Downtime Duration Specification",
+        "keywords": [
+          "rto",
+          "recovery time objective",
+          "downtime",
+          "restoration time",
+          "sla"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "RPO Data Loss Tolerance Specification",
+        "keywords": [
+          "rpo",
+          "recovery point objective",
+          "data loss",
+          "backup frequency",
+          "wal"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Disaster Recovery Tier Spectrum (Cold, Warm, Active-Active)",
+        "keywords": [
+          "pilot light",
+          "warm standby",
+          "active-active",
+          "multi-region",
+          "cost trade-off"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Web Infrastructure",
+    "difficulty": "Medium",
+    "text": "What are Content Delivery Networks (CDNs) and how do Edge Caching, Cache-Control headers, and stale-while-revalidate work?",
+    "idealAnswer": "CDNs distribute cached static and dynamic assets across hundreds of globally distributed Point of Presence (PoP) edge servers close to users, reducing network latency and origin load. Origin servers specify HTTP Cache-Control headers (max-age, s-maxage, public). The stale-while-revalidate directive serves cached stale content immediately to the user while asynchronously fetching fresh content from the origin in the background, combining zero-latency responses with freshness.",
+    "conditions": [
+      {
+        "name": "Geographically Distributed Edge Point of Presence (PoP) Caching",
+        "keywords": [
+          "cdn",
+          "edge servers",
+          "pop",
+          "point of presence",
+          "latency reduction",
+          "origin load"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HTTP Cache-Control Directives (s-maxage, public, private)",
+        "keywords": [
+          "cache-control",
+          "max-age",
+          "s-maxage",
+          "headers",
+          "ttl"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "stale-while-revalidate Asynchronous Cache Refreshing",
+        "keywords": [
+          "stale-while-revalidate",
+          "asynchronous refresh",
+          "background fetch",
+          "zero latency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Cloud Networking",
+    "difficulty": "Medium",
+    "text": "Explain Virtual Private Cloud (VPC) architecture, detailing Public vs Private Subnets, NAT Gateways, and Route Tables.",
+    "idealAnswer": "A VPC is an isolated software-defined private cloud network. Public subnets have route tables with direct routes (0.0.0.0/0) to an Internet Gateway (IGW) for public-facing assets like load balancers. Private subnets have no direct public routes, housing sensitive databases and backend compute. Private subnets access the internet for outbound package updates via a managed NAT Gateway located in a public subnet without exposing private IP addresses to inbound traffic.",
+    "conditions": [
+      {
+        "name": "VPC Network Isolation and CIDR Block Subnetting",
+        "keywords": [
+          "vpc",
+          "subnets",
+          "cidr block",
+          "private cloud",
+          "network isolation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Public Subnet Internet Gateway (IGW) Direct Inbound Routing",
+        "keywords": [
+          "public subnet",
+          "internet gateway",
+          "igw",
+          "route table",
+          "inbound"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Private Subnet NAT Gateway Outbound-Only Egress",
+        "keywords": [
+          "private subnet",
+          "nat gateway",
+          "egress",
+          "outbound",
+          "security"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Log Management",
+    "difficulty": "Medium",
+    "text": "Describe a modern centralized logging pipeline using Fluentbit, Kafka, and OpenSearch / Elasticsearch.",
+    "idealAnswer": "A high-scale logging pipeline uses Fluentbit as a lightweight daemonset on Kubernetes nodes to collect and parse container stdout/stderr logs with low CPU overhead. Fluentbit forwards logs to a Kafka messaging buffer, which absorbs traffic spikes and provides backpressure protection. Consumer services or Logstash drain Kafka, enrich log records with metadata, and index them into OpenSearch/Elasticsearch clusters for dashboard visualization in Kibana/Grafana.",
+    "conditions": [
+      {
+        "name": "Lightweight Log Collection and Parsing (Fluentbit Daemonset)",
+        "keywords": [
+          "fluentbit",
+          "daemonset",
+          "log collector",
+          "stdout",
+          "parsing"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Kafka Buffering for Backpressure and Spike Absorption",
+        "keywords": [
+          "kafka",
+          "buffer",
+          "backpressure",
+          "traffic spikes",
+          "message bus"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Elasticsearch/OpenSearch Indexing and Query Analytics",
+        "keywords": [
+          "opensearch",
+          "elasticsearch",
+          "kibana",
+          "indexing",
+          "full-text search"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Resilience Engineering",
+    "difficulty": "Medium",
+    "text": "What is Chaos Engineering, and how do tools like Chaos Mesh or Gremlin validate production resilience?",
+    "idealAnswer": "Chaos Engineering is the discipline of experimenting on distributed systems in production or staging to build confidence in the system capability to withstand turbulent conditions. Frameworks like Chaos Mesh inject controlled failures—including network latency spikes, packet loss, pod kills, disk fills, and DNS failures—verifying that circuit breakers trip, autoscalers trigger, and fallback degrade gracefully without causing cascading outages.",
+    "conditions": [
+      {
+        "name": "Disciplined Failure Injection and Hypothesis Verification",
+        "keywords": [
+          "chaos engineering",
+          "chaos mesh",
+          "gremlin",
+          "hypothesis",
+          "resilience"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Failure Vectors (Network Delays, Packet Loss, Pod Kills)",
+        "keywords": [
+          "network latency",
+          "packet loss",
+          "pod kill",
+          "disk fill",
+          "fault injection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Blast Radius Containment and Self-Healing Validation",
+        "keywords": [
+          "blast radius",
+          "circuit breaker",
+          "self-healing",
+          "cascading failure"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Kubernetes Networking",
+    "difficulty": "Hard",
+    "text": "Explain the Kubernetes Container Network Interface (CNI), comparing iptables vs eBPF (Cilium) data plane forwarding.",
+    "idealAnswer": "The CNI plugin assigns IP addresses and manages packet routing between pods across nodes. Traditional kube-proxy implementations use Linux iptables, sequentially evaluating sequential filter chains for every network packet; as cluster services grow to thousands, O(N) linear iptables traversal consumes severe CPU and induces packet latency. Modern eBPF-based CNIs (like Cilium) bypass the TCP/IP network stack entirely, attaching eBPF bytecode programs directly to kernel socket and network interfaces (XDP), routing packets via BPF hash maps in O(1) time with minimal CPU overhead.",
+    "conditions": [
+      {
+        "name": "CNI Pod IP Allocation and Cross-Node Routing Mandate",
+        "keywords": [
+          "cni",
+          "container network interface",
+          "kube-proxy",
+          "pod network",
+          "packet routing"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Linux iptables O(N) Sequential Chain Bottlenecks",
+        "keywords": [
+          "iptables",
+          "linear evaluation",
+          "chain",
+          "latency",
+          "cluster scaling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "eBPF Kernel Socket Hooking and O(1) Hash Map Routing (Cilium)",
+        "keywords": [
+          "ebpf",
+          "cilium",
+          "xdp",
+          "o(1)",
+          "bpf maps",
+          "kernel bypassing"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Storage & Ceph",
+    "difficulty": "Hard",
+    "text": "Explain the CRUSH (Controlled Replication Under Scalable Hashing) algorithm in Ceph distributed storage.",
+    "idealAnswer": "Traditional distributed storage systems rely on central metadata lookup tables to map object IDs to storage disks, creating single points of failure and scaling bottlenecks. Ceph CRUSH algorithm eliminates metadata tables by using deterministic pseudo-random algorithmic placement: given an object name, cluster weight maps, and hierarchical infrastructure rules (rack, host, disk failure domains), CRUSH mathematically computes the exact Object Storage Daemons (OSDs) storing replicas without central network lookups, enabling exabyte horizontal scalability.",
+    "conditions": [
+      {
+        "name": "Elimination of Central Metadata Lookup Tables",
+        "keywords": [
+          "crush",
+          "ceph",
+          "metadata table elimination",
+          "distributed storage",
+          "algorithmic placement"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Deterministic Mathematical Computation of Replica OSDs",
+        "keywords": [
+          "deterministic",
+          "pseudo-random",
+          "osd",
+          "object storage daemon",
+          "hash calculation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hierarchical Failure Domains (Rack, Host, Row Isolation)",
+        "keywords": [
+          "failure domain",
+          "rack awareness",
+          "data placement",
+          "replication rule"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Zero-Trust Security",
+    "difficulty": "Hard",
+    "text": "Design an end-to-end Zero-Trust Cloud Architecture incorporating Workload Identity Federation, SPIFFE/SPIRE, and mTLS.",
+    "idealAnswer": "Zero-trust operates on the principle of \"never trust, always verify\", replacing perimeter IP firewalls with cryptographically attested workload identities. Workload Identity Federation allows cloud pods to authenticate to cloud providers (AWS/GCP) using short-lived OpenID Connect (OIDC) tokens without long-lived service account keys. SPIFFE defines universal cryptographically verifiable SVID identities, while SPIRE automatically mints and rotates X.509 certificates to Envoy sidecars, enforcing mutual TLS (mTLS) and fine-grained authorization policies for all service calls.",
+    "conditions": [
+      {
+        "name": "Never Trust, Always Verify Zero-Trust Security Principle",
+        "keywords": [
+          "zero-trust",
+          "perimeter security elimination",
+          "workload identity",
+          "least privilege"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Workload Identity Federation via Short-Lived OIDC Tokens",
+        "keywords": [
+          "workload identity federation",
+          "oidc",
+          "token exchange",
+          "no static keys"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SPIFFE/SPIRE SVID Attestation and Dynamic mTLS Rotation",
+        "keywords": [
+          "spiffe",
+          "spire",
+          "svid",
+          "x.509",
+          "mtls",
+          "envoy"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "GitOps & Scalability",
+    "difficulty": "Hard",
+    "text": "How do you scale GitOps pipelines across 500+ microservices in multi-tenant Kubernetes clusters without Monorepo lock contention?",
+    "idealAnswer": "Scaling GitOps across hundreds of services requires a decoupled architecture combining app-source repositories with dedicated environment config repositories. Multi-tenant repositories use modular Kustomize overlays and Helm charts with semantic versioning. Centralized ArgoCD Hub-and-Spoke architectures or ApplicationSets dynamically discover and generate ArgoCD Applications from Git directory hierarchies, while pull-based controllers with webhooks mitigate Git API rate limiting and eliminate commit lock contention.",
+    "conditions": [
+      {
+        "name": "Separation of Application Source and Config Manifest Repositories",
+        "keywords": [
+          "gitops scaling",
+          "app repo vs config repo",
+          "multi-tenant",
+          "decoupling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ArgoCD ApplicationSets Dynamic Discovery and Generation",
+        "keywords": [
+          "applicationsets",
+          "argocd",
+          "generators",
+          "kustomize overlays",
+          "helm"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Webhook Notifications and Hub-and-Spoke Scalability",
+        "keywords": [
+          "webhooks",
+          "git rate limit",
+          "hub-and-spoke",
+          "lock contention"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Cloud Infrastructure & Networking",
+    "difficulty": "Hard",
+    "text": "Explain BGP (Border Gateway Protocol) routing and Anycast IP architecture for global low-latency edge networks.",
+    "idealAnswer": "Border Gateway Protocol (BGP) is the path-vector routing protocol that directs traffic between autonomous systems (AS) on the internet. Anycast IP assigns the exact same public IP address to multiple geographically distributed edge data centers worldwide, announcing the IP route via BGP to internet service providers. Internet routers automatically direct user packets along the shortest AS path to the topologically closest data center, achieving natural geographic load balancing and automated DDoS absorption.",
+    "conditions": [
+      {
+        "name": "BGP Path-Vector Routing Between Autonomous Systems",
+        "keywords": [
+          "bgp",
+          "border gateway protocol",
+          "autonomous system",
+          "as-path",
+          "peering"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Anycast Single IP Multi-Location Global Announcement",
+        "keywords": [
+          "anycast",
+          "single ip",
+          "global edge",
+          "announcement",
+          "topological routing"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Automated Failover and DDoS Traffic Absorption",
+        "keywords": [
+          "ddos absorption",
+          "failover",
+          "low latency",
+          "pop routing"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Linux Kernel & Performance",
+    "difficulty": "Hard",
+    "text": "How do Linux cgroups v2 and CFS (Completely Fair Scheduler) throttle multi-tenant container CPU utilization?",
+    "idealAnswer": "Linux cgroups v2 provides a unified hierarchy managing process resource isolation. CPU bandwidth is controlled via the Completely Fair Scheduler (CFS) quota mechanism: cpu.max defines a quota (e.g. 50,000 us) over a period (e.g. 100,000 us, representing 0.5 cores). CFS tracks thread runtime on virtual runtimes (vruntime); once a container threads collectively consume their allotted quota within the period window, CFS removes them from the CPU runqueue, throttling execution until the period refreshes, causing tail latency spikes in microservices.",
+    "conditions": [
+      {
+        "name": "cgroups v2 Unified Resource Hierarchy Control",
+        "keywords": [
+          "cgroups v2",
+          "unified hierarchy",
+          "cpu.max",
+          "resource controllers"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CFS Quota and Period Bandwidth Allocation Mechanics",
+        "keywords": [
+          "cfs",
+          "completely fair scheduler",
+          "quota",
+          "period",
+          "vruntime"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CPU Throttling Tail Latency Penalties and Mitigation",
+        "keywords": [
+          "throttling",
+          "tail latency",
+          "runqueue",
+          "latency spikes",
+          "limits tuning"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "High-Availability Database Engineering",
+    "difficulty": "Hard",
+    "text": "Compare synchronous multi-region database replication with asynchronous replication, analyzing split-brain and failover.",
+    "idealAnswer": "Synchronous replication commits transactions only after a quorum of cross-region replicas acknowledge writing to their WAL, guaranteeing zero data loss (RPO = 0) and high availability, but adding cross-region network roundtrip latency to every write. Asynchronous replication acknowledges writes immediately to the local node, keeping write latencies low, but risks data loss (RPO > 0) if the primary fails before replication. Automated failover requires consensus algorithms (Raft/Paxos) to elect new primaries and fence off old primaries to prevent split-brain write divergence.",
+    "conditions": [
+      {
+        "name": "Synchronous Quorum Replication Zero RPO vs Network Latency",
+        "keywords": [
+          "synchronous replication",
+          "quorum",
+          "rpo=0",
+          "cross-region latency",
+          "wal"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Asynchronous Low Latency vs Data Loss Window Vulnerability",
+        "keywords": [
+          "asynchronous replication",
+          "low latency",
+          "data loss window",
+          "replication lag"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Split-Brain Prevention via Fencing (STONITH) and Consensus",
+        "keywords": [
+          "split-brain",
+          "fencing",
+          "stonith",
+          "consensus",
+          "automated failover"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Site Reliability Engineering",
+    "difficulty": "Hard",
+    "text": "How do you construct an Error Budget policy based on SLIs and SLOs to govern release velocity versus reliability?",
+    "idealAnswer": "Service Level Indicators (SLIs) measure quantifiable performance (e.g. successful HTTP requests over total requests). Service Level Objectives (SLOs) set agreed reliability targets (e.g. 99.9% uptime over rolling 30 days). The Error Budget is the remaining allowable unreliability (100% - SLO = 0.1%). When the error budget is healthy, engineering teams release features rapidly; when error budget burn rate accelerates or exhausts, production feature freezes are enforced and engineering sprints pivot exclusively to reliability fixes.",
+    "conditions": [
+      {
+        "name": "SLI Metric Formulation and SLO Target Agreements",
+        "keywords": [
+          "sli",
+          "slo",
+          "service level indicator",
+          "service level objective",
+          "reliability target"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Error Budget Calculation and Burn Rate Monitoring",
+        "keywords": [
+          "error budget",
+          "burn rate",
+          "alerting",
+          "rolling window",
+          "exhaustion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Release Governance Policies and Feature Freezes",
+        "keywords": [
+          "feature freeze",
+          "governance policy",
+          "release velocity",
+          "sre practices"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]

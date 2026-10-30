@@ -1,0 +1,1535 @@
+[
+  {
+    "topic": "Data Warehousing",
+    "difficulty": "Easy",
+    "text": "What are the core differences between an OLTP database and an OLAP data warehouse?",
+    "idealAnswer": "OLTP (Online Transaction Processing) systems like PostgreSQL are optimized for high-concurrency, low-latency row-level CRUD operations using normalized schemas to ensure transactional ACID consistency. OLAP (Online Analytical Processing) systems like Snowflake or BigQuery are optimized for complex aggregations across millions of records using columnar storage and denormalized star/snowflake schemas.",
+    "conditions": [
+      {
+        "name": "Row-oriented High-concurrency CRUD in OLTP",
+        "keywords": [
+          "oltp",
+          "row-oriented",
+          "crud",
+          "acid",
+          "transactional",
+          "low-latency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Columnar Storage and Aggregation Scaling in OLAP",
+        "keywords": [
+          "olap",
+          "columnar",
+          "aggregations",
+          "analytical",
+          "data warehouse",
+          "compression"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Schema Design (Normalized 3NF vs Star/Snowflake)",
+        "keywords": [
+          "star schema",
+          "snowflake schema",
+          "normalized",
+          "denormalized"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Pipelines",
+    "difficulty": "Easy",
+    "text": "Compare ETL (Extract, Transform, Load) with ELT (Extract, Load, Transform) data pipeline architectures.",
+    "idealAnswer": "In traditional ETL, data is transformed in a dedicated compute staging layer before loading into the target database, historically necessary when storage and compute were expensive. In modern ELT, raw data is loaded directly into scalable cloud data warehouses (e.g. BigQuery, Snowflake) and transformed in-place using SQL/dbt, taking advantage of decoupled compute and MPP scalability.",
+    "conditions": [
+      {
+        "name": "ETL Staging Compute and Pre-load Transformation",
+        "keywords": [
+          "etl",
+          "staging",
+          "pre-load",
+          "transformation",
+          "compute server"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ELT Raw Ingestion and In-Warehouse SQL Execution",
+        "keywords": [
+          "elt",
+          "raw data",
+          "in-warehouse",
+          "dbt",
+          "cloud data warehouse"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Scalability, Storage Decoupling, and Flexibility Comparison",
+        "keywords": [
+          "scalability",
+          "storage decoupling",
+          "mpp",
+          "flexibility",
+          "performance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Columnar File Formats",
+    "difficulty": "Easy",
+    "text": "Why is Apache Parquet preferred over CSV or JSON for analytical data lake storage?",
+    "idealAnswer": "Apache Parquet is an open-source columnar storage format designed for analytical queries. It provides column projection (reading only requested columns), predicate pushdown (skipping entire row groups using min/max metadata statistics), and superior encoding/compression algorithms (Snappy, dictionary encoding), drastically reducing disk I/O and query latency compared to row-based CSV or JSON.",
+    "conditions": [
+      {
+        "name": "Columnar Layout and Column Projection Efficiency",
+        "keywords": [
+          "parquet",
+          "columnar",
+          "column projection",
+          "read optimization",
+          "disk i/o"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Row Group Metadata and Predicate Pushdown Pruning",
+        "keywords": [
+          "predicate pushdown",
+          "row groups",
+          "statistics",
+          "min max",
+          "skipping"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Compression and Encoding Algorithms (Snappy, Dictionary)",
+        "keywords": [
+          "compression",
+          "snappy",
+          "dictionary encoding",
+          "storage reduction"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Big Data Processing",
+    "difficulty": "Easy",
+    "text": "What is Apache Spark and how do Resilient Distributed Datasets (RDDs) differ from DataFrames?",
+    "idealAnswer": "Apache Spark is an in-memory distributed compute engine for large-scale data processing. RDDs are low-level immutable distributed collections of objects partitioned across cluster nodes with lineage-based fault tolerance, requiring manual optimization. DataFrames are higher-level distributed datasets organized into named columns with schema types, optimized automatically by Spark Catalyst optimizer and Tungsten execution engine.",
+    "conditions": [
+      {
+        "name": "In-Memory Distributed Execution Engine Principle",
+        "keywords": [
+          "apache spark",
+          "in-memory",
+          "distributed computing",
+          "cluster",
+          "partitioning"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "RDD Low-Level Immutable Object Collections with Lineage",
+        "keywords": [
+          "rdd",
+          "resilient distributed datasets",
+          "lineage",
+          "fault tolerance",
+          "low-level"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "DataFrames Catalyst Optimizer and Structured Schemas",
+        "keywords": [
+          "dataframes",
+          "catalyst optimizer",
+          "tungsten",
+          "schema",
+          "optimization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Modeling",
+    "difficulty": "Easy",
+    "text": "Explain Fact Tables versus Dimension Tables in Star and Snowflake data warehouse schemas.",
+    "idealAnswer": "Fact tables contain quantitative numerical measurements and metrics of a business process (e.g. sales amounts, transaction counts) alongside foreign keys referencing dimension tables. Dimension tables contain rich descriptive context and textual attributes (e.g. customer name, product category, store location) used for filtering, grouping, and slicing analytical queries.",
+    "conditions": [
+      {
+        "name": "Fact Tables Quantitative Numerical Metrics and Foreign Keys",
+        "keywords": [
+          "fact table",
+          "metrics",
+          "measurements",
+          "foreign keys",
+          "numerical"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Dimension Tables Contextual Descriptive Attributes",
+        "keywords": [
+          "dimension table",
+          "attributes",
+          "context",
+          "filtering",
+          "grouping"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Star vs Snowflake Schema Normalization Trade-offs",
+        "keywords": [
+          "star schema",
+          "snowflake schema",
+          "normalization",
+          "denormalization",
+          "joins"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Message Streaming",
+    "difficulty": "Easy",
+    "text": "What is Apache Kafka, and what are Topics, Partitions, and Consumer Groups?",
+    "idealAnswer": "Apache Kafka is a distributed event streaming platform based on an append-only commit log. Topics are logical categories for publishing records. Partitions split a topic log across multiple broker nodes for horizontal scaling and parallel consumption. Consumer Groups consist of multiple workers that coordinate to divide partitions amongst themselves, enabling scalable parallel stream consumption with guaranteed message ordering within each partition.",
+    "conditions": [
+      {
+        "name": "Distributed Append-Only Commit Log Concept",
+        "keywords": [
+          "apache kafka",
+          "commit log",
+          "event streaming",
+          "pub sub",
+          "immutable"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Topic Partitioning and Horizontal Scalability",
+        "keywords": [
+          "topic",
+          "partitions",
+          "parallelism",
+          "brokers",
+          "ordering"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Consumer Groups and Partition Rebalancing",
+        "keywords": [
+          "consumer group",
+          "consumers",
+          "rebalancing",
+          "offset",
+          "throughput"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "SQL Optimization",
+    "difficulty": "Easy",
+    "text": "Explain SQL Window Functions (e.g. ROW_NUMBER, RANK, DENSE_RANK) and the OVER(PARTITION BY... ORDER BY...) clause.",
+    "idealAnswer": "SQL Window Functions perform calculations across a set of table rows related to the current row without collapsing rows into a single group like standard GROUP BY. The OVER clause defines the window frame: PARTITION BY divides rows into logical groups, and ORDER BY specifies the evaluation sequence. ROW_NUMBER assigns unique sequential integers; RANK leaves gaps after ties; DENSE_RANK assigns consecutive ranks without gaps.",
+    "conditions": [
+      {
+        "name": "Window Frame Definition (OVER, PARTITION BY, ORDER BY)",
+        "keywords": [
+          "window function",
+          "over",
+          "partition by",
+          "order by",
+          "frame"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Non-collapsing Row-Level Computations vs GROUP BY",
+        "keywords": [
+          "group by",
+          "row-level",
+          "preserves rows",
+          "aggregations"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Differences Between ROW_NUMBER, RANK, and DENSE_RANK",
+        "keywords": [
+          "row_number",
+          "rank",
+          "dense_rank",
+          "ties",
+          "ranking"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Ingestion",
+    "difficulty": "Easy",
+    "text": "What is Batch Processing versus Stream Processing in data engineering pipelines?",
+    "idealAnswer": "Batch processing processes large bounded blocks of accumulated historical data on scheduled intervals (hourly, daily) using engines like Spark or MapReduce, optimizing for high throughput and compute efficiency. Stream processing continuously processes unbounded real-time event sequences record-by-record with sub-second latencies using engines like Flink or Kafka Streams, optimizing for immediate insights.",
+    "conditions": [
+      {
+        "name": "Batch Processing Bounded Data and Scheduled Execution",
+        "keywords": [
+          "batch processing",
+          "bounded data",
+          "scheduled",
+          "throughput",
+          "high volume"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Stream Processing Unbounded Real-time Event Streams",
+        "keywords": [
+          "stream processing",
+          "unbounded",
+          "real-time",
+          "events",
+          "sub-second"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Latency vs Operational Cost Architectural Trade-offs",
+        "keywords": [
+          "latency",
+          "freshness",
+          "operational complexity",
+          "cost trade-offs"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Quality",
+    "difficulty": "Easy",
+    "text": "What is Data Quality validation, and how do tools like Great Expectations enforce schema contracts?",
+    "idealAnswer": "Data Quality validation guarantees that data flowing through ingestion pipelines is accurate, complete, and schema-compliant before downstream analytics. Great Expectations defines declarative assertion suites (Expectations) on datasets—such as verifying non-null values, unique keys, value ranges, and regex matches—failing pipeline builds or generating automated data documentation when violations occur.",
+    "conditions": [
+      {
+        "name": "Data Pipeline Validation and Schema Enforcement",
+        "keywords": [
+          "data quality",
+          "schema enforcement",
+          "validation",
+          "assertions",
+          "pipeline integrity"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Great Expectations Declarative Test Suites",
+        "keywords": [
+          "great expectations",
+          "expectations",
+          "test suites",
+          "non-null",
+          "ranges"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Automated Pipeline Alerting and Data Profiling",
+        "keywords": [
+          "alerting",
+          "profiling",
+          "data contracts",
+          "quarantine",
+          "data drift"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Database Partitioning",
+    "difficulty": "Easy",
+    "text": "What is Table Partitioning in databases, and how does Partition Pruning accelerate analytical queries?",
+    "idealAnswer": "Table partitioning divides massive tables into smaller, distinct physical storage segments based on a partition key (such as date range or country code), while exposing a single logical table to SQL queries. When queries filter on the partition key, the query engine applies Partition Pruning to completely skip unneeded physical partition files, eliminating massive disk I/O scans.",
+    "conditions": [
+      {
+        "name": "Physical Segmentation into Discrete Storage Partitions",
+        "keywords": [
+          "table partitioning",
+          "partition key",
+          "physical segments",
+          "date range",
+          "logical table"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Partition Pruning Query Optimization Mechanics",
+        "keywords": [
+          "partition pruning",
+          "file skipping",
+          "disk i/o",
+          "where clause",
+          "scan reduction"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Partition Granularity and Small File Anti-patterns",
+        "keywords": [
+          "granularity",
+          "small files",
+          "over-partitioning",
+          "performance trade-off"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Pipeline Orchestration",
+    "difficulty": "Easy",
+    "text": "What is Apache Airflow, and what are Directed Acyclic Graphs (DAGs), Operators, and Tasks?",
+    "idealAnswer": "Apache Airflow is a platform to author, schedule, and monitor workflows programmatically in Python. A Directed Acyclic Graph (DAG) defines the workflow structure, orchestrating dependencies without circular loops. Operators define the template for what gets done (e.g. PythonOperator, BashOperator, SparkSubmitOperator). When an operator is instantiated within a DAG, it becomes a Task executed by Airflow workers.",
+    "conditions": [
+      {
+        "name": "Workflow Orchestration and Python Programmatic Authoring",
+        "keywords": [
+          "apache airflow",
+          "orchestration",
+          "workflow",
+          "scheduling",
+          "python"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "DAG Dependency Graph Structure Without Circular Loops",
+        "keywords": [
+          "dag",
+          "directed acyclic graph",
+          "dependencies",
+          "execution graph"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Operators vs Tasks Execution Mechanics",
+        "keywords": [
+          "operators",
+          "tasks",
+          "pythonoperator",
+          "sensor",
+          "workers"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Cloud Data Lakes",
+    "difficulty": "Easy",
+    "text": "What is the Medallion Architecture (Bronze, Silver, Gold layers) in modern Data Lakehouses?",
+    "idealAnswer": "The Medallion Architecture organizes lakehouse data into three layers to progressively improve data quality. The Bronze layer stores raw, unmodified append-only data directly from ingestion sources. The Silver layer cleans, deduplicates, enriches, and validates the data with consistent schemas. The Gold layer creates business-aggregated star-schema tables optimized for executive dashboards and ML reporting.",
+    "conditions": [
+      {
+        "name": "Bronze Raw Ingestion Append-Only Storage Layer",
+        "keywords": [
+          "medallion architecture",
+          "bronze layer",
+          "raw data",
+          "append-only",
+          "ingestion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Silver Cleaned, Deduplicated, and Enriched Layer",
+        "keywords": [
+          "silver layer",
+          "deduplication",
+          "cleaning",
+          "enrichment",
+          "validation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Gold Business-Aggregated Analytics Consumption Layer",
+        "keywords": [
+          "gold layer",
+          "business aggregated",
+          "star schema",
+          "dashboards",
+          "consumption"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Versioning",
+    "difficulty": "Easy",
+    "text": "What is Slowly Changing Dimensions (SCD Type 1 vs Type 2) in data warehousing?",
+    "idealAnswer": "Slowly Changing Dimensions handle dimensional attribute changes over time (e.g. customer relocation). SCD Type 1 overwrites old data with new values, retaining no historical record. SCD Type 2 preserves historical changes by creating a new row for each update, utilizing surrogate keys, start_date, end_date, and an is_current boolean flag to track historical lineage.",
+    "conditions": [
+      {
+        "name": "SCD Type 1 Destructive Overwriting Without History",
+        "keywords": [
+          "scd type 1",
+          "overwrite",
+          "no history",
+          "current state only"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SCD Type 2 Historical Row Versioning and Validity Ranges",
+        "keywords": [
+          "scd type 2",
+          "historical tracking",
+          "start_date",
+          "end_date",
+          "is_current",
+          "surrogate key"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Impact on Analytical Point-in-Time Reporting Accuracy",
+        "keywords": [
+          "point-in-time",
+          "reporting accuracy",
+          "lineage",
+          "dimensional modeling"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "File Serialization",
+    "difficulty": "Easy",
+    "text": "Compare Apache Avro with Apache Parquet regarding storage orientation and streaming serialization.",
+    "idealAnswer": "Apache Avro is a row-oriented binary serialization format that couples data with a JSON schema, designed for schema evolution and high-throughput streaming message payloads (e.g. in Kafka). Apache Parquet is a columnar format optimized for bulk analytical SQL queries with projection and compression. Avro excels at record-by-record streaming writes; Parquet excels at reading subsets of columns across billions of rows.",
+    "conditions": [
+      {
+        "name": "Avro Row-Oriented Binary Serialization for Streaming (Kafka)",
+        "keywords": [
+          "avro",
+          "row-oriented",
+          "binary serialization",
+          "kafka",
+          "schema evolution"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Parquet Columnar Format for Large-Scale Analytical Queries",
+        "keywords": [
+          "parquet",
+          "columnar",
+          "olap",
+          "analytical queries",
+          "compression"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Streaming Write vs Analytical Read Performance Trade-offs",
+        "keywords": [
+          "streaming writes",
+          "analytical reads",
+          "throughput",
+          "trade-offs"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Modern Lakehouse",
+    "difficulty": "Medium",
+    "text": "Explain Apache Iceberg table format and how its metadata tree achieves ACID transactions and time travel on object storage.",
+    "idealAnswer": "Apache Iceberg provides full ACID transactions and schema evolution on data lake object storage without table locks. It organizes tables into a hierarchical metadata tree: Iceberg Catalog references the current metadata file; metadata files point to Manifest Lists (snapshots); manifest lists point to Manifest Files detailing exact data files and column statistics. An atomic commit swaps the catalog pointer to a new snapshot root, enabling snapshot isolation, rollback, and time-travel queries.",
+    "conditions": [
+      {
+        "name": "Hierarchical Metadata Tree (Catalog, Metadata, Manifest List, Manifests)",
+        "keywords": [
+          "apache iceberg",
+          "metadata tree",
+          "manifest list",
+          "manifest files",
+          "catalog"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Atomic Snapshot Pointer Swap for ACID Transactions",
+        "keywords": [
+          "atomic commit",
+          "snapshot isolation",
+          "acid",
+          "pointer swap",
+          "optimistic concurrency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Time Travel and Incremental Snapshot Reading Capabilities",
+        "keywords": [
+          "time travel",
+          "historical query",
+          "schema evolution",
+          "partition evolution"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Spark Internals",
+    "difficulty": "Medium",
+    "text": "What is a Shuffle in Apache Spark, and how do Narrow vs Wide Transformations affect cluster networking and memory?",
+    "idealAnswer": "Narrow transformations (like map, filter) allow each partition of the parent RDD to be processed by a single child partition without network transfers, executing within node memory. Wide transformations (like groupBy, reduceByKey, join) require a Shuffle, redistributing data across cluster partitions by hashing keys. Shuffles serialize data, write intermediate spill files to disk, and transfer them across cluster network interfaces, causing severe I/O bottlenecks and potential OOM errors.",
+    "conditions": [
+      {
+        "name": "Narrow Transformations Local Execution Without Shuffling",
+        "keywords": [
+          "narrow transformation",
+          "map",
+          "filter",
+          "pipelining",
+          "local memory"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Wide Transformations and Inter-Node Data Shuffling",
+        "keywords": [
+          "wide transformation",
+          "shuffle",
+          "groupby",
+          "join",
+          "hash partition",
+          "network"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Disk Spill, Serialization Overhead, and Shuffle Tuning",
+        "keywords": [
+          "disk spill",
+          "serialization",
+          "spark.sql.shuffle.partitions",
+          "oom",
+          "bottlenecks"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Stream Processing",
+    "difficulty": "Medium",
+    "text": "Explain Event Time, Ingestion Time, and Processing Time in streaming engines like Apache Flink, detailing Watermarks.",
+    "idealAnswer": "Processing time is the clock time of the machine executing the stream operator. Ingestion time is when the event entered the stream ingestion cluster. Event time is the actual timestamp when the event occurred on the client device. Because network latency causes out-of-order and delayed events, engines use Watermarks: metadata timestamps asserting that all events older than the watermark timestamp have been received, allowing window evaluations to close while handling late-arriving data.",
+    "conditions": [
+      {
+        "name": "Event Time vs Ingestion Time vs Processing Time Definitions",
+        "keywords": [
+          "event time",
+          "ingestion time",
+          "processing time",
+          "timestamps",
+          "stream semantics"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Out-of-Order Events and Network Latency Skew",
+        "keywords": [
+          "out-of-order",
+          "delayed events",
+          "skew",
+          "network latency",
+          "late arrival"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Watermark Progress Assertions and Window Closing Rules",
+        "keywords": [
+          "watermarks",
+          "window evaluation",
+          "allowed lateness",
+          "apache flink"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Storage",
+    "difficulty": "Medium",
+    "text": "What is Data Skew in distributed join operations (e.g. Spark/Hive) and how does Salting resolve hot partitions?",
+    "idealAnswer": "Data skew occurs when an uneven distribution of join or grouping keys causes a few partition workers to process vastly more data than others, creating long-running stragglers and executor OutOfMemory (OOM) crashes. Salting resolves skew by appending a random integer prefix (e.g. key_0 to key_N) to skewed keys in the large table, and replicating rows N times across keys in the small table, scattering the hot key across multiple parallel partitions.",
+    "conditions": [
+      {
+        "name": "Hot Partition Stragglers and Executor OOM Root Cause",
+        "keywords": [
+          "data skew",
+          "hot partition",
+          "straggler",
+          "uneven distribution",
+          "oom"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Salting Random Prefix Appending Technique",
+        "keywords": [
+          "salting",
+          "random prefix",
+          "key replication",
+          "scattering",
+          "partition balance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Broadcast Hash Joins and Adaptive Query Execution (AQE)",
+        "keywords": [
+          "broadcast join",
+          "aqe",
+          "adaptive query execution",
+          "spark optimization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Stream Guarantees",
+    "difficulty": "Medium",
+    "text": "Compare At-Least-Once, At-Most-Once, and Exactly-Once processing semantics in distributed event streaming.",
+    "idealAnswer": "At-most-once commits consumer offsets before processing messages; if a failure occurs during processing, messages are lost but never duplicated. At-least-once commits offsets after successful processing; on failure, messages are replayed, guaranteeing no data loss but introducing duplicates. Exactly-once processing guarantees that system state reflects each record exactly once, achieved using two-phase commit transactions (Kafka transactional producer) or checkpointed stateful stream processing (Flink Chandy-Lamport).",
+    "conditions": [
+      {
+        "name": "At-Most-Once Message Dropping Under Failures",
+        "keywords": [
+          "at-most-once",
+          "data loss",
+          "commit offset early",
+          "no duplicates"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "At-Least-Once Replay Guarantees and Duplicate Delivery",
+        "keywords": [
+          "at-least-once",
+          "replay",
+          "duplicates",
+          "idempotency required",
+          "no data loss"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Exactly-Once Distributed Transactions and Checkpoint Protocols",
+        "keywords": [
+          "exactly-once",
+          "two-phase commit",
+          "transactional producer",
+          "flink checkpoints",
+          "chandy-lamport"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Warehousing & Modeling",
+    "difficulty": "Medium",
+    "text": "What is dbt (data build tool), and how does it implement software engineering best practices (testing, CI/CD, documentation) in SQL ELT?",
+    "idealAnswer": "dbt transforms raw data inside cloud data warehouses using modular SELECT statements, abstracting DDL/DML boilerplate through Jinja templating. It enables software engineering best practices by: treating SQL models as version-controlled code, defining lineage dependency graphs via the ref() function, enforcing schema and data integrity assertions (e.g. unique, not_null, relationship tests), generating interactive documentation, and powering automated CI/CD pull-request testing.",
+    "conditions": [
+      {
+        "name": "Modular SELECT Statements and Jinja DDL/DML Abstraction",
+        "keywords": [
+          "dbt",
+          "data build tool",
+          "jinja",
+          "select statements",
+          "models",
+          "materializations"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ref() Function and Automated Lineage Dependency Graphs (DAG)",
+        "keywords": [
+          "ref()",
+          "lineage",
+          "dag",
+          "dependencies",
+          "directed acyclic graph"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Automated Schema Integrity Testing and Documentation Generation",
+        "keywords": [
+          "testing",
+          "not_null",
+          "unique",
+          "relationships",
+          "documentation",
+          "ci/cd"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Storage Optimization",
+    "difficulty": "Medium",
+    "text": "What is the Small Files Problem in HDFS and Cloud Object Storage, and how do compaction engines resolve it?",
+    "idealAnswer": "Generating millions of tiny files (kilobytes in size) exhausts NameNode memory in HDFS and introduces massive HTTP GET request overhead and metadata latency in cloud data lakes (S3/GCS). Query engines waste CPU opening, reading headers, and closing file handles rather than processing data. Compaction engines (like Delta Lake Optimize, Iceberg RewriteDataFiles, or Spark bin-packing) resolve this by asynchronously merging small files into optimal 128MB-512MB columnar files.",
+    "conditions": [
+      {
+        "name": "NameNode Memory Exhaustion and Cloud Object Metadata Overhead",
+        "keywords": [
+          "small files problem",
+          "namenode memory",
+          "metadata overhead",
+          "http get requests",
+          "s3 latency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Query Engine I/O Inefficiency and File Handle Opening Penalties",
+        "keywords": [
+          "query latency",
+          "file handles",
+          "i/o overhead",
+          "columnar efficiency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Bin-Packing and Compaction Merging Strategies (128MB-512MB target)",
+        "keywords": [
+          "compaction",
+          "bin-packing",
+          "optimize",
+          "delta lake",
+          "merging files"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Consensus & Kafka",
+    "difficulty": "Medium",
+    "text": "How does Kafka KRaft (Kafka Raft Metadata mode) eliminate Apache ZooKeeper dependency?",
+    "idealAnswer": "Historically, Kafka relied on external Apache ZooKeeper clusters to store metadata, track broker membership, and elect controllers, creating synchronization bottlenecks and limiting clusters to ~200,000 partitions. KRaft integrates a Raft consensus quorum directly into Kafka brokers. Metadata is stored as an internal replicated event log; active controllers execute consensus in-memory, enabling near-instant failovers and scaling clusters to millions of partitions with simplified operations.",
+    "conditions": [
+      {
+        "name": "ZooKeeper Synchronization Bottlenecks and External Operational Costs",
+        "keywords": [
+          "zookeeper",
+          "kraft",
+          "metadata bottleneck",
+          "controller failover",
+          "partition limits"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Raft Consensus Integrated Directly Inside Kafka Brokers",
+        "keywords": [
+          "raft",
+          "quorum",
+          "metadata log",
+          "in-memory consensus",
+          "controller"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Millions of Partitions Scaling and Sub-second Controller Failover",
+        "keywords": [
+          "scalability",
+          "million partitions",
+          "fast failover",
+          "simplification"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Database Internals",
+    "difficulty": "Medium",
+    "text": "Explain Log-Structured Merge-Trees (LSM-Trees) in NoSQL engines (e.g. Cassandra, RocksDB) compared to B-Trees.",
+    "idealAnswer": "B-Trees perform in-place random disk writes, which causes heavy disk write amplification and seek latency under write-heavy workloads. LSM-Trees optimize for fast writes by appending all mutations sequentially to an in-memory MemTable and Write-Ahead Log. When the MemTable fills, it flushes to disk as an immutable sorted string table (SSTable). Background Compaction merges SSTables and discards overwritten values, using Bloom Filters to speed up read lookups.",
+    "conditions": [
+      {
+        "name": "MemTable In-Memory Buffer and WAL Sequential Appending",
+        "keywords": [
+          "lsm-tree",
+          "memtable",
+          "wal",
+          "write-ahead log",
+          "sequential writes",
+          "cassandra"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Immutable Sorted String Tables (SSTables) on Disk",
+        "keywords": [
+          "sstable",
+          "sorted string table",
+          "immutable",
+          "disk flush"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Background Compaction and Bloom Filter Lookup Acceleration",
+        "keywords": [
+          "compaction",
+          "bloom filter",
+          "write amplification",
+          "read latency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Governance",
+    "difficulty": "Medium",
+    "text": "What are Data Catalogs (e.g. Apache Atlas, Datahub), and how do they automate Data Lineage and Metadata Discovery?",
+    "idealAnswer": "Data Catalogs provide centralized metadata management across enterprise data assets. They crawl schemas, databases, and pipelines to index table schemas, descriptions, and classifications. Data Lineage tracks the end-to-end provenance of data from source systems through transformations to downstream BI dashboards using lineage parsing hooks (e.g. OpenLineage), enabling impact analysis before schema changes and facilitating GDPR/HIPAA compliance.",
+    "conditions": [
+      {
+        "name": "Centralized Metadata Indexing and Data Asset Discovery",
+        "keywords": [
+          "data catalog",
+          "metadata",
+          "discovery",
+          "datahub",
+          "atlas",
+          "governance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "End-to-End Data Lineage and Provenance Tracking (OpenLineage)",
+        "keywords": [
+          "data lineage",
+          "provenance",
+          "openlineage",
+          "pipeline dependencies",
+          "impact analysis"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Data Governance, Compliance (GDPR), and PII Classification",
+        "keywords": [
+          "compliance",
+          "gdpr",
+          "pii",
+          "tagging",
+          "security classification"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Pipeline Design",
+    "difficulty": "Medium",
+    "text": "How do you design an Idempotent Data Pipeline that safely supports automatic retries and historical backfills?",
+    "idealAnswer": "An idempotent data pipeline produces identical target data states regardless of whether an execution runs once or ten times. This is achieved by designing tasks with deterministic inputs (partitioning by execution date ds), using staging tables, and replacing target partitions atomically via atomic swap or INSERT OVERWRITE clauses rather than append operations, preventing duplicate records during pipeline retries or backfills.",
+    "conditions": [
+      {
+        "name": "Idempotency Principle in Data Engineering Pipelines",
+        "keywords": [
+          "idempotent",
+          "pipeline retries",
+          "deterministic",
+          "backfill",
+          "duplicate prevention"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Atomic Partition Replacement (INSERT OVERWRITE / Dynamic Partitioning)",
+        "keywords": [
+          "insert overwrite",
+          "atomic swap",
+          "partition replacement",
+          "staging table"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Deterministic Execution Date Parameters (Airflow ds/ts)",
+        "keywords": [
+          "execution date",
+          "ds",
+          "parameterized",
+          "state management"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Lake Query Engines",
+    "difficulty": "Medium",
+    "text": "Compare Trino (Presto) distributed SQL query engine with Apache Spark SQL for interactive analytical queries.",
+    "idealAnswer": "Trino (formerly Presto) is an in-memory MPP query engine designed for ultra-low-latency interactive SQL queries across heterogeneous data sources (S3, Hive, Kafka, PostgreSQL) via standard connectors, executing pipelined streaming execution without writing intermediate stage results to disk. Apache Spark SQL writes intermediate shuffle stages to disk for resilient fault tolerance, excelling at heavy batch ETL workloads rather than sub-second interactive BI.",
+    "conditions": [
+      {
+        "name": "Trino Pipelined In-Memory Streaming MPP Execution",
+        "keywords": [
+          "trino",
+          "presto",
+          "mpp",
+          "in-memory streaming",
+          "interactive sql",
+          "low latency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Heterogeneous Federation Connectors Across Data Sources",
+        "keywords": [
+          "federation",
+          "connectors",
+          "s3",
+          "hive",
+          "relational",
+          "kafka"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Fault Tolerance vs Performance Trade-offs (Trino vs Spark)",
+        "keywords": [
+          "fault tolerance",
+          "shuffle spill",
+          "batch etl",
+          "performance trade-offs"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Security & Access Control",
+    "difficulty": "Medium",
+    "text": "How do you implement Column-Level Security (CLS) and Row-Level Security (RLS) in modern cloud data warehouses?",
+    "idealAnswer": "Column-Level Security masks sensitive columns (like SSN or credit card numbers) using dynamic data masking or column-level access grants based on user IAM roles. Row-Level Security filters which rows a user can see (e.g. sales managers seeing only their region data) by binding session user attributes or tenant IDs to underlying SQL filter predicates embedded in secure views or database row policies.",
+    "conditions": [
+      {
+        "name": "Column-Level Security (CLS) and Dynamic Data Masking",
+        "keywords": [
+          "column-level security",
+          "cls",
+          "data masking",
+          "pii",
+          "rbac"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Row-Level Security (RLS) Predicate Filtering Policies",
+        "keywords": [
+          "row-level security",
+          "rls",
+          "tenant isolation",
+          "predicate filter",
+          "session attributes"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Multi-Tenant Governance and Audit Logging Capabilities",
+        "keywords": [
+          "multi-tenant",
+          "governance",
+          "audit logging",
+          "data access"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Synchronization",
+    "difficulty": "Medium",
+    "text": "Explain Change Data Capture (CDC) using Debezium and Kafka Connect to stream real-time database changes.",
+    "idealAnswer": "Change Data Capture (CDC) non-intrusively captures row-level INSERT, UPDATE, and DELETE changes by reading the database transaction log directly (Postgres WAL, MySQL binlog) rather than polling tables with queries. Debezium runs as a Kafka Connect source connector, serializing transaction events into JSON or Avro messages emitted to Kafka topics with before and after state, enabling real-time microservices sync and cache invalidation.",
+    "conditions": [
+      {
+        "name": "Transaction Log Tailing (Postgres WAL / MySQL binlog)",
+        "keywords": [
+          "cdc",
+          "change data capture",
+          "wal",
+          "binlog",
+          "transaction log",
+          "non-intrusive"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Debezium and Kafka Connect Architecture",
+        "keywords": [
+          "debezium",
+          "kafka connect",
+          "source connector",
+          "json",
+          "avro"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Real-Time Downstream Synchronization and Cache Invalidation",
+        "keywords": [
+          "real-time sync",
+          "cache invalidation",
+          "microservices",
+          "before and after state"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Stream Processing",
+    "difficulty": "Hard",
+    "text": "Explain the Chandy-Lamport Distributed Snapshot Algorithm implemented in Apache Flink for fault-tolerant stateful streaming.",
+    "idealAnswer": "The Chandy-Lamport algorithm creates a globally consistent snapshot of a distributed stateful streaming execution graph without stopping event processing. Flink injects Checkpoint Barrier markers into the input streams that flow alongside regular event records. When an operator receives barriers from all input channels, it aligns them (pausing processing on early channels), writes its local state to persistent storage (like S3/HDFS), and forwards the barrier downstream, guaranteeing exact recovery state.",
+    "conditions": [
+      {
+        "name": "Checkpoint Barrier Injection Flowing with Event Stream",
+        "keywords": [
+          "chandy-lamport",
+          "checkpoint barrier",
+          "apache flink",
+          "stateful streaming",
+          "distributed snapshot"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Barrier Alignment and Channel Input Synchronization",
+        "keywords": [
+          "barrier alignment",
+          "unaligned checkpoints",
+          "input channels",
+          "asynchronous state snapshot"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Globally Consistent State Recovery Without System Pauses",
+        "keywords": [
+          "consistent snapshot",
+          "exactly-once recovery",
+          "persistent storage",
+          "fault tolerance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Query Engine Optimization",
+    "difficulty": "Hard",
+    "text": "Explain Vectorized Query Execution (e.g. ClickHouse, Velox, DuckDB) vs Tuple-at-a-Time (Volcano Iterator model).",
+    "idealAnswer": "The classic Volcano iterator model processes data tuple-by-tuple using virtual next() function calls, which causes high CPU instruction cache misses, branch mispredictions, and compiler optimization barriers. Vectorized query execution processes batches of records (e.g. 1024 values) arranged in contiguous columnar memory vectors. This eliminates virtual function overhead, keeps data in L1/L2 CPU caches, and enables hardware SIMD (Single Instruction Multiple Data) vectorization for massive throughput.",
+    "conditions": [
+      {
+        "name": "Volcano Iterator Virtual Function Call and Cache Overhead",
+        "keywords": [
+          "volcano model",
+          "iterator",
+          "tuple-at-a-time",
+          "virtual function",
+          "cache miss",
+          "branch misprediction"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Contiguous Columnar Vector Batching Processing Model",
+        "keywords": [
+          "vectorized execution",
+          "columnar vector",
+          "batch processing",
+          "duckdb",
+          "clickhouse"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SIMD CPU Vectorization and Hardware Instruction Acceleration",
+        "keywords": [
+          "simd",
+          "hardware acceleration",
+          "l1 cache",
+          "instruction throughput"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Lakehouse Concurrency",
+    "difficulty": "Hard",
+    "text": "How does Delta Lake implement Optimistic Concurrency Control (OCC) and Mutex commits over object stores lacking atomic file renames?",
+    "idealAnswer": "Cloud object stores (like AWS S3) lack atomic file rename or directory put operations, risking race conditions when concurrent writers commit. Delta Lake maintains an append-only JSON transaction log (_delta_log/). On S3, it utilizes a custom LogStore that coordinates commits via distributed mutexes (like DynamoDB or single-writer catalogs) to serialize commit increments (000001.json). Writers check if the target commit version exists; on conflict, they evaluate whether conflicting files overlap, rolling back or rebasing if non-overlapping.",
+    "conditions": [
+      {
+        "name": "Object Storage Lack of Atomic Rename (S3 Eventual Consistency)",
+        "keywords": [
+          "delta lake",
+          "atomic rename",
+          "object storage",
+          "s3",
+          "race conditions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Append-Only JSON Transaction Log (_delta_log) Commit Sequencing",
+        "keywords": [
+          "_delta_log",
+          "transaction log",
+          "commit version",
+          "json",
+          "serialization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mutual Exclusion (DynamoDB / Catalog) and Conflict Rebasing",
+        "keywords": [
+          "dynamodb",
+          "distributed lock",
+          "optimistic concurrency",
+          "conflict resolution",
+          "rebase"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Kafka High Performance",
+    "difficulty": "Hard",
+    "text": "Explain Kafka Zero-Copy I/O using sendfile() and Linux Page Cache for multi-gigabit message streaming throughput.",
+    "idealAnswer": "Kafka achieves extreme throughput by treating the OS page cache as its primary memory cache rather than maintaining heavy JVM heap buffers. When producing, messages write sequentially to disk segments via page cache append. When consumers read, Kafka uses the Linux sendfile() system call, instructing the kernel DMA controller to transfer data directly from page cache memory to the network socket buffer without copying bytes into JVM user space or incurring CPU context switches.",
+    "conditions": [
+      {
+        "name": "OS Page Cache Utilization vs JVM Heap Garbage Collection Overhead",
+        "keywords": [
+          "page cache",
+          "jvm heap",
+          "kernel memory",
+          "gc overhead",
+          "sequential io"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Linux sendfile() System Call and Zero-Copy DMA Architecture",
+        "keywords": [
+          "sendfile",
+          "zero-copy",
+          "dma",
+          "network socket",
+          "context switch"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sequential Disk Access Matching Memory Bus Throughput",
+        "keywords": [
+          "sequential access",
+          "throughput",
+          "gigabit streaming",
+          "kernel space"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Database Partitioning",
+    "difficulty": "Hard",
+    "text": "How does Consistent Hashing with Virtual Nodes distribute partition load across dynamic distributed clusters without rehashing?",
+    "idealAnswer": "Traditional modulo hashing (hash(key) % N) requires rehashing almost all keys when a node joins or leaves, causing massive network rebalancing storms. Consistent Hashing maps both keys and nodes to a circular hash ring [0, 2^32 - 1]; keys are assigned to the first node encountered clockwise. To prevent non-uniform distribution and hot spots, each physical node is assigned multiple Virtual Nodes (vnodes) scattered across the ring, balancing data evenly and minimizing rebalancing to K/N keys during topology changes.",
+    "conditions": [
+      {
+        "name": "Modulo Hashing Rehashing Storm Vulnerability (hash(key) % N)",
+        "keywords": [
+          "modulo hashing",
+          "rehashing storm",
+          "node failure",
+          "cluster scaling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Circular Hash Ring and Clockwise Node Assignment",
+        "keywords": [
+          "consistent hashing",
+          "hash ring",
+          "clockwise",
+          "partition assignment",
+          "minimal movement"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Virtual Nodes (Vnodes) for Hot Spot Mitigation and Uniform Balance",
+        "keywords": [
+          "virtual nodes",
+          "vnodes",
+          "hot spots",
+          "uniform distribution",
+          "dynamo"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Real-Time OLAP",
+    "difficulty": "Hard",
+    "text": "Explain Apache Pinot / ClickHouse real-time ingestion indexing architectures (Star-Tree Index, Sorting Keys).",
+    "idealAnswer": "Real-time OLAP engines like Pinot and ClickHouse ingest events directly from Kafka while serving sub-second queries. They store data in immutable columnar chunks sorted by a primary sorting key (enabling sparse primary indexes that fit in RAM). To bypass expensive run-time aggregations over billions of records, Apache Pinot builds Star-Tree indexes—pre-aggregated multi-dimensional data cubes created during ingestion that allow lightning-fast GROUP BY queries with bounded tree depth.",
+    "conditions": [
+      {
+        "name": "Real-Time Streaming Kafka Ingestion into Columnar Segments",
+        "keywords": [
+          "real-time olap",
+          "apache pinot",
+          "clickhouse",
+          "kafka ingestion",
+          "columnar segments"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sparse Primary Index and Primary Sorting Key Ordering",
+        "keywords": [
+          "sparse index",
+          "sorting key",
+          "granularity",
+          "in-memory index"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Star-Tree Index Multi-Dimensional Pre-aggregation Cubes",
+        "keywords": [
+          "star-tree",
+          "pre-aggregation",
+          "data cubes",
+          "sub-second queries",
+          "aggregations"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Tracing & Lineage",
+    "difficulty": "Hard",
+    "text": "How do you trace end-to-end data lineage and compute column-level dependencies across complex dynamic SQL transformations?",
+    "idealAnswer": "Column-level data lineage parses SQL dialects (using AST parsers like SQLGlot or Apache Calcite) into abstract syntax trees to trace data flows through CTEs, window functions, and subqueries down to source columns. In runtime pipelines, OpenLineage instrumentation hooks capture dataset facets and run facets emitted as events to an API backend, enabling graph traversals that identify downstream analytical impact before schema mutations.",
+    "conditions": [
+      {
+        "name": "SQL Abstract Syntax Tree (AST) Parsing (SQLGlot/Calcite)",
+        "keywords": [
+          "ast",
+          "abstract syntax tree",
+          "sqlglot",
+          "calcite",
+          "parsing",
+          "sql dialects"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Column-Level Lineage Tracing Across CTEs and Subqueries",
+        "keywords": [
+          "column-level lineage",
+          "cte",
+          "subqueries",
+          "dependencies",
+          "transformations"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "OpenLineage Standard Event Model and Impact Analysis",
+        "keywords": [
+          "openlineage",
+          "facets",
+          "impact analysis",
+          "graph traversal",
+          "governance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Transactions",
+    "difficulty": "Hard",
+    "text": "How does Google Spanner achieve globally distributed external consistency (TrueTime API) without two-phase commit bottlenecks?",
+    "idealAnswer": "Google Spanner is a globally distributed database that provides serializable transactions and external consistency (linearizability) at planetary scale. It relies on the TrueTime API, which uses synchronized GPS receivers and atomic clocks in data centers to expose time as a bounded interval [earliest, latest] with guaranteed uncertainty epsilon (typically < 7ms). By waiting out the uncertainty window (commit wait) before releasing locks, Spanner assigns globally monotonic timestamps that reflect true physical wall-clock causality.",
+    "conditions": [
+      {
+        "name": "TrueTime API Atomic Clocks and GPS Uncertainty Intervals [t.earliest, t.latest]",
+        "keywords": [
+          "truetime",
+          "atomic clocks",
+          "gps",
+          "time uncertainty",
+          "google spanner",
+          "epsilon"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Commit Wait Protocol for Globally Monotonic Timestamps",
+        "keywords": [
+          "commit wait",
+          "monotonic timestamps",
+          "external consistency",
+          "linearizability",
+          "wall-clock causality"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Global Concurrency Control Without Central Timestamp Bottlenecks",
+        "keywords": [
+          "distributed transactions",
+          "paxos",
+          "concurrency control",
+          "global scale"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]

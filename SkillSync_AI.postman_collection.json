@@ -1,0 +1,1099 @@
+{
+  "info": {
+    "_postman_id": "c1f725a3-7622-48bf-92d1-9876543210ab",
+    "name": "SkillSync AI - Complete Backend API Suite",
+    "description": "Comprehensive Postman Collection for SkillSync AI Career Readiness & Placement Platform.\nIncludes JWT Authentication, Live Database Status, Dynamic ATS Scanner with Student Identity Verification, Live GitHub & LeetCode tracking, and Resume-Driven Roadmaps with direct YouTube & platform tutorial links.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. System Health & Database Status",
+      "item": [
+        {
+          "name": "Get Database & API Health Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/status",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "status"
+              ]
+            },
+            "description": "Verifies MongoDB connection state, collections count, host, and active API status."
+          }
+        },
+        {
+          "name": "Root Platform Metadata",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Security & Authentication",
+      "item": [
+        {
+          "name": "Register New Student Account",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.token) {",
+                  "        pm.collectionVariables.set(\"token\", jsonData.token);",
+                  "        pm.environment.set(\"token\", jsonData.token);",
+                  "        console.log(\"JWT Token successfully saved to token variable:\", jsonData.token);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Alex Morgan\",\n  \"email\": \"alex.morgan.candidate@university.edu\",\n  \"password\": \"Password@123\",\n  \"role\": \"student\",\n  \"targetRole\": \"ai_ml\",\n  \"college\": \"Annasaheb Dange College of Engineering and Technology, Ashta\",\n  \"department\": \"Department of Artificial Intelligence & Data Science\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Login (Seed User)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200 || pm.response.code === 201) {",
+                  "    var jsonData = pm.response.json();",
+                  "    if (jsonData.token) {",
+                  "        pm.collectionVariables.set(\"token\", jsonData.token);",
+                  "        pm.environment.set(\"token\", jsonData.token);",
+                  "        console.log(\"JWT Token successfully saved to token variable:\", jsonData.token);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"student@university.edu\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Authenticated User Profile (Me)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/me",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Student Profile & Custom Goal",
+      "item": [
+        {
+          "name": "Get Student Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "students",
+                "profile"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Student Profile (Custom 'Other' Role)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fullName\": \"Alex Morgan\",\n  \"email\": \"student@university.edu\",\n  \"targetRole\": \"other\",\n  \"customTargetRole\": \"Cybersecurity & AI Threat Analyst\",\n  \"platforms\": {\n    \"github\": \"alexmorgan-dev\",\n    \"leetcode\": \"alex_code\",\n    \"linkedin\": \"linkedin.com/in/alexmorgan\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/students/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "students",
+                "profile"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Reset Profile to Default",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/students/reset",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "students",
+                "reset"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Resume ATS Screener & Validation",
+      "item": [
+        {
+          "name": "Get Current Resume",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/resumes/current",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "resumes",
+                "current"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Scan Resume (Matching Student Profile)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fileName\": \"Alex_Morgan_Resume.pdf\",\n  \"targetRole\": \"ai_ml\",\n  \"rawText\": \"ALEX MORGAN\\nEmail: student@university.edu | Phone: +91 9876543210\\nDepartment of AI & DS, ADCET Ashta (CGPA: 8.85/10)\\n\\nTECHNICAL SKILLS:\\n- Languages: Python, C++, SQL\\n- Frameworks: PyTorch, Scikit-Learn, spaCy, FastAPI, Transformers\\n- Tools: Git, GitHub, Docker\\n\\nPROJECTS:\\n1. Intelligent Career Readiness Engine\\n   - Built an end-to-end evaluation platform using FastAPI and spaCy NLP pipeline.\\n   - Optimized prediction latency by 42% on 10,000+ benchmark profiles.\\n\\n2. Deep Learning Vision Classifier\\n   - Engineered Vision Transformer neural model in PyTorch achieving 96.2% accuracy.\\n\\nEDUCATION:\\n- B.Tech in Artificial Intelligence & Data Science (2026-27)\\n\\nCERTIFICATIONS:\\n- DeepLearning.AI NLP Specialization\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/resumes/scan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "resumes",
+                "scan"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Scan Resume (Identity Mismatch Test)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fileName\": \"John_Doe_Resume.pdf\",\n  \"targetRole\": \"ai_ml\",\n  \"rawText\": \"JOHN DOE\\nEmail: john.doe@external.com | Phone: +1 202 555 0199\\nUniversity of California, Berkeley\\n\\nTECHNICAL SKILLS:\\n- Python, TensorFlow, Keras, NumPy, Pandas\\n\\nEXPERIENCE:\\n- Machine Learning Intern at TechCorp\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/resumes/scan",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "resumes",
+                "scan"
+              ]
+            },
+            "description": "Uploads a resume with a different student email/name. Expected result: `isMatch: false` with identity mismatch warnings."
+          }
+        }
+      ]
+    },
+    {
+      "name": "5. Coding Profiles (Live Tracking)",
+      "item": [
+        {
+          "name": "Get Coding Profiles Data",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/coding-profiles",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "coding-profiles"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sync Live Profiles (Real GitHub & LeetCode)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"github\": \"torvalds\",\n  \"leetcode\": \"tourist\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/coding-profiles/sync",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "coding-profiles",
+                "sync"
+              ]
+            },
+            "description": "Fetches live repositories and stars from GitHub REST API, and live statistics from LeetCode. If blank, stores null/blank without sample data."
+          }
+        },
+        {
+          "name": "Sync Unlinked Handles (Blank Test)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"github\": \"\",\n  \"leetcode\": \"\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/coding-profiles/sync",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "coding-profiles",
+                "sync"
+              ]
+            },
+            "description": "Tests requirement that when handles are not added, data remains blank without sample data."
+          }
+        }
+      ]
+    },
+    {
+      "name": "6. Learning Roadmap & Platform Tutorials",
+      "item": [
+        {
+          "name": "Get Learning Roadmap",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/roadmaps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "roadmaps"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Generate Roadmap from Resume (With YouTube & Courses)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/roadmaps/generate-from-resume",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "roadmaps",
+                "generate-from-resume"
+              ]
+            },
+            "description": "Analyzes latest resume gaps, targets missing skills, and builds weekly step-by-step milestones with direct links to YouTube tutorials, freeCodeCamp handbooks, and Coursera specializations."
+          }
+        },
+        {
+          "name": "Toggle Roadmap Task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"weekNumber\": 1,\n  \"taskIndex\": 0,\n  \"isDone\": true,\n  \"overallProgress\": 45\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/roadmaps/toggle-task",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "roadmaps",
+                "toggle-task"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "7. Skill Gaps & Placement Readiness",
+      "item": [
+        {
+          "name": "Get Skill Gaps",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/skill-gaps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "skill-gaps"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Recalculate Skill Gaps",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/skill-gaps/recalculate",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "skill-gaps",
+                "recalculate"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Composite Placement Readiness",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/placement-readiness",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "placement-readiness"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "8. AI Mock Interview & AI Mentor Chat (Proctored Session Engine)",
+      "item": [
+        {
+          "name": "1. Create & Start Proctored Session",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 201 || pm.response.code === 200) {",
+                  "    var res = pm.response.json();",
+                  "    if (res.session && res.session.id) {",
+                  "        pm.environment.set(\"sessionId\", res.session.id);",
+                  "        console.log(\"Saved sessionId:\", res.session.id);",
+                  "    }",
+                  "    if (res.currentQuestion && res.currentQuestion.id) {",
+                  "        pm.environment.set(\"currentQuestionId\", res.currentQuestion.id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"targetRole\": \"ai_ml\",\n  \"consentGiven\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions"
+              ]
+            },
+            "description": "Creates and initializes an authenticated, proctored mock interview session linked to the logged-in candidate."
+          }
+        },
+        {
+          "name": "2. List My Interview Sessions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions"
+              ]
+            },
+            "description": "Returns only the authenticated candidate's interview sessions with full tenant isolation."
+          }
+        },
+        {
+          "name": "3. Get Session State (Refresh Recovery)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions/{{sessionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions",
+                "{{sessionId}}"
+              ]
+            },
+            "description": "Fetches live interview state, question progress, and counted violations for seamless client reload recovery."
+          }
+        },
+        {
+          "name": "4. Get Current Question (Sanitized)",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var res = pm.response.json();",
+                  "    if (res.question && res.question.id) {",
+                  "        pm.environment.set(\"currentQuestionId\", res.question.id);",
+                  "    }",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions/{{sessionId}}/question",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions",
+                "{{sessionId}}",
+                "question"
+              ]
+            },
+            "description": "Retrieves the candidate-safe current question (ideal answer and internal grading keywords stripped)."
+          }
+        },
+        {
+          "name": "5. Report Proctoring Violation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"PROHIBITED_OBJECT\",\n  \"confidence\": 0.88,\n  \"details\": \"COCO-SSD detected cell phone in frame\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions/{{sessionId}}/violations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions",
+                "{{sessionId}}",
+                "violations"
+              ]
+            },
+            "description": "Atomic server-side violation logger with per-type cooldown and automatic 5-warning lock."
+          }
+        },
+        {
+          "name": "6. Submit Answer for Evaluation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"transcript\": \"Transformer architectures replace recurrence with self-attention using Query, Key, and Value matrices. Scaled dot-product attention computes compatibility scores across all token pairs simultaneously in O(1) sequential steps, achieving full parallelization compared to recurrent propagation.\",\n  \"questionId\": \"{{currentQuestionId}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions/{{sessionId}}/answer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions",
+                "{{sessionId}}",
+                "answer"
+              ]
+            },
+            "description": "Evaluates candidate answer against verified DB question conditions using Gemini LLM or regex word-boundary fallback."
+          }
+        },
+        {
+          "name": "7. Conclude Interview & Get Final Report",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions/{{sessionId}}/finish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions",
+                "{{sessionId}}",
+                "finish"
+              ]
+            },
+            "description": "Computes genuine overall metrics, updates student profile, and produces the comprehensive audit report."
+          }
+        },
+        {
+          "name": "8. Delete My Interview Sessions",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/sessions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "sessions"
+              ]
+            },
+            "description": "Securely deletes only the current authenticated user's sessions and telemetry."
+          }
+        },
+        {
+          "name": "9. Legacy Submit Wrapper (Backward Compatibility)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"questionText\": \"How does self-attention in Transformer architectures differ from recurrent networks?\",\n  \"candidateResponse\": \"Transformers allow parallel token processing with QKV attention instead of sequential recurrent steps.\",\n  \"targetRole\": \"ai_ml\",\n  \"isTerminated\": false,\n  \"totalWarnings\": 0,\n  \"violations\": []\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews/submit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews",
+                "submit"
+              ]
+            },
+            "description": "Maintains backward compatibility for older API clients while routing through secure server scoring."
+          }
+        },
+        {
+          "name": "10. Legacy List Interviews",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/interviews",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "interviews"
+              ]
+            },
+            "description": "Lists current candidate's sessions via legacy path."
+          }
+        },
+        {
+          "name": "11. Send AI Mentor Chat Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"What is the optimal approach for Sliding Window maximum subarray problem?\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/mentor/chat",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "mentor",
+                "chat"
+              ]
+            },
+            "description": "AI placement mentor chatbot for interactive technical prep."
+          }
+        },
+        {
+          "name": "12. Check AI Mentor LLM Health Status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/mentor/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "mentor",
+                "health"
+              ]
+            },
+            "description": "Check whether Gemini API key is configured, active model (e.g. gemini-2.5-flash), and service availability."
+          }
+        },
+        {
+          "name": "13. Send AI Mentor Chat Message (Real-Time SSE Stream)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"Explain how to structure resume bullets using the Google XYZ formula with examples.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/mentor/chat/stream",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "mentor",
+                "chat",
+                "stream"
+              ]
+            },
+            "description": "Real-time streaming mentor chat engine powered by Gemini 2.5 Flash emitting Server-Sent Events (SSE) with thought, token, sources, and suggestions events."
+          }
+        },
+        {
+          "name": "14. Get Active Mentor Chat History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/mentor/history",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "mentor",
+                "history"
+              ]
+            },
+            "description": "Retrieve the active chat session and conversation history for the authenticated candidate."
+          }
+        },
+        {
+          "name": "15. Clear Mentor Chat History",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/modules/mentor/history",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "modules",
+                "mentor",
+                "history"
+              ]
+            },
+            "description": "Delete all mentor chat sessions and history for the authenticated candidate."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: skillsync-ai
+    runtime: node
+    plan: free
+    buildCommand: cd skillsync-ai-backend/skillsync-ai-backend && npm ci --omit=dev
+    startCommand: cd skillsync-ai-backend/skillsync-ai-backend && npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: TRUST_PROXY
+        value: "true"
+      - key: JWT_EXPIRE
+        value: 30d
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: GEMINI_MENTOR_MODEL
+        value: gemini-2.5-flash
+      - key: INTERVIEW_LLM_TIMEOUT_MS
+        value: 8000

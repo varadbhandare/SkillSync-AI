@@ -1,0 +1,1554 @@
+[
+  {
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain the difference between supervised, unsupervised, and reinforcement learning with common real-world examples.",
+    "idealAnswer": "Supervised learning trains models on labeled input-output pairs to predict continuous targets (regression) or discrete classes (classification), like spam detection. Unsupervised learning discovers hidden patterns and clustering in unlabeled data, such as customer segmentation. Reinforcement learning trains agents to maximize cumulative rewards through trial-and-error environment interaction, as in autonomous driving.",
+    "conditions": [
+      {
+        "name": "Supervised Learning with Labeled Ground Truth",
+        "keywords": [
+          "supervised",
+          "labeled",
+          "ground truth",
+          "regression",
+          "classification"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Unsupervised Pattern Discovery on Unlabeled Data",
+        "keywords": [
+          "unsupervised",
+          "unlabeled",
+          "clustering",
+          "k-means",
+          "patterns"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Reinforcement Learning Agent-Environment Reward Loop",
+        "keywords": [
+          "reinforcement learning",
+          "agent",
+          "reward",
+          "environment",
+          "policy"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Model Evaluation",
+    "difficulty": "Easy",
+    "text": "What are precision, recall, and the F1-score, and why is accuracy insufficient for evaluating imbalanced classification datasets?",
+    "idealAnswer": "Accuracy measures total correct predictions over total samples, which is misleading when the majority class dominates (e.g., 99% non-fraud). Precision measures the ratio of true positives to all predicted positives, minimizing false alarms. Recall measures the ratio of true positives to all actual positives, minimizing missed cases. The F1-score harmonic mean balances precision and recall.",
+    "conditions": [
+      {
+        "name": "Accuracy Limitations on Class-Imbalanced Datasets",
+        "keywords": [
+          "accuracy",
+          "imbalanced",
+          "majority class",
+          "skewed",
+          "misleading"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Precision vs Recall Metrics and Error Types",
+        "keywords": [
+          "precision",
+          "recall",
+          "false positive",
+          "false negative",
+          "true positive"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "F1-Score Harmonic Mean Formulation",
+        "keywords": [
+          "f1",
+          "harmonic mean",
+          "balance",
+          "f1-score",
+          "trade-off"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Machine Learning Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain the Bias-Variance tradeoff and how underfitting versus overfitting manifest during model training and validation.",
+    "idealAnswer": "Bias represents error from overly simplistic assumptions, causing underfitting where the model fails to capture training patterns (high training and validation error). Variance represents model sensitivity to training noise, causing overfitting where the model memorizes training data but fails to generalize (low training error, high validation error). Optimal models minimize total generalization error.",
+    "conditions": [
+      {
+        "name": "High Bias and Underfitting Manifestations",
+        "keywords": [
+          "bias",
+          "underfitting",
+          "simplistic",
+          "high training error",
+          "assumptions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "High Variance and Overfitting Manifestations",
+        "keywords": [
+          "variance",
+          "overfitting",
+          "generalization",
+          "memorization",
+          "validation error"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Regularization and Model Complexity Balance",
+        "keywords": [
+          "trade-off",
+          "complexity",
+          "regularization",
+          "total error",
+          "optimal"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Neural Networks",
+    "difficulty": "Easy",
+    "text": "What is an activation function in neural networks, and why are non-linear activation functions essential in deep learning?",
+    "idealAnswer": "Activation functions introduce non-linear transformations to the weighted sum of inputs at each neuron. Without non-linearity, stacking multiple dense layers merely collapses into a single linear matrix transformation (W2 * W1 * x = W_combined * x), preventing deep networks from learning non-linear decision boundaries or universal function approximations.",
+    "conditions": [
+      {
+        "name": "Neuron Weighted Sum Non-linear Transformation",
+        "keywords": [
+          "activation function",
+          "weighted sum",
+          "neuron",
+          "non-linear",
+          "threshold"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Linear Collapse of Multi-layer Perceptrons",
+        "keywords": [
+          "linear",
+          "collapse",
+          "matrix multiplication",
+          "single layer",
+          "affine"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Universal Approximation and Complex Feature Learning",
+        "keywords": [
+          "universal approximation",
+          "decision boundary",
+          "complex features",
+          "representation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Deep Learning",
+    "difficulty": "Easy",
+    "text": "Why has the Rectified Linear Unit (ReLU) largely replaced Sigmoid and Tanh activations in deep hidden layers?",
+    "idealAnswer": "Sigmoid and Tanh saturate for large positive and negative inputs, causing their derivatives to approach zero and triggering the vanishing gradient problem in deep backpropagation. ReLU (f(x) = max(0, x)) has a constant gradient of 1 for positive inputs, avoiding saturation and enabling faster stochastic gradient descent convergence with simple computational thresholds.",
+    "conditions": [
+      {
+        "name": "Sigmoid and Tanh Saturation Vanishing Gradients",
+        "keywords": [
+          "sigmoid",
+          "tanh",
+          "saturation",
+          "vanishing gradient",
+          "derivative zero"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ReLU Non-Saturating Positive Gradient Mechanics",
+        "keywords": [
+          "relu",
+          "max(0, x)",
+          "constant gradient",
+          "gradient 1",
+          "positive"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Computational Efficiency and Convergence Speed",
+        "keywords": [
+          "computational efficiency",
+          "convergence",
+          "speed",
+          "dying relu",
+          "leaky relu"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Optimization",
+    "difficulty": "Easy",
+    "text": "What is Gradient Descent, and how does Stochastic Gradient Descent (SGD) differ from Batch Gradient Descent?",
+    "idealAnswer": "Gradient Descent is a first-order optimization algorithm that iteratively updates model parameters in the opposite direction of the loss function gradient. Batch Gradient Descent computes the exact gradient over the entire training set, which is computationally expensive and slow for large data. Stochastic Gradient Descent computes gradients using a single random sample (or mini-batch), introducing stochastic noise that helps escape saddle points and speeds up parameter updates.",
+    "conditions": [
+      {
+        "name": "Gradient Descent Optimization Principle",
+        "keywords": [
+          "gradient descent",
+          "loss function",
+          "parameters",
+          "weights",
+          "learning rate"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Batch Gradient Descent Full-Dataset Computation",
+        "keywords": [
+          "batch",
+          "full dataset",
+          "exact gradient",
+          "deterministic",
+          "memory"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Stochastic and Mini-batch Stochastic Fluctuation",
+        "keywords": [
+          "sgd",
+          "stochastic",
+          "mini-batch",
+          "noise",
+          "saddle points",
+          "speed"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Regularization",
+    "difficulty": "Easy",
+    "text": "Explain the difference between L1 (Lasso) and L2 (Ridge) regularization and their effect on model weights.",
+    "idealAnswer": "L1 regularization adds a penalty proportional to the absolute values of the weights (lambda * sum(|w|)), driving less important coefficients strictly to zero to produce sparse models suitable for feature selection. L2 regularization adds a penalty proportional to the squared magnitude of weights (lambda * sum(w^2)), shrinking coefficients smoothly towards zero without zeroing them, mitigating multicollinearity.",
+    "conditions": [
+      {
+        "name": "L1 Lasso Absolute Penalty and Sparsity",
+        "keywords": [
+          "l1",
+          "lasso",
+          "absolute",
+          "sparse",
+          "feature selection",
+          "zero weights"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "L2 Ridge Squared Magnitude Penalty and Shrinkage",
+        "keywords": [
+          "l2",
+          "ridge",
+          "squared",
+          "shrinkage",
+          "multicollinearity",
+          "weight decay"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Geometric Norm Contours and Constrained Optimization",
+        "keywords": [
+          "geometric",
+          "diamond",
+          "circle",
+          "contour",
+          "penalty"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Computer Vision",
+    "difficulty": "Easy",
+    "text": "What is a Convolutional Neural Network (CNN), and what purpose do convolutional filters and pooling layers serve?",
+    "idealAnswer": "CNNs are neural architectures designed for grid-structured data like images. Convolutional layers apply learnable spatial filter kernels to detect local feature hierarchies (edges, textures, shapes) through parameter sharing and translation invariance. Pooling layers (such as MaxPooling) downsample spatial dimensions, reducing computational parameters and controlling overfitting.",
+    "conditions": [
+      {
+        "name": "Convolutional Kernels and Spatial Feature Hierarchies",
+        "keywords": [
+          "cnn",
+          "convolution",
+          "filter",
+          "kernel",
+          "spatial",
+          "feature map"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Parameter Sharing and Translation Invariance",
+        "keywords": [
+          "parameter sharing",
+          "translation invariance",
+          "local receptive field"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pooling Layers Downsampling and Dimensionality Reduction",
+        "keywords": [
+          "pooling",
+          "max pooling",
+          "downsampling",
+          "spatial dimensions",
+          "parameters"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Natural Language Processing",
+    "difficulty": "Easy",
+    "text": "What are word embeddings, and how do models like Word2Vec represent semantic relationships in vector space?",
+    "idealAnswer": "Word embeddings represent discrete text tokens as dense, continuous low-dimensional vectors where semantically similar words are positioned close together in vector space. Models like Word2Vec (CBOW and Skip-gram) learn these representations by predicting surrounding context words, capturing linear algebraic relationships such as vector(\"king\") - vector(\"man\") + vector(\"woman\") ~= vector(\"queen\").",
+    "conditions": [
+      {
+        "name": "Dense Continuous Vectors vs Sparse One-Hot Encodings",
+        "keywords": [
+          "dense vector",
+          "one-hot",
+          "embedding",
+          "continuous",
+          "low-dimensional"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Distributional Hypothesis and Context Word Prediction",
+        "keywords": [
+          "word2vec",
+          "cbow",
+          "skip-gram",
+          "context",
+          "distributional hypothesis"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Geometric Distance and Semantic Analogies",
+        "keywords": [
+          "cosine similarity",
+          "semantic",
+          "analogies",
+          "king queen",
+          "vector space"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Preprocessing",
+    "difficulty": "Easy",
+    "text": "Why is feature scaling (normalization vs standardization) important before training distance-based machine learning algorithms?",
+    "idealAnswer": "Distance-based algorithms like KNN, SVM, and K-Means compute Euclidean distances between feature coordinates. If one feature spans 0-1 and another spans 0-1,000,000, the larger feature will dominate the distance metric and gradient updates. Normalization bounds values into [0, 1], while standardization transforms features to zero mean and unit variance, ensuring uniform feature contributions.",
+    "conditions": [
+      {
+        "name": "Euclidean Distance Sensitivity to Feature Scales",
+        "keywords": [
+          "distance-based",
+          "euclidean distance",
+          "knn",
+          "kmeans",
+          "svm",
+          "scale"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Min-Max Normalization into Bounded Ranges",
+        "keywords": [
+          "normalization",
+          "min-max",
+          "0 to 1",
+          "bounding",
+          "range"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Standardization to Zero Mean and Unit Variance",
+        "keywords": [
+          "standardization",
+          "z-score",
+          "zero mean",
+          "unit variance",
+          "standard deviation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Machine Learning",
+    "difficulty": "Easy",
+    "text": "What is cross-validation, and why is k-fold cross-validation preferred over a single train-test split?",
+    "idealAnswer": "Cross-validation estimates a model generalization performance on unseen data. In k-fold cross-validation, the dataset is partitioned into k equal subsets; the model is trained on k-1 folds and validated on the remaining fold, repeating k times so every sample is validated once. This minimizes sampling bias, provides confidence intervals across folds, and prevents overfitting to a lucky test split.",
+    "conditions": [
+      {
+        "name": "K-Fold Partitioning and Rotational Evaluation Protocol",
+        "keywords": [
+          "cross-validation",
+          "k-fold",
+          "folds",
+          "partition",
+          "train test"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sampling Bias Mitigation and Variance Reduction",
+        "keywords": [
+          "sampling bias",
+          "variance",
+          "unseen data",
+          "generalization",
+          "robustness"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Performance Metrics Averaging Across Iterations",
+        "keywords": [
+          "average",
+          "mean score",
+          "confidence interval",
+          "evaluation",
+          "metric"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Machine Learning",
+    "difficulty": "Easy",
+    "text": "Explain the difference between Decision Trees and Random Forests, focusing on ensemble bagging principles.",
+    "idealAnswer": "A single Decision Tree splits features recursively to partition the data, but often suffers from high variance and severe overfitting. A Random Forest is an ensemble of diverse decision trees trained via bootstrap aggregating (bagging) on random data subsets with random feature subsets at each split. Averaging the predictions across hundreds of decorrelated trees substantially reduces variance without increasing bias.",
+    "conditions": [
+      {
+        "name": "Single Decision Tree High Variance and Overfitting",
+        "keywords": [
+          "decision tree",
+          "overfitting",
+          "high variance",
+          "recursive split",
+          "pruning"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Bootstrap Aggregating (Bagging) on Data Subsets",
+        "keywords": [
+          "random forest",
+          "bagging",
+          "bootstrap",
+          "ensemble",
+          "subsets"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Random Feature Subspace Sampling and Tree Decorrelation",
+        "keywords": [
+          "feature sampling",
+          "decorrelation",
+          "variance reduction",
+          "averaging",
+          "voting"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Neural Networks",
+    "difficulty": "Easy",
+    "text": "What is the role of the loss function in neural networks, and how do Cross-Entropy and Mean Squared Error differ?",
+    "idealAnswer": "A loss function quantifies the mathematical error between predicted outputs and ground truth labels, providing the scalar objective signal that backpropagation optimizes via gradient descent. Mean Squared Error (MSE) penalizes squared numerical deviations for continuous regression targets. Cross-Entropy Loss measures divergence between probability distributions for classification tasks, heavily penalizing confident wrong predictions.",
+    "conditions": [
+      {
+        "name": "Objective Quantification for Gradient Optimization",
+        "keywords": [
+          "loss function",
+          "objective",
+          "error",
+          "backpropagation",
+          "gradient descent"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mean Squared Error for Continuous Regression Targets",
+        "keywords": [
+          "mse",
+          "mean squared error",
+          "regression",
+          "continuous",
+          "squared differences"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cross-Entropy Loss for Categorical Probability Distributions",
+        "keywords": [
+          "cross-entropy",
+          "classification",
+          "probability",
+          "log loss",
+          "distribution"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Deep Learning",
+    "difficulty": "Easy",
+    "text": "What is Dropout, and how does it act as an implicit ensemble technique to prevent neural network overfitting?",
+    "idealAnswer": "Dropout is a regularization technique where a randomly selected fraction of neurons (e.g. 20-50%) are deactivated (zeroed out) during each training forward and backward pass. This prevents neurons from co-adapting and relying excessively on specific peer nodes, forcing the network to learn robust, redundant representations. At inference time, all neurons are active with scaled outputs, approximating an ensemble of thinned networks.",
+    "conditions": [
+      {
+        "name": "Random Neuron Deactivation During Training Passes",
+        "keywords": [
+          "dropout",
+          "deactivation",
+          "zeroed",
+          "probability",
+          "forward pass"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Preventing Feature Co-adaptation and Dependency",
+        "keywords": [
+          "co-adaptation",
+          "feature redundancy",
+          "overfitting",
+          "robust features"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Inference Scaling and Geometric Ensemble Approximation",
+        "keywords": [
+          "inference",
+          "scaling",
+          "ensemble",
+          "evaluation",
+          "testing"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Sequence Modeling & Attention",
+    "difficulty": "Medium",
+    "text": "How does self-attention in Transformer architectures differ from recurrent networks in parallel computation and sequence modeling?",
+    "idealAnswer": "Self-attention computes scaled dot-product attention across all input tokens simultaneously using Query, Key, and Value matrices, overcoming RNN sequential bottlenecks and vanishing gradients. While RNNs require O(n) sequential steps to propagate information across sequence length n, Transformers execute in O(1) sequential operations, exhibiting O(n^2) quadratic memory complexity with respect to sequence length.",
+    "conditions": [
+      {
+        "name": "Parallel Token Processing vs Sequential Recurrence",
+        "keywords": [
+          "parallel",
+          "sequential",
+          "recurrent",
+          "step",
+          "time step",
+          "order",
+          "token"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Scaled Dot-Product QKV Attention Mechanism",
+        "keywords": [
+          "query",
+          "key",
+          "value",
+          "qkv",
+          "dot product",
+          "matrix",
+          "softmax",
+          "attention"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Vanishing Gradients and Quadratic O(n^2) Complexity",
+        "keywords": [
+          "complexity",
+          "quadratic",
+          "gradient",
+          "long-range",
+          "bottleneck",
+          "o(n^2)",
+          "o(n2)"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Deep Learning Optimization",
+    "difficulty": "Medium",
+    "text": "Explain the internal mechanics of the Adam optimizer, detailing how it combines Momentum with RMSprop.",
+    "idealAnswer": "The Adam (Adaptive Moment Estimation) optimizer maintains exponentially decaying moving averages of both past gradients (first raw moment, momentum) and squared past gradients (second uncentered moment, RMSprop). It applies bias correction terms to prevent initial zero-bias, and dynamically adapts per-parameter learning rates by dividing the smoothed momentum by the square root of smoothed variance plus epsilon.",
+    "conditions": [
+      {
+        "name": "First Moment Moving Average for Gradient Momentum",
+        "keywords": [
+          "first moment",
+          "momentum",
+          "exponential moving average",
+          "beta1",
+          "direction"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Second Moment Squared Gradients for Adaptive Scaling",
+        "keywords": [
+          "second moment",
+          "rmsprop",
+          "squared gradients",
+          "beta2",
+          "adaptive learning rate"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Zero-bias Correction and Per-parameter Parameter Updates",
+        "keywords": [
+          "bias correction",
+          "epsilon",
+          "update rule",
+          "per-parameter",
+          "stability"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Model Optimization",
+    "difficulty": "Medium",
+    "text": "What is Batch Normalization, and how does it stabilize deep network training and allow higher learning rates?",
+    "idealAnswer": "Batch Normalization normalizes the activation inputs to a layer across the current mini-batch to have zero mean and unit variance, followed by learnable scale (gamma) and shift (beta) parameters that allow the network to restore representation power. By mitigating internal covariate shift and smoothing the loss optimization landscape, it accelerates training convergence, reduces sensitivity to weight initialization, and acts as a mild regularizer.",
+    "conditions": [
+      {
+        "name": "Mini-batch Zero Mean and Unit Variance Normalization",
+        "keywords": [
+          "batch normalization",
+          "mini-batch",
+          "zero mean",
+          "unit variance",
+          "normalize"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Learnable Scale (Gamma) and Shift (Beta) Parameters",
+        "keywords": [
+          "gamma",
+          "beta",
+          "scale",
+          "shift",
+          "learnable parameters"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Optimization Smoothing and Reduced Sensitivity to Initialization",
+        "keywords": [
+          "internal covariate shift",
+          "loss landscape",
+          "learning rate",
+          "initialization",
+          "regularization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Gradient Dynamics",
+    "difficulty": "Medium",
+    "text": "Describe the vanishing and exploding gradient problems in deep architectures, detailing architectural and algorithmic solutions.",
+    "idealAnswer": "In deep networks, backpropagated gradients are computed via the chain rule as products of layer weight matrices and activation derivatives. When derivatives or weights are less than 1, gradients decay exponentially toward zero, preventing early layers from learning (vanishing). When greater than 1, gradients grow exponentially, causing numerical overflow and divergence (exploding). Solutions include residual skip connections (ResNets), gradient clipping, proper weight initialization (He/Xavier), and LayerNorm.",
+    "conditions": [
+      {
+        "name": "Chain Rule Multiplicative Decay and Exponential Explosion",
+        "keywords": [
+          "chain rule",
+          "exponential",
+          "vanishing gradient",
+          "exploding gradient",
+          "multiplication"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Residual Skip Connections and Highway Paths",
+        "keywords": [
+          "resnet",
+          "skip connection",
+          "residual",
+          "identity mapping",
+          "gradient highway"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Weight Initializations and Gradient Clipping Controls",
+        "keywords": [
+          "xavier",
+          "he initialization",
+          "gradient clipping",
+          "threshold",
+          "normalization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Large Language Models",
+    "difficulty": "Medium",
+    "text": "Explain Low-Rank Adaptation (LoRA) and how it achieves parameter-efficient fine-tuning (PEFT) of large models.",
+    "idealAnswer": "LoRA freezes the pre-trained model weights W0 (d x k) and injects trainable rank decomposition matrices A (r x k) and B (d x r), where the intrinsic rank r is much smaller than d and k (e.g. r=8 or 16). The forward pass computes h = W0*x + (B*A)*x * (alpha/r), reducing trainable parameter counts by 99% and GPU VRAM requirements while matching full fine-tuning performance.",
+    "conditions": [
+      {
+        "name": "Pre-trained Weight Freezing and Parameter Preservation",
+        "keywords": [
+          "lora",
+          "freeze",
+          "pre-trained weights",
+          "peft",
+          "parameter efficient"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Rank Decomposition Matrix Factorization (B x A)",
+        "keywords": [
+          "low rank",
+          "matrix factorization",
+          "rank r",
+          "decomposition",
+          "dimensions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "VRAM Memory Reduction and Weight Merging",
+        "keywords": [
+          "vram",
+          "gpu memory",
+          "adapter",
+          "alpha scaling",
+          "weight merge"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Machine Learning Theory",
+    "difficulty": "Medium",
+    "text": "How do Support Vector Machines (SVM) maximize the margin of separation, and what is the Kernel Trick?",
+    "idealAnswer": "SVMs find an optimal separating hyperplane that maximizes the geometric margin between classes, defined by the closest training samples called support vectors. When data is non-linearly separable, the Kernel Trick maps inputs into higher-dimensional feature spaces where linear separation is possible, computing inner products implicitly using kernel functions (such as RBF, polynomial) without explicitly calculating high-dimensional coordinates.",
+    "conditions": [
+      {
+        "name": "Maximum Margin Hyperplane and Support Vectors",
+        "keywords": [
+          "svm",
+          "hyperplane",
+          "margin",
+          "support vectors",
+          "convex optimization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Non-Linear Mapping into Higher Dimensional Feature Space",
+        "keywords": [
+          "non-linear",
+          "higher dimension",
+          "separable",
+          "feature space"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Kernel Function Dot Product Implicit Calculation",
+        "keywords": [
+          "kernel trick",
+          "rbf",
+          "radial basis",
+          "dot product",
+          "implicit computation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Ensemble Learning",
+    "difficulty": "Medium",
+    "text": "Contrast Gradient Boosting (e.g. XGBoost/LightGBM) with Bagging (Random Forest), explaining residual fitting mechanics.",
+    "idealAnswer": "Bagging trains multiple independent deep trees in parallel on bootstrap samples to reduce model variance through unweighted averaging. Gradient Boosting trains shallow decision trees (weak learners) sequentially; each new tree is fit to the negative gradient (pseudo-residuals) of the loss function from the ensemble up to that point. XGBoost incorporates second-order Taylor approximations, tree pruning, and L1/L2 leaf weight regularization.",
+    "conditions": [
+      {
+        "name": "Parallel Variance Reduction vs Sequential Residual Fitting",
+        "keywords": [
+          "gradient boosting",
+          "bagging",
+          "parallel",
+          "sequential",
+          "variance reduction"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pseudo-Residual Loss Function Gradient Optimization",
+        "keywords": [
+          "residuals",
+          "pseudo-residuals",
+          "negative gradient",
+          "weak learner",
+          "loss"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "XGBoost Second-Order Hessian Expansion and Regularization",
+        "keywords": [
+          "xgboost",
+          "hessian",
+          "second-order",
+          "regularization",
+          "leaf weights"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Generative AI",
+    "difficulty": "Medium",
+    "text": "Explain the generative adversarial training dynamics between the Generator and Discriminator in GANs.",
+    "idealAnswer": "Generative Adversarial Networks set up a zero-sum minimax game between two networks. The Generator transforms random latent noise vectors into synthetic data samples attempting to mimic real data distributions. The Discriminator acts as a binary classifier learning to distinguish authentic training samples from generated fakes. They are optimized simultaneously until the Discriminator cannot distinguish real from fake (p = 0.5), reaching Nash equilibrium.",
+    "conditions": [
+      {
+        "name": "Zero-Sum Minimax Game Formulation",
+        "keywords": [
+          "gan",
+          "minimax",
+          "game theory",
+          "zero-sum",
+          "objective function"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Generator Latent Distribution Mapping vs Discriminator Classification",
+        "keywords": [
+          "generator",
+          "discriminator",
+          "latent space",
+          "synthetic",
+          "fake vs real"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Nash Equilibrium and Mode Collapse Instabilities",
+        "keywords": [
+          "nash equilibrium",
+          "mode collapse",
+          "training instability",
+          "convergence"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Computer Vision",
+    "difficulty": "Medium",
+    "text": "How do single-stage object detectors (like YOLO) differ from two-stage detectors (like Faster R-CNN) in speed and architecture?",
+    "idealAnswer": "Two-stage detectors like Faster R-CNN first generate class-agnostic candidate region proposals using a Region Proposal Network (RPN), followed by RoI pooling and dense classification/regression heads, prioritizing accuracy at the expense of slower frame rates. Single-stage detectors like YOLO frame detection as a single regression problem, directly predicting bounding boxes and class probabilities from full image feature grids in one forward pass, achieving real-time inference (60+ FPS).",
+    "conditions": [
+      {
+        "name": "Two-stage RPN Proposal Generation vs RoI Pooling",
+        "keywords": [
+          "two-stage",
+          "faster r-cnn",
+          "rpn",
+          "region proposal",
+          "roi pooling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Single-stage Unified Grid Regression Protocol",
+        "keywords": [
+          "yolo",
+          "single-stage",
+          "grid",
+          "bounding box regression",
+          "anchor boxes"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Inference Latency vs Localization Precision Trade-off",
+        "keywords": [
+          "fps",
+          "latency",
+          "real-time",
+          "accuracy trade-off",
+          "throughput"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Generative AI",
+    "difficulty": "Medium",
+    "text": "What are Diffusion Models, and how do forward noising and reverse denoising processes generate realistic samples?",
+    "idealAnswer": "Diffusion models generate data by modeling a two-stage thermodynamic process. In the forward diffusion process, Gaussian noise is incrementally added to an image across discrete timesteps according to a fixed Markov schedule until it becomes pure isotropic Gaussian noise. In the reverse process, a neural network (typically a U-Net with attention) is trained to predict and subtract the added noise step-by-step, transforming pure noise into coherent images.",
+    "conditions": [
+      {
+        "name": "Forward Markov Chain Gaussian Noise Schedule",
+        "keywords": [
+          "forward process",
+          "markov chain",
+          "gaussian noise",
+          "schedule",
+          "isotropic"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Reverse Denoising Trajectory and U-Net Architecture",
+        "keywords": [
+          "reverse process",
+          "denoising",
+          "u-net",
+          "score-based",
+          "noise prediction"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sampling Quality and Iterative Generation Latency",
+        "keywords": [
+          "sampling",
+          "ddpm",
+          "ddim",
+          "latent diffusion",
+          "generation quality"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Natural Language Processing",
+    "difficulty": "Medium",
+    "text": "Describe the Tokenization pipeline for Large Language Models, comparing Byte-Pair Encoding (BPE) with WordPiece.",
+    "idealAnswer": "Subword tokenization bridges character-level and word-level representations to handle open vocabularies and out-of-vocabulary words. Byte-Pair Encoding (BPE) starts with individual characters or bytes and iteratively merges the most frequently occurring adjacent pair of tokens until a target vocabulary size is reached. WordPiece maximizes the language model likelihood of the corpus when deciding which candidate subword pair to merge rather than relying strictly on raw frequency.",
+    "conditions": [
+      {
+        "name": "Subword Tokenization and Out-of-Vocabulary Handling",
+        "keywords": [
+          "tokenization",
+          "subword",
+          "oov",
+          "vocabulary",
+          "byte"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "BPE Frequency-Based Pair Iterative Merging",
+        "keywords": [
+          "bpe",
+          "byte-pair encoding",
+          "frequency",
+          "merge table",
+          "pair"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "WordPiece Likelihood Optimization Difference",
+        "keywords": [
+          "wordpiece",
+          "likelihood",
+          "bert",
+          "unigram",
+          "probability"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Information Retrieval & GenAI",
+    "difficulty": "Medium",
+    "text": "Explain Retrieval-Augmented Generation (RAG) architecture and how chunking, dense vector embeddings, and re-ranking improve factual grounding.",
+    "idealAnswer": "RAG grounds LLM outputs in verified external knowledge to eliminate hallucinations. Documents are split into semantic chunks, transformed into dense embeddings via an encoder, and indexed in a vector database. At query time, the top-k chunks with highest cosine similarity are retrieved, filtered and ordered by a cross-encoder re-ranker, and injected into the LLM system prompt context alongside the user query.",
+    "conditions": [
+      {
+        "name": "Document Chunking and Vector Database Indexing",
+        "keywords": [
+          "rag",
+          "chunking",
+          "vector database",
+          "embedding",
+          "dense retrieval"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Semantic Similarity Retrieval and Cross-Encoder Re-ranking",
+        "keywords": [
+          "cosine similarity",
+          "top-k",
+          "re-ranking",
+          "cross-encoder",
+          "semantic search"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Prompt Context Injection and Hallucination Mitigation",
+        "keywords": [
+          "context injection",
+          "hallucination",
+          "grounding",
+          "prompt augmented",
+          "factual"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Reinforcement Learning from Human Feedback",
+    "difficulty": "Medium",
+    "text": "What is RLHF (Reinforcement Learning from Human Feedback), and how do Reward Models and PPO align LLMs with human preferences?",
+    "idealAnswer": "RLHF aligns pre-trained models with human intent (helpfulness, honesty, harmlessness). First, annotators rank multiple model completions to train a scalar Reward Model on pairwise preferences. Second, the policy LLM is fine-tuned using Proximal Policy Optimization (PPO) to maximize the reward score while incorporating a KL-divergence penalty against the original reference model to prevent policy collapse and reward hacking.",
+    "conditions": [
+      {
+        "name": "Human Pairwise Ranking and Reward Model Training",
+        "keywords": [
+          "rlhf",
+          "reward model",
+          "human feedback",
+          "pairwise ranking",
+          "preferences"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "PPO Policy Optimization and Value Function Updates",
+        "keywords": [
+          "ppo",
+          "policy optimization",
+          "actor-critic",
+          "value function"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "KL Divergence Penalty to Prevent Reward Hacking",
+        "keywords": [
+          "kl divergence",
+          "reward hacking",
+          "reference model",
+          "policy drift",
+          "alignment"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "MLOps & Deployment",
+    "difficulty": "Medium",
+    "text": "How do Model Quantization (e.g. INT8/INT4) and Pruning compress deep learning models for low-latency edge deployment?",
+    "idealAnswer": "Quantization reduces the numerical precision of weights and activation tensors from 32-bit floating point (FP32) to 8-bit or 4-bit integers (INT8/INT4), slashing model memory footprint by 75% and accelerating integer matrix arithmetic (GEMM) on hardware accelerators. Pruning identifies and removes near-zero weights (unstructured) or entire attention heads and channels (structured), reducing FLOPs with minimal accuracy loss.",
+    "conditions": [
+      {
+        "name": "Numerical Precision Reduction (FP32 to INT8/INT4)",
+        "keywords": [
+          "quantization",
+          "int8",
+          "int4",
+          "fp32",
+          "precision",
+          "scaling factor"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Structured vs Unstructured Weight Pruning",
+        "keywords": [
+          "pruning",
+          "sparsity",
+          "weights",
+          "structured",
+          "unstructured",
+          "flops"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Memory Footprint and Edge Hardware Throughput Gains",
+        "keywords": [
+          "memory footprint",
+          "vram",
+          "latency",
+          "edge deployment",
+          "acceleration"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Transformer Scalability",
+    "difficulty": "Hard",
+    "text": "Explain FlashAttention and how it overcomes the memory bandwidth bottleneck of standard scaled dot-product attention on GPUs.",
+    "idealAnswer": "Standard attention materializes intermediate N x N attention matrices (S = Q*K^T, P = softmax(S)) in slow GPU High Bandwidth Memory (HBM), incurring quadratic memory reads and writes that bottleneck GPU compute. FlashAttention tiles the Q, K, V matrices into fast on-chip SRAM blocks and computes attention incrementally using online softmax normalization, fusing operations without ever writing large intermediate N x N matrices back to HBM, achieving dramatic speedups and linear memory scaling with respect to sequence length.",
+    "conditions": [
+      {
+        "name": "GPU HBM vs On-Chip SRAM Memory Hierarchy Bottlenecks",
+        "keywords": [
+          "hbm",
+          "sram",
+          "memory bandwidth",
+          "io-aware",
+          "gpu architecture"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Online Softmax Tiling and Block-by-Block Accumulation",
+        "keywords": [
+          "online softmax",
+          "tiling",
+          "blocks",
+          "incremental",
+          "scaling factor"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Elimination of N x N Intermediate Matrix Materialization",
+        "keywords": [
+          "intermediate matrix",
+          "materialize",
+          "quadratic memory",
+          "fusion",
+          "speedup"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed LLM Training",
+    "difficulty": "Hard",
+    "text": "Compare 3D Parallelism strategies (Tensor Parallelism, Pipeline Parallelism, and ZeRO/FSDP) for training billion-parameter models.",
+    "idealAnswer": "When training large models exceeding single-GPU VRAM, 3D parallelism splits compute and memory. Tensor Parallelism (Megatron-LM) splits individual weight matrices across GPUs within a node using fast NVLink collective all-reduces. Pipeline Parallelism partitions layers across sequential pipeline stages with micro-batch scheduling. ZeRO/FSDP shards optimizer states (ZeRO-1), gradients (ZeRO-2), and model parameters (ZeRO-3) across data-parallel ranks, gathering parameters just-in-time via all-gather and releasing them post-computation.",
+    "conditions": [
+      {
+        "name": "Tensor Parallelism Intra-layer Matrix Sharding and All-Reduce",
+        "keywords": [
+          "tensor parallelism",
+          "megatron",
+          "intra-layer",
+          "all-reduce",
+          "nvlink"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pipeline Parallelism Inter-layer Scheduling and Micro-batches",
+        "keywords": [
+          "pipeline parallelism",
+          "micro-batch",
+          "bubble",
+          "inter-layer",
+          "stages"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ZeRO/FSDP Parameter, Gradient, and Optimizer Sharding",
+        "keywords": [
+          "zero",
+          "fsdp",
+          "optimizer states",
+          "sharding",
+          "all-gather"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Alignment Algorithms",
+    "difficulty": "Hard",
+    "text": "Explain Direct Preference Optimization (DPO) and how it mathematically bypasses the separate Reward Model and PPO loop in RLHF.",
+    "idealAnswer": "DPO reformulates the RLHF constrained optimization problem by showing that the optimal policy under the Bradley-Terry human preference model can be derived in closed-form as a function of the log-ratio of policy to reference model probabilities. By substituting this exact analytical relation directly into the preference cross-entropy loss, DPO directly optimizes the policy network on pairs of preferred and dispreferred completions, completely eliminating the need to train a separate reward model or run unstable RL loops.",
+    "conditions": [
+      {
+        "name": "Bradley-Terry Preference Probability Formulation",
+        "keywords": [
+          "dpo",
+          "direct preference optimization",
+          "bradley-terry",
+          "implicit reward",
+          "closed-form"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Log-Ratio Probability Between Policy and Reference Models",
+        "keywords": [
+          "log ratio",
+          "reference model",
+          "policy model",
+          "probability",
+          "loss formulation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Elimination of Separate Reward Model and PPO Instabilities",
+        "keywords": [
+          "eliminate ppo",
+          "stable",
+          "reward model elimination",
+          "reinforcement learning free"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Positional Embeddings",
+    "difficulty": "Hard",
+    "text": "How does Rotary Position Embedding (RoPE) encode relative position information, and why does it excel in context length extrapolation?",
+    "idealAnswer": "RoPE incorporates position information by rotating query and key vectors in complex 2D subspaces by an angle proportional to their sequence position (m * theta). The dot product <R_m * q, R_n * k> naturally depends solely on the relative distance (m - n) through trigonometric addition identities, preserving relative positional invariance. This mathematical formulation allows smooth context extension via positional interpolation (e.g. YaRN, NTK-aware scaling) without retraining positional embedding tables.",
+    "conditions": [
+      {
+        "name": "2D Subspace Orthogonal Rotation Matrix Application",
+        "keywords": [
+          "rope",
+          "rotary",
+          "complex numbers",
+          "rotation matrix",
+          "angle"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Relative Positional Invariance via Dot-Product Inner Products",
+        "keywords": [
+          "relative position",
+          "inner product",
+          "dot product",
+          "m - n",
+          "invariance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Context Length Extrapolation and Positional Interpolation",
+        "keywords": [
+          "extrapolation",
+          "yarn",
+          "ntk",
+          "interpolation",
+          "long context"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Sparse Model Architectures",
+    "difficulty": "Hard",
+    "text": "Explain the architecture of Mixture of Experts (MoE), detailing routing mechanics, load balancing loss, and inference efficiency.",
+    "idealAnswer": "Mixture of Experts replaces dense feed-forward network (FFN) layers with multiple parallel expert networks. A parameterized gating router computes a softmax probability distribution over all experts for each token, routing the token to only top-k experts (e.g. top-2 of 8). To prevent router collapse where only a few experts receive all tokens, an auxiliary load-balancing loss penalizes uneven token assignment. This decouples total model parameter capacity from active per-token compute costs.",
+    "conditions": [
+      {
+        "name": "Top-k Gating Router Softmax Dispatch Mechanism",
+        "keywords": [
+          "moe",
+          "mixture of experts",
+          "router",
+          "gating",
+          "top-k",
+          "dispatch"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Auxiliary Load Balancing Loss Against Router Collapse",
+        "keywords": [
+          "load balancing",
+          "auxiliary loss",
+          "router collapse",
+          "expert utilization",
+          "capacity factor"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Active Parameters vs Total Parameter Compute Scaling",
+        "keywords": [
+          "active parameters",
+          "compute efficiency",
+          "throughput",
+          "ffn",
+          "sparse activation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "KV Cache Optimization",
+    "difficulty": "Hard",
+    "text": "Compare Multi-Head Attention (MHA), Multi-Query Attention (MQA), and Grouped-Query Attention (GQA) in terms of KV cache memory and throughput.",
+    "idealAnswer": "In standard Multi-Head Attention, every query head has a dedicated key and value head, causing the KV cache to consume massive GPU VRAM during auto-regressive generation for long sequences. Multi-Query Attention shares a single key and value head across all query heads, reducing KV cache size by a factor of H but slightly degrading model quality. Grouped-Query Attention (GQA) strikes an optimal middle ground by grouping query heads into G groups sharing key-value heads, matching MHA quality while slashing KV cache memory.",
+    "conditions": [
+      {
+        "name": "Multi-Head Attention KV Cache Memory Scalability Bottleneck",
+        "keywords": [
+          "mha",
+          "kv cache",
+          "memory consumption",
+          "key value head",
+          "autoregressive"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Multi-Query Attention Extreme Sharing and Quality Trade-offs",
+        "keywords": [
+          "mqa",
+          "multi-query",
+          "single kv head",
+          "vram reduction",
+          "quality trade-off"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Grouped-Query Attention Balanced Grouping Compromise",
+        "keywords": [
+          "gqa",
+          "grouped-query",
+          "groups",
+          "llama-3",
+          "throughput"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Inference Acceleration",
+    "difficulty": "Hard",
+    "text": "How does Speculative Decoding accelerate LLM inference without altering the output probability distribution?",
+    "idealAnswer": "Auto-regressive LLM inference is memory-bandwidth bound because loading billions of weights from VRAM to compute a single token underutilizes GPU compute cores. Speculative decoding uses a smaller, faster draft model to generate K candidate tokens sequentially in low latency. The large target model then verifies all K tokens in parallel in a single forward pass using modified rejection sampling; accepted tokens are emitted, guaranteeing the final output distribution matches the target model exactly.",
+    "conditions": [
+      {
+        "name": "Memory Bandwidth Bottleneck of Autoregressive Decoding",
+        "keywords": [
+          "speculative decoding",
+          "memory bandwidth",
+          "autoregressive",
+          "draft model",
+          "target model"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Parallel Verification Forward Pass of Candidate Sequences",
+        "keywords": [
+          "parallel verification",
+          "candidate tokens",
+          "single forward pass",
+          "concurrency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Rejection Sampling Exact Distribution Preservation Proof",
+        "keywords": [
+          "rejection sampling",
+          "exact distribution",
+          "mathematical guarantee",
+          "acceptance rate"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Loss Landscapes & Optimization",
+    "difficulty": "Hard",
+    "text": "What is Sharpness-Aware Minimization (SAM), and how does seeking flat loss minima improve out-of-distribution generalization?",
+    "idealAnswer": "Standard gradient descent finds parameter configurations with low training loss, but these often lie in sharp minima where small perturbations in data distribution cause drastic loss increases, leading to poor generalization. Sharpness-Aware Minimization (SAM) simultaneously minimizes loss value and loss sharpness by formulating a minimax optimization problem: it identifies the worst-case perturbation epsilon within a Euclidean ball that maximizes local loss, and updates weights along the gradient at that perturbed point, steering the model toward wide, flat basins.",
+    "conditions": [
+      {
+        "name": "Sharp vs Flat Minima Generalization Discrepancy",
+        "keywords": [
+          "sharp minima",
+          "flat minima",
+          "generalization",
+          "out-of-distribution",
+          "loss landscape"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Minimax Worst-Case Local Neighborhood Perturbation",
+        "keywords": [
+          "sam",
+          "sharpness-aware",
+          "minimax",
+          "perturbation",
+          "epsilon ball"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Two-Step Gradient Calculation and Robustness Benefits",
+        "keywords": [
+          "two-step gradient",
+          "adversarial perturbation",
+          "robustness",
+          "convergence"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]

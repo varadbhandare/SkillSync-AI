@@ -1,0 +1,1527 @@
+[
+  {
+    "topic": "Software Engineering",
+    "difficulty": "Easy",
+    "text": "What are the SOLID principles of Object-Oriented Design, and what is the Open/Closed Principle?",
+    "idealAnswer": "SOLID represents five design principles: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, and Dependency Inversion. The Open/Closed Principle states that software entities (classes, modules, functions) should be open for extension but closed for modification, achieved through interfaces, abstract classes, and polymorphism without editing existing tested code.",
+    "conditions": [
+      {
+        "name": "SOLID Principles Acronym Enumeration",
+        "keywords": [
+          "solid",
+          "single responsibility",
+          "open/closed",
+          "liskov",
+          "interface segregation",
+          "dependency inversion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Open for Extension but Closed for Modification",
+        "keywords": [
+          "open for extension",
+          "closed for modification",
+          "ocp",
+          "inheritance",
+          "polymorphism"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Code Stability and Regression Prevention Benefits",
+        "keywords": [
+          "maintainability",
+          "stability",
+          "regression",
+          "interfaces",
+          "abstraction"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Easy",
+    "text": "Explain the Two-Pointer technique and when it is preferable over nested loops for array processing.",
+    "idealAnswer": "The Two-Pointer technique uses two cursor indices (e.g. left and right pointers) traversing an array concurrently, typically from opposite ends or at differing speeds (fast/slow pointers). On sorted arrays, it reduces time complexity from O(n^2) nested loops down to O(n) linear time and O(1) space, commonly applied in two-sum problems, palindrome checks, and cycle detection.",
+    "conditions": [
+      {
+        "name": "Two Cursors Traversal Mechanics (Opposite Ends or Fast/Slow)",
+        "keywords": [
+          "two-pointer",
+          "left right",
+          "fast slow",
+          "pointers",
+          "indices"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Quadratic O(n^2) to Linear O(n) Complexity Reduction",
+        "keywords": [
+          "o(n)",
+          "o(n^2)",
+          "time complexity",
+          "linear time",
+          "efficiency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sorted Array Requirement and Standard Use Cases",
+        "keywords": [
+          "sorted array",
+          "two sum",
+          "palindrome",
+          "cycle detection"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Easy",
+    "text": "What is the Sliding Window technique, and how does it optimize subarray search problems?",
+    "idealAnswer": "The Sliding Window technique tracks a contiguous sub-range (window) over an array or string by shifting its left and right boundaries dynamically. Instead of recalculating sums or character frequencies across the entire window for each position in O(k*n) time, it updates state in O(1) by subtracting the element falling out of the window and adding the new element entering, achieving O(n) total runtime.",
+    "conditions": [
+      {
+        "name": "Contiguous Sub-range Boundary Shifting (Left/Right)",
+        "keywords": [
+          "sliding window",
+          "window",
+          "left boundary",
+          "right boundary",
+          "contiguous"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Incremental State Updates (Subtract Exiting, Add Entering)",
+        "keywords": [
+          "incremental update",
+          "o(1) update",
+          "character count",
+          "window sum"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Linear O(n) Time Complexity and Subarray Applications",
+        "keywords": [
+          "o(n)",
+          "linear time",
+          "longest substring",
+          "maximum subarray",
+          "optimization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Structures",
+    "difficulty": "Easy",
+    "text": "What is a Binary Search Tree (BST), and what condition defines its node structure?",
+    "idealAnswer": "A Binary Search Tree is a binary tree where each node satisfies the BST invariant: all keys in its left subtree are strictly less than the node key, and all keys in its right subtree are strictly greater than the node key. In-order traversal of a BST visits nodes in strictly ascending sorted order, providing average O(log n) lookup, insertion, and deletion.",
+    "conditions": [
+      {
+        "name": "BST Invariant (Left < Node < Right Subtree Keys)",
+        "keywords": [
+          "binary search tree",
+          "bst",
+          "left subtree",
+          "right subtree",
+          "invariant",
+          "comparison"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "In-Order Traversal Ascending Order Property",
+        "keywords": [
+          "in-order traversal",
+          "sorted order",
+          "ascending",
+          "traversal"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Average Logarithmic O(log n) vs Skewed O(n) Worst-Case",
+        "keywords": [
+          "o(log n)",
+          "lookup",
+          "insertion",
+          "skewed",
+          "unbalanced"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Design Patterns",
+    "difficulty": "Easy",
+    "text": "Explain the Singleton Design Pattern, detailing its implementation and potential drawbacks in software engineering.",
+    "idealAnswer": "The Singleton pattern ensures a class has only one instance throughout the application lifecycle and provides a global access point to it. It is implemented with a private constructor, a static instance variable, and a static getInstance() method. Drawbacks include hidden global state, tight coupling, difficulty in automated unit testing (cannot easily mock instances), and concurrency issues in multithreaded environments.",
+    "conditions": [
+      {
+        "name": "Single Global Instance and Controlled Access Point",
+        "keywords": [
+          "singleton",
+          "single instance",
+          "global access",
+          "getinstance",
+          "private constructor"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Thread-Safe Implementation Considerations (Double-Checked Locking)",
+        "keywords": [
+          "thread-safe",
+          "synchronization",
+          "double-checked locking",
+          "lazy initialization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Drawbacks (Global State, Testing Impediments, Tight Coupling)",
+        "keywords": [
+          "drawbacks",
+          "global state",
+          "unit testing",
+          "mocking",
+          "tight coupling"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Design Patterns",
+    "difficulty": "Easy",
+    "text": "What is the Factory Method Pattern, and how does it decouple object creation from client code?",
+    "idealAnswer": "The Factory Method pattern defines an interface for creating objects, but lets subclasses or specialized factory methods decide which concrete class to instantiate. Client code interacts exclusively with abstract interfaces or base classes, allowing developers to introduce new product types without breaking or modifying existing client code, adhering to the Open/Closed Principle.",
+    "conditions": [
+      {
+        "name": "Encapsulated Object Creation and Instantiation Delegation",
+        "keywords": [
+          "factory method",
+          "object creation",
+          "instantiation",
+          "subclasses",
+          "factory"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Decoupling Client Code from Concrete Implementations",
+        "keywords": [
+          "decoupling",
+          "interface",
+          "abstract product",
+          "concrete class",
+          "client code"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Open/Closed Principle Compliance for Extensibility",
+        "keywords": [
+          "open/closed",
+          "extensibility",
+          "maintainability",
+          "polymorphism"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Structures",
+    "difficulty": "Easy",
+    "text": "What is a Hash Table, and what time complexities do Search, Insert, and Delete operations have on average vs worst case?",
+    "idealAnswer": "A Hash Table is an associative array that maps keys to values using a mathematical hash function to compute bucket array indices. Under a uniform hash distribution and reasonable load factor, average time complexity for Search, Insert, and Delete operations is O(1). In the worst case where all keys hash to the same bucket (complete collision), operations degrade to O(n) linear time.",
+    "conditions": [
+      {
+        "name": "Key-to-Index Hash Function Mapping Mechanism",
+        "keywords": [
+          "hash table",
+          "hash function",
+          "bucket",
+          "key-value",
+          "array index"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Average Case O(1) Constant Time Operations",
+        "keywords": [
+          "average case",
+          "o(1)",
+          "constant time",
+          "search",
+          "insert",
+          "delete"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Worst Case O(n) Collision Degradation and Load Factor",
+        "keywords": [
+          "worst case",
+          "o(n)",
+          "collision",
+          "load factor",
+          "rehashing"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Testing Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain the Testing Pyramid (Unit, Integration, End-to-End tests) and cost/speed trade-offs.",
+    "idealAnswer": "The Testing Pyramid structures automated test suites into three tiers: Unit tests form the broad foundation—testing individual functions in isolation with mocks, executing in milliseconds with low cost. Integration tests verify interactions between components and databases. End-to-End (E2E) tests form the narrow apex—testing complete user journeys in real browsers, providing high confidence but suffering from slow runtimes and test flakiness.",
+    "conditions": [
+      {
+        "name": "Three Tiers (Unit, Integration, End-to-End) Definitions",
+        "keywords": [
+          "testing pyramid",
+          "unit test",
+          "integration test",
+          "end-to-end",
+          "e2e"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Execution Speed, Isolation, and Maintenance Cost Curve",
+        "keywords": [
+          "execution speed",
+          "isolation",
+          "mocks",
+          "maintenance cost",
+          "flakiness"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Confidence vs Feedback Loop Velocity Optimization",
+        "keywords": [
+          "confidence",
+          "feedback loop",
+          "test coverage",
+          "quality assurance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Memory Management",
+    "difficulty": "Easy",
+    "text": "What is a Memory Leak, and how does circular referencing cause leaks in garbage-collected languages?",
+    "idealAnswer": "A memory leak occurs when an application allocates memory on the heap but fails to release it after it is no longer needed, causing memory usage to grow continuously until the process crashes with OutOfMemory. In reference-counting garbage collectors, circular references (where Object A references Object B and B references A) keep reference counts greater than zero even when both objects are disconnected from root execution scope.",
+    "conditions": [
+      {
+        "name": "Memory Leak Heap Allocation and Growth Failure",
+        "keywords": [
+          "memory leak",
+          "heap memory",
+          "oom",
+          "unreleased memory",
+          "degradation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Circular Reference Retaining Objects Beyond Scope",
+        "keywords": [
+          "circular reference",
+          "reference counting",
+          "unreachable",
+          "retained memory"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Root Reachability and Mark-and-Sweep Mitigation",
+        "keywords": [
+          "root reachability",
+          "mark-and-sweep",
+          "profiling",
+          "garbage collector"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Object-Oriented Programming",
+    "difficulty": "Easy",
+    "text": "What is the Liskov Substitution Principle (LSP) and how does a Rectangle/Square inheritance hierarchy violate it?",
+    "idealAnswer": "The Liskov Substitution Principle asserts that objects of a superclass should be replaceable with objects of a subclass without altering the correctness of the program. A classic violation is making Square inherit from Rectangle: if Rectangle has setWidth(w) and setHeight(h) methods that operate independently, modifying a Square side to maintain equal width and height breaks client expectations that setting width leaves height unchanged.",
+    "conditions": [
+      {
+        "name": "Liskov Substitution Principle Behavioral Compatibility Definition",
+        "keywords": [
+          "liskov substitution",
+          "lsp",
+          "subclass",
+          "superclass",
+          "behavioral compatibility"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Rectangle and Square Invariant Mutation Violation",
+        "keywords": [
+          "square rectangle",
+          "setwidth",
+          "setheight",
+          "invariant",
+          "side effects"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Composition Over Inheritance Solution",
+        "keywords": [
+          "composition over inheritance",
+          "refactoring",
+          "correctness",
+          "design principle"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Networking",
+    "difficulty": "Easy",
+    "text": "What is the difference between synchronous and asynchronous network I/O?",
+    "idealAnswer": "In synchronous I/O, the calling thread initiates an I/O request (such as a database query or network read) and is blocked from doing other work until the operating system completes the operation and returns data. In asynchronous I/O, the thread initiates the request and immediately resumes executing other tasks; the operating system notifies the application via callbacks, promises, or event loops upon completion.",
+    "conditions": [
+      {
+        "name": "Synchronous Thread Blocking and Resource Idling",
+        "keywords": [
+          "synchronous",
+          "blocking",
+          "thread wait",
+          "idle",
+          "sequential"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Asynchronous Non-Blocking Immediate Return",
+        "keywords": [
+          "asynchronous",
+          "non-blocking",
+          "immediate return",
+          "concurrency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Event Notification (Callbacks, Event Loop, Promises)",
+        "keywords": [
+          "callbacks",
+          "promises",
+          "event loop",
+          "throughput",
+          "scalability"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Computer Science Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is Unicode and UTF-8 encoding, and why does UTF-8 dominate the web?",
+    "idealAnswer": "Unicode is a universal character set standard that assigns a unique integer code point (e.g. U+0041 for A) to every character and symbol in every human language. UTF-8 is a variable-length character encoding that maps code points into 1 to 4 bytes: standard ASCII characters use exactly 1 byte, making UTF-8 100% backward compatible with ASCII while supporting global internationalization with efficient storage.",
+    "conditions": [
+      {
+        "name": "Unicode Universal Character Set and Code Points",
+        "keywords": [
+          "unicode",
+          "code point",
+          "character set",
+          "internationalization",
+          "symbols"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "UTF-8 Variable-Length Encoding (1 to 4 Bytes)",
+        "keywords": [
+          "utf-8",
+          "variable-length",
+          "bytes",
+          "encoding",
+          "ascii compatibility"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Web Dominance and Storage Efficiency",
+        "keywords": [
+          "backward compatible",
+          "web standard",
+          "storage efficiency",
+          "byte streams"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Easy",
+    "text": "Explain the QuickSort algorithm, the role of the pivot, and its average vs worst-case complexity.",
+    "idealAnswer": "QuickSort is a divide-and-conquer sorting algorithm. It selects a pivot element and partitions the array into two sub-arrays: elements less than the pivot and elements greater than the pivot, recursively sorting each partition in-place. On average, balanced partitions yield O(n log n) time complexity. In the worst case (e.g. consistently choosing minimum/maximum on already sorted data), partitions are skewed, degrading performance to O(n^2), mitigated by randomized or median-of-three pivots.",
+    "conditions": [
+      {
+        "name": "Divide-and-Conquer Partitioning Around a Pivot",
+        "keywords": [
+          "quicksort",
+          "pivot",
+          "partitioning",
+          "divide and conquer",
+          "in-place"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Average Case O(n log n) Logarithmic Tree Recursion",
+        "keywords": [
+          "average case",
+          "o(n log n)",
+          "recursion tree",
+          "efficient"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Worst Case O(n^2) Skewed Partitioning and Pivot Selection",
+        "keywords": [
+          "worst case",
+          "o(n^2)",
+          "randomized pivot",
+          "median of three",
+          "skewed"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Security Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is the difference between Symmetric and Asymmetric Encryption, and how does Hybrid Encryption combine them?",
+    "idealAnswer": "Symmetric encryption (e.g. AES) uses the same secret key for encryption and decryption, offering high speed and computational efficiency but suffering from secure key exchange challenges. Asymmetric encryption (e.g. RSA, ECC) uses a mathematically linked public-private key pair, allowing secure key distribution but with heavy computational overhead. Hybrid encryption (used in TLS/HTTPS) uses asymmetric encryption to securely exchange a one-time symmetric session key, then switches to symmetric encryption for high-speed data transmission.",
+    "conditions": [
+      {
+        "name": "Symmetric Single Shared Key Speed and Exchange Challenges",
+        "keywords": [
+          "symmetric",
+          "shared key",
+          "aes",
+          "fast",
+          "key exchange challenge"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Asymmetric Public-Private Key Pair Distribution",
+        "keywords": [
+          "asymmetric",
+          "public key",
+          "private key",
+          "rsa",
+          "ecc",
+          "slow"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hybrid Encryption Protocol (TLS Session Key Exchange)",
+        "keywords": [
+          "hybrid encryption",
+          "session key",
+          "tls",
+          "handshake",
+          "efficiency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Design Patterns",
+    "difficulty": "Medium",
+    "text": "Explain the Observer Pattern and how it powers Event-Driven and Reactive architectures.",
+    "idealAnswer": "The Observer pattern defines a one-to-many dependency between objects: when one subject object changes state, all registered observer objects are notified and updated automatically. The subject maintains an internal list of observers with attach(), detach(), and notify() methods. This decouples the publisher from subscribers, forming the foundational architecture for event emitters, DOM event listeners, message queues, and reactive state libraries (e.g. RxJS, Redux).",
+    "conditions": [
+      {
+        "name": "Subject-Observer One-to-Many Dependency Contract",
+        "keywords": [
+          "observer pattern",
+          "subject",
+          "observers",
+          "one-to-many",
+          "publish subscribe"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Decoupled Registration (attach, detach, notify) Mechanics",
+        "keywords": [
+          "attach",
+          "detach",
+          "notify",
+          "registration",
+          "loose coupling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Real-World Applications (Event Emitters, Reactive UI, RxJS)",
+        "keywords": [
+          "event emitter",
+          "reactive",
+          "event-driven",
+          "rxjs",
+          "redux"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Software Architecture",
+    "difficulty": "Medium",
+    "text": "Compare Monolithic Architecture with Microservices, analyzing operational complexity, deployment independence, and network failure modes.",
+    "idealAnswer": "A Monolith packages all business domains into a single deployable artifact and database, offering simple local debugging, easy transactions, and zero network call latency, but scaling poorly across large teams and risking full outage on single faults. Microservices decompose systems into independent business services communicating via network APIs, allowing independent deployments and technology flexibility, but introducing severe operational complexity (distributed tracing, network latency, eventual consistency, and partial failure modes).",
+    "conditions": [
+      {
+        "name": "Monolithic Single Artifact Simplicity and Transactional Cohesion",
+        "keywords": [
+          "monolith",
+          "single artifact",
+          "database joins",
+          "in-memory calls",
+          "simple deployment"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Microservices Independent Deployment and Autonomous Teams",
+        "keywords": [
+          "microservices",
+          "independent deployment",
+          "domain boundaries",
+          "decoupling",
+          "scalability"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Operational Complexity and Distributed Network Failures",
+        "keywords": [
+          "distributed tracing",
+          "network latency",
+          "partial failure",
+          "eventual consistency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "System Reliability",
+    "difficulty": "Medium",
+    "text": "What is a Circuit Breaker pattern (Closed, Open, Half-Open states) in distributed microservices?",
+    "idealAnswer": "The Circuit Breaker pattern prevents cascading system failures when downstream remote services fail or experience latency spikes. In Closed state, requests pass through normally while monitoring failure rates. If failures exceed a threshold within a time window, it trips to Open state, instantly failing subsequent calls without executing network requests and returning cached or fallback responses. After a cooldown timeout, it transitions to Half-Open state, allowing a limited test trial of requests; if successful, it resets to Closed, otherwise returns to Open.",
+    "conditions": [
+      {
+        "name": "Cascading Failure Mitigation and Resource Starvation Protection",
+        "keywords": [
+          "circuit breaker",
+          "cascading failure",
+          "fail fast",
+          "microservices resilience",
+          "timeout"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Three State Machine Transitions (Closed, Open, Half-Open)",
+        "keywords": [
+          "closed",
+          "open",
+          "half-open",
+          "state machine",
+          "failure threshold"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Fallback Strategies and Cooldown Reset Verification",
+        "keywords": [
+          "fallback response",
+          "cooldown",
+          "trial requests",
+          "resilience"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Software Architecture",
+    "difficulty": "Medium",
+    "text": "Explain Domain-Driven Design (DDD) concepts: Bounded Contexts, Entities, Value Objects, and Aggregates.",
+    "idealAnswer": "Domain-Driven Design aligns software architecture with complex business models. A Bounded Context defines explicit linguistic boundaries within which domain terms have specific meanings. An Entity has a unique persistent identity that spans time (e.g. User with an ID). A Value Object is defined solely by its immutable attributes without identity (e.g. Money with currency and amount). An Aggregate is a cluster of associated Entities and Value Objects treated as a single transactional consistency unit, accessed exclusively through an Aggregate Root.",
+    "conditions": [
+      {
+        "name": "Bounded Context Explicit Linguistic Domain Boundaries",
+        "keywords": [
+          "bounded context",
+          "ubiquitous language",
+          "domain boundary",
+          "ddd",
+          "domain-driven design"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Entities with Unique Identity vs Immutable Value Objects",
+        "keywords": [
+          "entity",
+          "identity",
+          "value object",
+          "immutable",
+          "attributes"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Aggregates and Aggregate Root Transactional Consistency",
+        "keywords": [
+          "aggregate",
+          "aggregate root",
+          "consistency boundary",
+          "transactions"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Concurrency",
+    "difficulty": "Medium",
+    "text": "Explain Thread Pools, task worker queues, and the Producer-Consumer problem in multi-threaded backends.",
+    "idealAnswer": "Creating operating system threads is expensive due to memory allocation (stack frames) and kernel context switching. A Thread Pool pre-allocates a fixed number of reusable worker threads that wait on a thread-safe task queue. Producers submit tasks to the queue; idle workers dequeue and execute them, solving the Producer-Consumer problem using condition variables or blocking queues to coordinate backpressure and avoid thread explosion under load.",
+    "conditions": [
+      {
+        "name": "Thread Allocation Overhead and Kernel Context Switching",
+        "keywords": [
+          "thread pool",
+          "thread creation overhead",
+          "context switch",
+          "reusable workers"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Producer-Consumer Synchronization and Blocking Queue Mechanics",
+        "keywords": [
+          "producer-consumer",
+          "task queue",
+          "blocking queue",
+          "condition variable",
+          "synchronization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Backpressure, Queue Rejection Policies, and Saturation Handling",
+        "keywords": [
+          "backpressure",
+          "rejection policy",
+          "queue capacity",
+          "thread exhaustion"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Security Architecture",
+    "difficulty": "Medium",
+    "text": "How does OAuth 2.0 Authorization Code Flow with PKCE (Proof Key for Code Exchange) secure public clients?",
+    "idealAnswer": "In standard Authorization Code Flow, clients exchange an authorization code and client secret for tokens; public clients (SPAs, mobile apps) cannot securely store client secrets. PKCE replaces static secrets by generating a cryptographically random Code Verifier and deriving a hashed Code Challenge sent in the initial authorization request. During token exchange, the client submits the original plain Code Verifier; the authorization server hashes it and verifies it matches the original challenge, preventing code interception attacks.",
+    "conditions": [
+      {
+        "name": "Public Client Secret Storage Inability (SPA and Mobile Vulnerabilities)",
+        "keywords": [
+          "oauth 2.0",
+          "pkce",
+          "public client",
+          "client secret",
+          "authorization code"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Code Verifier and Code Challenge Cryptographic Derivation",
+        "keywords": [
+          "code verifier",
+          "code challenge",
+          "sha-256",
+          "hash",
+          "cryptographic"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Authorization Code Interception Attack Mitigation",
+        "keywords": [
+          "interception attack",
+          "token exchange",
+          "authorization server",
+          "security flow"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "API Design",
+    "difficulty": "Medium",
+    "text": "What are Webhooks, and how do you design secure, fault-tolerant webhook delivery and consumption?",
+    "idealAnswer": "Webhooks are user-defined HTTP POST callbacks triggered by specific events (e.g. payment completed in Stripe), pushing real-time data to subscriber servers. Providers secure webhooks by signing payloads with an HMAC-SHA256 signature using a shared secret and sending the hash in headers. Consumers verify the signature before processing, check timestamps to prevent replay attacks, process payloads asynchronously via message queues, and return immediate 200 OK responses to avoid delivery timeouts and retries.",
+    "conditions": [
+      {
+        "name": "Event-Driven HTTP POST Push Callback Architecture",
+        "keywords": [
+          "webhook",
+          "callback",
+          "http post",
+          "event-driven",
+          "reverse api"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HMAC-SHA256 Cryptographic Payload Signature Verification",
+        "keywords": [
+          "hmac",
+          "sha256",
+          "signature",
+          "shared secret",
+          "tampering"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Idempotency, Replay Attack Prevention, and Async Queue Offloading",
+        "keywords": [
+          "idempotency",
+          "replay attack",
+          "timestamp",
+          "async processing",
+          "retry policy"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Database Performance",
+    "difficulty": "Medium",
+    "text": "Explain SQL Query Execution Plans (EXPLAIN ANALYZE) and how to identify Sequential Scans versus Index Scans.",
+    "idealAnswer": "An execution plan generated by EXPLAIN ANALYZE reveals the database query planner strategy, estimated cost, and actual runtime execution metrics. A Sequential Scan reads every block in the physical table file sequentially, signaling missing indexes, unindexed foreign keys, or broad range queries. An Index Scan (or Index Only Scan) navigates B-Tree index pages directly to locate target row pointers, dramatically reducing disk I/O and query latency.",
+    "conditions": [
+      {
+        "name": "Query Planner Cost Estimation and Actual Execution Runtime",
+        "keywords": [
+          "explain analyze",
+          "execution plan",
+          "query planner",
+          "cost",
+          "actual time"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sequential Scan (Seq Scan) Full-Table File Traversal",
+        "keywords": [
+          "sequential scan",
+          "seq scan",
+          "full table scan",
+          "missing index",
+          "table scan"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Index Scan and Index Only Scan I/O Reduction",
+        "keywords": [
+          "index scan",
+          "index only scan",
+          "bitmap scan",
+          "b-tree lookup",
+          "disk i/o"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Dependency Injection",
+    "difficulty": "Medium",
+    "text": "What is Dependency Inversion and how does Dependency Injection (DI) facilitate test-driven development?",
+    "idealAnswer": "The Dependency Inversion Principle (DIP) states that high-level modules should not depend on low-level modules; both should depend on abstractions (interfaces). Dependency Injection is a design pattern that implements DIP by passing dependencies into a class (via constructor, setter, or framework container) rather than allowing the class to instantiate dependencies internally. This allows developers to easily inject mock or stub implementations during automated unit testing.",
+    "conditions": [
+      {
+        "name": "High-Level Modules Depending on Abstractions (Interfaces)",
+        "keywords": [
+          "dependency inversion",
+          "dip",
+          "abstractions",
+          "interfaces",
+          "decoupling"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Constructor and Container Dependency Injection Pattern",
+        "keywords": [
+          "dependency injection",
+          "di",
+          "inversion of control",
+          "ioc",
+          "constructor injection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Test-Driven Development (TDD) Mocking and Isolation",
+        "keywords": [
+          "tdd",
+          "unit testing",
+          "mocks",
+          "stubs",
+          "testability"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Microservices Resilience",
+    "difficulty": "Medium",
+    "text": "How do Retries with Exponential Backoff and Jitter prevent Thundering Herd retries during service outages?",
+    "idealAnswer": "When a downstream service experiences transient failures, immediate retries overwhelm the recovering service, triggering cascading failures. Exponential backoff increases delay exponentially after each attempt (e.g. 1s, 2s, 4s, 8s). Adding Jitter introduces randomized noise to the delay interval, desynchronizing concurrent clients that failed simultaneously and spreading retry traffic evenly across time, preventing catastrophic Thundering Herd surges.",
+    "conditions": [
+      {
+        "name": "Transient Failures and Immediate Retry Cascading Outages",
+        "keywords": [
+          "retries",
+          "transient failures",
+          "cascading outage",
+          "service recovery"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Exponential Backoff Multiplicative Delay Growth",
+        "keywords": [
+          "exponential backoff",
+          "delay",
+          "multiplicative",
+          "backoff",
+          "rate of increase"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Full Jitter Randomization for Client Desynchronization",
+        "keywords": [
+          "jitter",
+          "randomization",
+          "thundering herd",
+          "desynchronization",
+          "load spreading"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Compression",
+    "difficulty": "Medium",
+    "text": "Explain Huffman Coding and how variable-length prefix codes achieve lossless data compression.",
+    "idealAnswer": "Huffman coding is an optimal prefix-free greedy algorithm for lossless data compression. It counts character frequencies in input data and builds a binary tree bottom-up by repeatedly merging the two lowest-frequency nodes. Characters occurring frequently are assigned short bit sequences (e.g. 1-2 bits), while rare characters receive longer bit sequences, guaranteeing no code is a prefix of another and enabling unambiguous decompression without delimiters.",
+    "conditions": [
+      {
+        "name": "Frequency-Based Greedy Priority Queue Binary Tree Construction",
+        "keywords": [
+          "huffman coding",
+          "binary tree",
+          "frequencies",
+          "greedy",
+          "priority queue"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Variable-Length Prefix-Free Code Property",
+        "keywords": [
+          "prefix-free",
+          "variable-length",
+          "prefix code",
+          "ambiguity",
+          "unambiguous"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Lossless Compression Ratio and Entropy Theoretical Limits",
+        "keywords": [
+          "lossless compression",
+          "shannon entropy",
+          "bit reduction",
+          "file compression"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Graph Algorithms",
+    "difficulty": "Medium",
+    "text": "Explain Dijkstra algorithm for finding single-source shortest paths on weighted graphs and its time complexity.",
+    "idealAnswer": "Dijkstra algorithm finds the shortest path from a source node to all other nodes in a weighted graph with non-negative edge weights. It maintains tentative distance estimates initialized to infinity (0 for source) and processes nodes greedily using a Min-Priority Queue (Fibonacci or Binary Heap). At each step, it extracts the unvisited node with minimal distance and relaxes its outgoing edges. Using a binary heap, it achieves O((V + E) log V) time complexity.",
+    "conditions": [
+      {
+        "name": "Non-Negative Edge Weight Precondition",
+        "keywords": [
+          "dijkstra",
+          "shortest path",
+          "non-negative",
+          "weighted graph",
+          "relaxation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Greedy Min-Priority Queue (Heap) Relaxation Mechanism",
+        "keywords": [
+          "min-heap",
+          "priority queue",
+          "greedy",
+          "extract min",
+          "tentative distance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "O((V + E) log V) Computational Complexity Analysis",
+        "keywords": [
+          "o((v + e) log v)",
+          "binary heap",
+          "vertices",
+          "edges",
+          "complexity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "System Modeling",
+    "difficulty": "Medium",
+    "text": "Compare State Machine Patterns with Strategy Patterns for managing dynamic application behavior.",
+    "idealAnswer": "The Strategy pattern defines a family of interchangeable algorithms encapsulating them in separate classes, allowing clients to swap algorithms (e.g. sorting or payment methods) at runtime without altering client code. The State pattern alters an object behavior when its internal state changes, where concrete state classes represent discrete lifecycle states and trigger transitions between themselves, modeling complex workflows (e.g. order processing: Pending, Paid, Shipped, Delivered).",
+    "conditions": [
+      {
+        "name": "Strategy Pattern Interchangeable Algorithms and Client Composition",
+        "keywords": [
+          "strategy pattern",
+          "interchangeable algorithms",
+          "composition",
+          "runtime swapping"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "State Pattern Lifecycle State Transitions and State Machine Modeling",
+        "keywords": [
+          "state pattern",
+          "state machine",
+          "transitions",
+          "lifecycle",
+          "context"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Encapsulation of Conditional Branching (Eliminating Giant Switch/If)",
+        "keywords": [
+          "polymorphism",
+          "eliminating conditionals",
+          "clean code",
+          "refactoring"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Concurrency Models",
+    "difficulty": "Medium",
+    "text": "Compare the Actor Model (e.g. Akka, Erlang) with Shared-Memory Multi-Threading in concurrent programming.",
+    "idealAnswer": "Shared-memory multithreading relies on multiple threads accessing common heap memory synchronized via locks, mutexes, and semaphores, prone to deadlocks, race conditions, and memory corruption. The Actor Model treats autonomous lightweight primitives called Actors as the universal unit of computation. Actors share zero state; they communicate exclusively by passing immutable messages to mailboxes, processing messages sequentially, eliminating lock contention and simplifying fault tolerance.",
+    "conditions": [
+      {
+        "name": "Shared Memory Lock Contention and Deadlock Pitfalls",
+        "keywords": [
+          "shared memory",
+          "locks",
+          "mutex",
+          "deadlock",
+          "race conditions",
+          "multi-threading"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Actor Model Shared-Nothing Architecture and Message Passing",
+        "keywords": [
+          "actor model",
+          "shared-nothing",
+          "message passing",
+          "mailbox",
+          "immutable"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Supervision Trees and \"Let It Crash\" Fault Tolerance Philosophy",
+        "keywords": [
+          "supervision tree",
+          "let it crash",
+          "erlang",
+          "akka",
+          "fault tolerance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Database Internals",
+    "difficulty": "Hard",
+    "text": "Explain B-Link Trees (Lehman-Yao algorithm) for high-concurrency database index reads and writes without read locks.",
+    "idealAnswer": "Standard B-Tree concurrency requires readers to lock traversed internal nodes to prevent reading while a node split is underway, causing severe read contention. The Lehman-Yao B-Link Tree eliminates read locks by adding a high key and a sibling pointer link to every node. When a node splits, it introduces the link before updating the parent; if a concurrent reader encounters a search key greater than the high key, it simply follows the sibling pointer rightwards to find the shifted key, guaranteeing lock-free reads.",
+    "conditions": [
+      {
+        "name": "Read Lock Bottlenecks During Node Splits in Standard B-Trees",
+        "keywords": [
+          "b-link tree",
+          "lehman-yao",
+          "node split",
+          "read locks elimination",
+          "concurrency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sibling Pointer Links and High Key Boundary Invariant",
+        "keywords": [
+          "sibling pointer",
+          "high key",
+          "rightward traversal",
+          "lock-free reads"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Safe Concurrent Traversal Without Reader-Writer Deadlocks",
+        "keywords": [
+          "deadlock prevention",
+          "database indexing",
+          "high concurrency",
+          "leaf node"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Transactions",
+    "difficulty": "Hard",
+    "text": "Explain Two-Phase Locking (2PL) vs Serializable Snapshot Isolation (SSI) in high-throughput transactional databases.",
+    "idealAnswer": "Strict Two-Phase Locking (2PL) enforces serializability by acquiring shared locks for reads and exclusive locks for writes in a growing phase and holding all locks until transaction commit (shrinking phase), guaranteeing serializability but creating heavy lock contention and deadlocks. Serializable Snapshot Isolation (SSI) is lock-free: transactions execute against an MVCC snapshot while the engine tracks rw-antidependency conflicts (si-read locks) in a dependency graph, rolling back only transactions forming dangerous serialization cycles.",
+    "conditions": [
+      {
+        "name": "Two-Phase Locking (2PL) Growing and Shrinking Phases",
+        "keywords": [
+          "2pl",
+          "two-phase locking",
+          "exclusive locks",
+          "shared locks",
+          "growing phase"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Serializable Snapshot Isolation (SSI) Lock-Free MVCC Execution",
+        "keywords": [
+          "ssi",
+          "serializable snapshot isolation",
+          "lock-free",
+          "mvcc",
+          "snapshot"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "rw-Antidependency Dependency Graph Conflict Cycle Detection",
+        "keywords": [
+          "rw-antidependency",
+          "serialization cycle",
+          "dependency graph",
+          "abort",
+          "rollback"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Systems",
+    "difficulty": "Hard",
+    "text": "How does the Paxos consensus algorithm achieve agreement over unreliable asynchronous networks, detailing Phase 1 and Phase 2?",
+    "idealAnswer": "Paxos achieves consensus among distributed nodes despite packet loss and node crashes. In Phase 1 (Prepare/Promise), a proposer selects a unique proposal number n and sends Prepare(n) to an acceptor quorum; acceptors promise not to accept any future proposals less than n and return the highest-numbered proposal they previously accepted. In Phase 2 (Accept/Accepted), if the proposer receives promises from a majority quorum, it sends Accept(n, v) with value v (highest accepted or its own); if a majority accepts, the value is permanently chosen.",
+    "conditions": [
+      {
+        "name": "Asynchronous Network Flaws and Quorum Majority Overlap",
+        "keywords": [
+          "paxos",
+          "consensus",
+          "quorum majority",
+          "proposal number",
+          "asynchronous network"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Phase 1 Prepare and Promise RPC Protocol",
+        "keywords": [
+          "phase 1",
+          "prepare",
+          "promise",
+          "highest-numbered",
+          "prevention of split brain"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Phase 2 Accept and Accepted Commit Consensus Invariant",
+        "keywords": [
+          "phase 2",
+          "accept",
+          "accepted",
+          "consensus commit",
+          "leader election"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Garbage Collection Algorithms",
+    "difficulty": "Hard",
+    "text": "Explain Concurrent Mark-Sweep and ZGC (Z Garbage Collector) Colored Pointers and Load Barriers in modern runtimes.",
+    "idealAnswer": "Traditional stop-the-world garbage collectors pause all application execution threads for seconds during heap compaction. Modern low-latency collectors like JVM ZGC achieve sub-millisecond pause times regardless of heap size (even terabytes). ZGC uses Colored Pointers (embedding metadata bits directly into 64-bit reference pointers) and Load Barriers: when an application thread reads an object reference, the load barrier intercepts the pointer; if colored bits indicate the object has moved, it immediately patches the reference on-the-fly, decoupling compaction from thread pauses.",
+    "conditions": [
+      {
+        "name": "Stop-the-World Pause Times and Heap Scalability Limitations",
+        "keywords": [
+          "stop-the-world",
+          "pause time",
+          "heap compaction",
+          "latency spikes",
+          "gc pauses"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Colored Pointers 64-bit Reference Metadata Bit Encoding",
+        "keywords": [
+          "zgc",
+          "colored pointers",
+          "metadata bits",
+          "reference pointer",
+          "64-bit"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Load Barriers Concurrent Relocation and Self-Healing Pointers",
+        "keywords": [
+          "load barrier",
+          "concurrent relocation",
+          "self-healing",
+          "sub-millisecond"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Consensus",
+    "difficulty": "Hard",
+    "text": "What is Byzantine Fault Tolerance (BFT), and why does PBFT require 3f + 1 nodes to tolerate f malicious failures?",
+    "idealAnswer": "Crash-fault-tolerant algorithms (Raft/Paxos) assume nodes either follow the protocol or fail by stopping. Byzantine Fault Tolerance (BFT) handles nodes that act maliciously, forge messages, or send contradictory information to different peers (Byzantine failures). In an asynchronous network with f malicious nodes, up to f nodes may not respond, requiring n - f responses. To ensure honest nodes form a majority over the f potential liars among respondents, (n - f) - f must exceed f, yielding n >= 3f + 1.",
+    "conditions": [
+      {
+        "name": "Byzantine Malicious Failures vs Crash-Fault Tolerance",
+        "keywords": [
+          "bft",
+          "byzantine fault tolerance",
+          "pbft",
+          "malicious nodes",
+          "crash fault"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mathematical Proof for 3f + 1 Minimal Node Quorum Requirement",
+        "keywords": [
+          "3f + 1",
+          "mathematical proof",
+          "majority",
+          "unresponsive nodes",
+          "failing"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Three-Phase Protocol (Pre-Prepare, Prepare, Commit)",
+        "keywords": [
+          "pre-prepare",
+          "prepare",
+          "commit",
+          "cryptographic signatures",
+          "consensus"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "High-Performance Computing",
+    "difficulty": "Hard",
+    "text": "Explain Lock-Free Data Structures and how Compare-And-Swap (CAS) atomic instructions prevent ABA problems using tagged pointers.",
+    "idealAnswer": "Lock-free data structures guarantee that at least one thread makes progress across any time interval without mutual exclusion locks. They rely on CPU hardware atomic primitives like Compare-And-Swap (CAS(address, expected, new)). The ABA problem occurs when Thread 1 reads value A, is preempted, Thread 2 changes A to B and back to A; Thread 1 resumes and CAS succeeds erroneously despite structural state changes. The ABA problem is resolved using Tagged Pointers (storing a monotonic version counter alongside the pointer) or hazard pointers.",
+    "conditions": [
+      {
+        "name": "Lock-Free Progress Guarantees and CAS Atomic Primitive",
+        "keywords": [
+          "lock-free",
+          "compare-and-swap",
+          "cas",
+          "atomic instruction",
+          "hardware primitive"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ABA Problem Manifestation in Lock-Free Concurrent Stacks/Queues",
+        "keywords": [
+          "aba problem",
+          "preemption",
+          "stale reference",
+          "memory reuse",
+          "concurrent stack"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Tagged Pointers Version Counting and Hazard Pointers Solutions",
+        "keywords": [
+          "tagged pointers",
+          "version counter",
+          "hazard pointers",
+          "memory reclamation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Storage & Consistency",
+    "difficulty": "Hard",
+    "text": "Compare Eventual Consistency, Causal Consistency, and Linearizability in distributed data stores.",
+    "idealAnswer": "Linearizability (strong consistency) guarantees that operations appear to execute instantaneously on a single virtual register at some point between their invocation and response, enforcing global real-time ordering. Causal Consistency is weaker: it guarantees that operations that are causally related (happens-before relationship) are seen by all processes in the same order, but concurrent non-causal operations may be seen in differing orders. Eventual Consistency is the weakest: it guarantees only that if no new updates are made, all replicas will eventually converge to identical values.",
+    "conditions": [
+      {
+        "name": "Linearizability Real-Time Single-Copy Instantaneous Semantics",
+        "keywords": [
+          "linearizability",
+          "real-time ordering",
+          "single copy",
+          "strong consistency",
+          "global order"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Causal Consistency Happens-Before Dependency Tracking",
+        "keywords": [
+          "causal consistency",
+          "happens-before",
+          "causality",
+          "vector clocks",
+          "partial order"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Eventual Consistency Convergence and Latency Trade-offs",
+        "keywords": [
+          "eventual consistency",
+          "convergence",
+          "high availability",
+          "latency trade-offs"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Low-Latency Networking",
+    "difficulty": "Hard",
+    "text": "How does Kernel Bypass Networking (DPDK, Solarflare OpenOnload) eliminate operating system network stack latency?",
+    "idealAnswer": "The traditional Linux kernel networking stack incurs high latency due to hardware interrupts, context switches, sk_buff data structure allocation, and socket buffer copies. Kernel Bypass architectures (such as DPDK - Data Plane Development Kit) take control of the Network Interface Card (NIC) directly in user space. They replace interrupts with continuous Poll Mode Drivers (PMD) in dedicated CPU cores and map NIC packet rings directly to user-space memory via hugepages, slashing packet latency from microseconds to sub-hundred nanoseconds in algorithmic trading and telecom.",
+    "conditions": [
+      {
+        "name": "Linux Kernel Network Stack Interrupt and Context Switch Overhead",
+        "keywords": [
+          "kernel bypass",
+          "sk_buff",
+          "hardware interrupts",
+          "context switch",
+          "os overhead"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "DPDK User-Space Device Driver and Poll Mode Drivers (PMD)",
+        "keywords": [
+          "dpdk",
+          "user space driver",
+          "poll mode driver",
+          "pmd",
+          "nic rings"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hugepages Direct Memory Mapping and Sub-Microsecond Performance",
+        "keywords": [
+          "hugepages",
+          "memory mapping",
+          "sub-microsecond",
+          "ultra low latency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]

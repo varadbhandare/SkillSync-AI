@@ -1,0 +1,1294 @@
+[
+  {
+    "topic": "Data Structures",
+    "difficulty": "Easy",
+    "text": "What are the primary differences between an array and a linked list in terms of memory layout and access time?",
+    "idealAnswer": "Arrays allocate contiguous blocks of memory allowing O(1) random access via index arithmetic, but have fixed capacity and costly O(n) insertions. Linked lists store elements non-contiguously connected by pointers, providing dynamic sizing and O(1) insertions at known nodes, but require O(n) traversal.",
+    "conditions": [
+      {
+        "name": "Contiguous vs Pointer-Linked Memory Allocation",
+        "keywords": [
+          "contiguous",
+          "pointer",
+          "node",
+          "memory",
+          "layout"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Random Access Complexity vs Traversal Overhead",
+        "keywords": [
+          "random access",
+          "o(1)",
+          "o(n)",
+          "traversal",
+          "index"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Insertion and Deletion Dynamic Resizing Trade-offs",
+        "keywords": [
+          "insertion",
+          "deletion",
+          "dynamic",
+          "resizing",
+          "capacity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Structures",
+    "difficulty": "Easy",
+    "text": "Explain the Last-In-First-Out (LIFO) and First-In-First-Out (FIFO) principles using Stack and Queue data structures with real-world use cases.",
+    "idealAnswer": "A Stack enforces LIFO semantics where the most recently pushed element is popped first, utilized in recursion call stacks, undo buffers, and syntax parsing. A Queue enforces FIFO semantics where the earliest enqueued element is dequeued first, utilized in task scheduling, message brokers, and breadth-first search.",
+    "conditions": [
+      {
+        "name": "LIFO Principles and Stack Operations",
+        "keywords": [
+          "lifo",
+          "stack",
+          "push",
+          "pop",
+          "last in"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "FIFO Principles and Queue Operations",
+        "keywords": [
+          "fifo",
+          "queue",
+          "enqueue",
+          "dequeue",
+          "first in"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Real-World Systems Applications",
+        "keywords": [
+          "call stack",
+          "undo",
+          "scheduling",
+          "buffer",
+          "bfs"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Easy",
+    "text": "How does the Binary Search algorithm achieve logarithmic time complexity, and what precondition must the dataset meet?",
+    "idealAnswer": "Binary search requires the dataset to be strictly sorted. At each step, it compares the target value against the median element and discards half the remaining search space, halving problem size from n to n/2 iteratively, yielding O(log n) time complexity with O(1) auxiliary space.",
+    "conditions": [
+      {
+        "name": "Sorted Array Precondition Requirement",
+        "keywords": [
+          "sorted",
+          "order",
+          "monotonic",
+          "ascending",
+          "precondition"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Divide-and-Conquer Search Space Halving",
+        "keywords": [
+          "halving",
+          "divide and conquer",
+          "median",
+          "middle",
+          "half"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Logarithmic O(log n) Complexity Analysis",
+        "keywords": [
+          "o(log n)",
+          "logarithmic",
+          "complexity",
+          "o(1) space"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Computer Science Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is Big-O notation, and why is it used to evaluate the efficiency of algorithms?",
+    "idealAnswer": "Big-O notation describes the upper bound of an algorithm asymptotic runtime or memory consumption as input size n grows towards infinity. It abstracts hardware variance, clock speed, and compiler optimizations to classify algorithms into standard complexity classes like O(1), O(n), and O(n log n).",
+    "conditions": [
+      {
+        "name": "Asymptotic Upper Bound Definition",
+        "keywords": [
+          "upper bound",
+          "asymptotic",
+          "growth",
+          "infinity",
+          "worst case"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hardware Independence and Input Scaling",
+        "keywords": [
+          "hardware",
+          "scaling",
+          "input size",
+          "abstract",
+          "machine"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Standard Complexity Classes Classification",
+        "keywords": [
+          "o(1)",
+          "o(n)",
+          "o(n log n)",
+          "polynomial",
+          "exponential"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Operating Systems",
+    "difficulty": "Easy",
+    "text": "What is the fundamental difference between a process and a thread in modern operating systems?",
+    "idealAnswer": "A process is an independent program execution context with its own private virtual address space, file descriptors, and memory protection. A thread is a lightweight execution unit inside a process that shares the parent process heap, code, and resources while retaining its own private program counter and call stack.",
+    "conditions": [
+      {
+        "name": "Process Memory Isolation and Address Space",
+        "keywords": [
+          "process",
+          "address space",
+          "isolation",
+          "virtual memory",
+          "independent"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Thread Shared Heap and Lightweight Scheduling",
+        "keywords": [
+          "thread",
+          "shared memory",
+          "heap",
+          "lightweight",
+          "execution"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Private Stack, Program Counter, and Context Switching",
+        "keywords": [
+          "stack",
+          "program counter",
+          "registers",
+          "context switch",
+          "overhead"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Networking",
+    "difficulty": "Easy",
+    "text": "Compare TCP and UDP protocols, explaining when an engineer should choose one over the other.",
+    "idealAnswer": "TCP is a connection-oriented protocol providing guaranteed ordered delivery, packet retransmission, flow control, and error checking via a three-way handshake, suited for web pages, file transfers, and APIs. UDP is connectionless and lightweight without retransmissions, suited for real-time video streaming, gaming, and DNS where low latency outweighs packet loss.",
+    "conditions": [
+      {
+        "name": "TCP Reliability, Handshake, and Ordered Delivery",
+        "keywords": [
+          "tcp",
+          "connection-oriented",
+          "three-way handshake",
+          "reliable",
+          "ordered",
+          "retransmission"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "UDP Connectionless Low-Latency Semantics",
+        "keywords": [
+          "udp",
+          "connectionless",
+          "datagram",
+          "low latency",
+          "overhead",
+          "fast"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "System Use Case Justification",
+        "keywords": [
+          "streaming",
+          "gaming",
+          "dns",
+          "http",
+          "file transfer"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Web Architecture",
+    "difficulty": "Easy",
+    "text": "Explain the difference between HTTP and HTTPS, focusing on the role of TLS/SSL encryption.",
+    "idealAnswer": "HTTP transmits plaintext data across TCP port 80, making requests vulnerable to eavesdropping and man-in-the-middle attacks. HTTPS secures communication over port 443 by encrypting the HTTP transport layer using TLS/SSL, providing end-to-end data confidentiality, integrity checks, and cryptographic server authentication via digital certificates.",
+    "conditions": [
+      {
+        "name": "Plaintext Vulnerability vs Port 443 TLS Encapsulation",
+        "keywords": [
+          "plaintext",
+          "port 80",
+          "port 443",
+          "tls",
+          "ssl",
+          "transport"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cryptographic Encryption, Confidentiality, and Integrity",
+        "keywords": [
+          "encryption",
+          "confidentiality",
+          "integrity",
+          "eavesdropping",
+          "mitm"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Server Identity Authentication via PKI Certificates",
+        "keywords": [
+          "certificate",
+          "ca",
+          "authentication",
+          "public key",
+          "handshake"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Version Control",
+    "difficulty": "Easy",
+    "text": "What is the practical difference between git merge and git rebase when combining branches?",
+    "idealAnswer": "Git merge creates a new non-destructive merge commit combining the history of both branches, preserving the exact chronological sequence and commit graph topology. Git rebase rewrites project history by replaying local commits on top of the target base branch, producing a clean linear history but modifying commit hashes.",
+    "conditions": [
+      {
+        "name": "Git Merge Non-Destructive Merge Commit",
+        "keywords": [
+          "merge",
+          "merge commit",
+          "non-destructive",
+          "history",
+          "branches"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Git Rebase Linear History and Commit Replaying",
+        "keywords": [
+          "rebase",
+          "linear",
+          "replay",
+          "rewrite",
+          "base"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Golden Rule and Public Branch Considerations",
+        "keywords": [
+          "public",
+          "hash",
+          "conflict",
+          "team",
+          "shared"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Databases",
+    "difficulty": "Easy",
+    "text": "What are the key trade-offs between relational (SQL) and non-relational (NoSQL) database systems?",
+    "idealAnswer": "Relational SQL databases use structured schemas, table relations, and ACID transactions, excelling at complex relational joins and financial integrity. NoSQL databases provide flexible schema-less models (document, key-value, column, graph) designed for horizontal scaling across distributed clusters with high write throughput and eventual consistency.",
+    "conditions": [
+      {
+        "name": "Structured Schema and Relational Joins in SQL",
+        "keywords": [
+          "sql",
+          "relational",
+          "schema",
+          "tables",
+          "joins",
+          "foreign key"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Flexible Data Models and Horizontal Scaling in NoSQL",
+        "keywords": [
+          "nosql",
+          "horizontal scaling",
+          "document",
+          "key-value",
+          "flexible schema",
+          "sharding"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ACID vs BASE Eventual Consistency Trade-offs",
+        "keywords": [
+          "acid",
+          "transactions",
+          "consistency",
+          "base",
+          "eventual"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Software Engineering Principles",
+    "difficulty": "Easy",
+    "text": "Explain the Single Responsibility Principle (SRP) and why it improves software maintainability.",
+    "idealAnswer": "The Single Responsibility Principle asserts that a class, module, or function should have only one reason to change, encapsulating a single tightly-scoped concern. Following SRP reduces class coupling, simplifies automated unit testing, avoids side-effect bugs, and ensures team members can modify modules concurrently without merge conflicts.",
+    "conditions": [
+      {
+        "name": "Single Reason to Change Definition",
+        "keywords": [
+          "single responsibility",
+          "one reason to change",
+          "srp",
+          "concern",
+          "cohesion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Decoupling and Side-Effect Mitigation",
+        "keywords": [
+          "coupling",
+          "decoupling",
+          "side-effects",
+          "isolation",
+          "boundaries"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Maintainability and Unit Testability Benefits",
+        "keywords": [
+          "maintainability",
+          "unit testing",
+          "testable",
+          "refactoring",
+          "clarity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Programming Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is recursion, and what components are required to prevent a stack overflow error?",
+    "idealAnswer": "Recursion occurs when a function calls itself to solve smaller instances of the same problem. Every recursive implementation strictly requires at least one terminating base case to return without recursive calls, and a recursive step that moves state toward the base case, preventing infinite recursion and call stack overflow.",
+    "conditions": [
+      {
+        "name": "Self-Referential Function Invocation Definition",
+        "keywords": [
+          "recursion",
+          "self-calling",
+          "subproblem",
+          "call",
+          "function"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Base Case Termination Guard",
+        "keywords": [
+          "base case",
+          "terminating",
+          "condition",
+          "return",
+          "guard"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Call Stack Frame Accumulation and State Progress",
+        "keywords": [
+          "call stack",
+          "stack overflow",
+          "frame",
+          "progress",
+          "state"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Programming Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain the difference between pass-by-value and pass-by-reference in modern programming languages.",
+    "idealAnswer": "In pass-by-value, a copy of the actual variable data is passed to the function parameter, meaning changes inside the function do not affect the original caller variable. In pass-by-reference, the memory address or pointer reference is passed, allowing the function to directly mutate the caller original data in memory.",
+    "conditions": [
+      {
+        "name": "Pass-by-Value Data Copy Isolation",
+        "keywords": [
+          "pass-by-value",
+          "copy",
+          "isolation",
+          "primitive",
+          "independent"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pass-by-Reference Memory Pointer Mutation",
+        "keywords": [
+          "pass-by-reference",
+          "pointer",
+          "reference",
+          "memory address",
+          "mutate"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Side Effects and Object Handling Behavior",
+        "keywords": [
+          "side effects",
+          "caller",
+          "object",
+          "reassignment",
+          "mutation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Operating Systems",
+    "difficulty": "Medium",
+    "text": "What is a deadlock in concurrent programming, and what are the four necessary Coffman conditions required for it to occur?",
+    "idealAnswer": "A deadlock is a state where concurrent threads or processes are permanently blocked because each holds a resource while waiting for another held by another thread. The four Coffman conditions are mutual exclusion, hold and wait, no preemption, and circular wait; breaking any one condition prevents deadlocks.",
+    "conditions": [
+      {
+        "name": "Deadlock Definition and Resource Blocking",
+        "keywords": [
+          "deadlock",
+          "blocked",
+          "thread",
+          "resource",
+          "contention"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Four Coffman Conditions Enumeration",
+        "keywords": [
+          "mutual exclusion",
+          "hold and wait",
+          "no preemption",
+          "circular wait",
+          "coffman"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Deadlock Prevention and Resource Ordering Strategies",
+        "keywords": [
+          "prevention",
+          "lock ordering",
+          "timeout",
+          "banker",
+          "avoidance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Structures",
+    "difficulty": "Medium",
+    "text": "How do Hash Maps handle hash collisions, comparing separate chaining versus open addressing?",
+    "idealAnswer": "Hash maps encounter collisions when two distinct keys hash to the same bucket index. Separate chaining stores colliding entries in linked lists or balanced red-black trees at each bucket. Open addressing resolves collisions within the table itself by probing subsequent slots using linear probing, quadratic probing, or double hashing.",
+    "conditions": [
+      {
+        "name": "Hash Collision Cause and Hash Function Distribution",
+        "keywords": [
+          "collision",
+          "hash function",
+          "bucket",
+          "index",
+          "hash code"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Separate Chaining with Lists and Balanced Trees",
+        "keywords": [
+          "chaining",
+          "linked list",
+          "red-black tree",
+          "bucket",
+          "pointer"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Open Addressing Probing Strategies and Clustering",
+        "keywords": [
+          "open addressing",
+          "linear probing",
+          "quadratic",
+          "double hashing",
+          "clustering"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "System Design",
+    "difficulty": "Medium",
+    "text": "Explain the internal architecture and eviction mechanics of an in-memory Least Recently Used (LRU) Cache.",
+    "idealAnswer": "An efficient LRU cache achieves O(1) get and put operations by pairing a Hash Map with a Doubly Linked List. The hash map maps keys to list nodes for instant lookup, while the doubly linked list tracks access recency; on access or update, the node moves to the head, and on capacity overflow, the tail node is evicted.",
+    "conditions": [
+      {
+        "name": "Hash Map and Doubly Linked List Composition",
+        "keywords": [
+          "hash map",
+          "doubly linked list",
+          "o(1)",
+          "node",
+          "pointers"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Node Movement on Cache Hit and Update",
+        "keywords": [
+          "head",
+          "tail",
+          "access",
+          "recency",
+          "move to head"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Eviction Protocol on Capacity Overflow",
+        "keywords": [
+          "eviction",
+          "capacity",
+          "least recently used",
+          "tail removal",
+          "overflow"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Web Architecture",
+    "difficulty": "Medium",
+    "text": "Compare RESTful APIs with GraphQL, analyzing payload optimization, over-fetching, and caching capabilities.",
+    "idealAnswer": "REST uses standardized HTTP verbs over resource-oriented endpoints, benefiting from ubiquitous HTTP caching, CDN edge caching, and predictable URIs, but often suffers from over-fetching and under-fetching. GraphQL exposes a single endpoint allowing clients to query exact nested fields in one roundtrip, but shifts query parsing to the server and complicates HTTP caching.",
+    "conditions": [
+      {
+        "name": "REST Resource Endpoints and HTTP Method Standards",
+        "keywords": [
+          "rest",
+          "endpoints",
+          "http verbs",
+          "get",
+          "post",
+          "resources"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "GraphQL Query Flexibility Eliminating Over-fetching",
+        "keywords": [
+          "graphql",
+          "over-fetching",
+          "under-fetching",
+          "schema",
+          "single endpoint",
+          "fields"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Caching and Server-Side Complexity Trade-offs",
+        "keywords": [
+          "http caching",
+          "cdn",
+          "complexity",
+          "n+1",
+          "dataloader"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Databases",
+    "difficulty": "Medium",
+    "text": "Explain why B-Tree indexes are preferred over binary search trees for disk-based relational database storage.",
+    "idealAnswer": "B-Trees are self-balancing multi-way search trees with high fan-out, meaning each node contains multiple keys and child pointers fitting exactly into disk page blocks (e.g., 4KB or 8KB). This shallow tree depth minimizes expensive disk I/O seek operations compared to deep binary search trees, and sequential leaf links facilitate fast range scans.",
+    "conditions": [
+      {
+        "name": "High Fan-out and Disk Page Block Alignment",
+        "keywords": [
+          "b-tree",
+          "fan-out",
+          "disk page",
+          "block",
+          "multi-way",
+          "shallow"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Minimizing Disk I/O Seeks vs Binary Trees",
+        "keywords": [
+          "disk i/o",
+          "seek",
+          "binary tree",
+          "depth",
+          "rotations"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sequential Leaf Pointers for Range Scans",
+        "keywords": [
+          "range scan",
+          "leaf",
+          "linked",
+          "sequential",
+          "order"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Systems",
+    "difficulty": "Medium",
+    "text": "Describe the CAP Theorem and explain the practical engineering trade-offs between CP and AP distributed architectures.",
+    "idealAnswer": "The CAP theorem states that a distributed data store can guarantee at most two of Consistency, Availability, and Partition Tolerance during a network split. Because network partitions (P) are unavoidable in real networks, architectures must choose CP (refusing writes or returning errors to preserve linearizable consistency) or AP (accepting writes with eventual consistency).",
+    "conditions": [
+      {
+        "name": "Consistency, Availability, and Partition Tolerance Definition",
+        "keywords": [
+          "consistency",
+          "availability",
+          "partition tolerance",
+          "cap",
+          "network split"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Unavoidability of Network Partitions",
+        "keywords": [
+          "partition",
+          "unavoidable",
+          "network failure",
+          "split brain",
+          "distributed"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CP Linearizability vs AP Eventual Availability Trade-off",
+        "keywords": [
+          "cp",
+          "ap",
+          "eventual consistency",
+          "linearizability",
+          "trade-off"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Concurrency",
+    "difficulty": "Medium",
+    "text": "What is a Race Condition in multi-threaded programming, and how do Mutexes differ from Counting Semaphores in preventing them?",
+    "idealAnswer": "A race condition occurs when concurrent threads access shared mutable state without synchronization and the outcome depends on thread scheduling order. A Mutex is a binary mutual exclusion lock with ownership semantics, where only the locking thread may unlock it. A Semaphore maintains a counter representing resource permits, allowing multiple threads up to the permit limit without ownership.",
+    "conditions": [
+      {
+        "name": "Race Condition and Shared Mutable State",
+        "keywords": [
+          "race condition",
+          "shared state",
+          "scheduling",
+          "non-deterministic",
+          "critical section"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mutex Mutual Exclusion and Ownership Semantics",
+        "keywords": [
+          "mutex",
+          "mutual exclusion",
+          "lock",
+          "ownership",
+          "unlock"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Counting Semaphore Resource Permit Signaling",
+        "keywords": [
+          "semaphore",
+          "counter",
+          "permits",
+          "signaling",
+          "concurrency limit"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Medium",
+    "text": "Explain the principles of Dynamic Programming, contrasting top-down memoization with bottom-up tabulation.",
+    "idealAnswer": "Dynamic Programming optimizes problems with overlapping subproblems and optimal substructure by caching subproblem solutions. Top-down memoization maintains recursive structure, caching results in a hash map or array as needed on demand. Bottom-up tabulation eliminates recursion overhead by iteratively filling a DP table starting from initial base states.",
+    "conditions": [
+      {
+        "name": "Overlapping Subproblems and Optimal Substructure",
+        "keywords": [
+          "overlapping subproblems",
+          "optimal substructure",
+          "memoization",
+          "cache",
+          "subproblem"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Top-down Recursion with On-demand Caching",
+        "keywords": [
+          "top-down",
+          "recursion",
+          "call stack",
+          "cache",
+          "hashmap"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Bottom-up Iterative Tabulation and Space Optimization",
+        "keywords": [
+          "bottom-up",
+          "tabulation",
+          "iterative",
+          "dp table",
+          "space optimization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Operating Systems",
+    "difficulty": "Medium",
+    "text": "How does virtual memory work, and what sequence of events occurs when a page fault happens?",
+    "idealAnswer": "Virtual memory isolates process address spaces by mapping virtual addresses to physical RAM frames through page tables managed by the CPU MMU. When a process accesses an unmapped or swapped-out virtual page, the MMU triggers a page fault hardware interrupt. The OS pauses the thread, reads the requested page from disk swap into a free physical frame, updates the page table, and resumes execution.",
+    "conditions": [
+      {
+        "name": "Virtual Address Mapping via MMU and Page Tables",
+        "keywords": [
+          "virtual memory",
+          "mmu",
+          "page table",
+          "physical frame",
+          "translation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Page Fault Hardware Interrupt Detection",
+        "keywords": [
+          "page fault",
+          "interrupt",
+          "unmapped",
+          "trap",
+          "missing"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "OS Disk Swap Retrieval and Page Table Update",
+        "keywords": [
+          "disk",
+          "swap",
+          "paging",
+          "frame allocation",
+          "resume"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Databases",
+    "difficulty": "Medium",
+    "text": "Explain the four ACID properties of relational databases and how transaction isolation levels balance consistency against throughput.",
+    "idealAnswer": "ACID guarantees Atomicity (all-or-nothing), Consistency (schema constraints preserved), Isolation (concurrent transactions execute without interference), and Durability (committed changes survive crashes via write-ahead logs). Isolation levels like Read Uncommitted, Read Committed, Repeatable Read, and Serializable balance anomalies like dirty reads and phantom reads against lock contention.",
+    "conditions": [
+      {
+        "name": "ACID Principles Definition and Guarantees",
+        "keywords": [
+          "atomicity",
+          "consistency",
+          "isolation",
+          "durability",
+          "wal",
+          "commit"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Concurrency Anomalies Characterization",
+        "keywords": [
+          "dirty read",
+          "non-repeatable read",
+          "phantom read",
+          "anomalies"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Isolation Levels Spectrum from Read Committed to Serializable",
+        "keywords": [
+          "read committed",
+          "repeatable read",
+          "serializable",
+          "locks",
+          "mvcc"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Medium",
+    "text": "Contrast Depth-First Search (DFS) and Breadth-First Search (BFS) in graph traversal, including data structures and optimal use cases.",
+    "idealAnswer": "DFS traverses deeply along branches before backtracking using a Stack or recursion, requiring O(V) space proportional to search depth, ideal for topological sorting, cycle detection, and maze generation. BFS explores neighbor nodes layer-by-layer using a Queue, requiring O(V) space proportional to maximum width, guaranteeing shortest path in unweighted graphs.",
+    "conditions": [
+      {
+        "name": "DFS Stack Mechanism and Deep Branch Backtracking",
+        "keywords": [
+          "dfs",
+          "stack",
+          "recursion",
+          "backtracking",
+          "depth-first"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "BFS Queue Mechanism and Level-by-Level Exploration",
+        "keywords": [
+          "bfs",
+          "queue",
+          "level-order",
+          "breadth-first",
+          "unweighted"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Shortest Path and Topological Sorting Use Cases",
+        "keywords": [
+          "shortest path",
+          "topological sort",
+          "cycle detection",
+          "complexity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithms",
+    "difficulty": "Medium",
+    "text": "How do you detect cycles in directed versus undirected graphs, and how does Kahn algorithm implement topological sorting?",
+    "idealAnswer": "Undirected graph cycles are detected via DFS by tracking visited nodes and checking for edges to visited non-parent nodes, or via Disjoint Set Union (Union-Find). Directed graphs require tracking the active recursion stack in DFS (three-color marking: unvisited, visiting, visited). Kahn algorithm computes in-degrees for all nodes, enqueues 0-in-degree nodes iteratively, detecting cycles if output length is less than total vertices.",
+    "conditions": [
+      {
+        "name": "Cycle Detection in Directed Graphs with Recursion Stack",
+        "keywords": [
+          "cycle",
+          "directed graph",
+          "recursion stack",
+          "three-color",
+          "back-edge"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Undirected Graph Cycle Detection via Parent Tracking or DSU",
+        "keywords": [
+          "undirected",
+          "parent",
+          "union-find",
+          "disjoint set"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Kahn Algorithm In-Degree Processing for Topological Sort",
+        "keywords": [
+          "kahn",
+          "in-degree",
+          "topological sort",
+          "queue",
+          "dag"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Systems",
+    "difficulty": "Hard",
+    "text": "Explain how the Raft consensus algorithm guarantees safety, leader election, and log replication across a distributed cluster.",
+    "idealAnswer": "Raft decomposes consensus into leader election, log replication, and commitment safety. Nodes start as followers and transition to candidates upon randomized election timeouts, requesting votes from peers with majority approval required. The elected leader appends incoming client entries to its log and sends AppendEntries RPCs to followers; once replicated on a quorum majority, the entry commits, ensuring State Machine Safety across server crashes.",
+    "conditions": [
+      {
+        "name": "Leader Election and Randomized Election Timeouts",
+        "keywords": [
+          "leader election",
+          "heartbeat",
+          "election timeout",
+          "candidate",
+          "majority"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Log Replication and Quorum AppendEntries Protocol",
+        "keywords": [
+          "log replication",
+          "appendentries",
+          "quorum",
+          "majority",
+          "term"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "State Machine Safety and Log Consistency Guarantees",
+        "keywords": [
+          "state machine safety",
+          "log matching",
+          "commit index",
+          "linearizable"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Systems",
+    "difficulty": "Hard",
+    "text": "Compare the Two-Phase Commit (2PC) protocol with the Saga pattern for distributed transactions in microservices architectures.",
+    "idealAnswer": "Two-Phase Commit enforces synchronous atomic consistency across distributed databases using a coordinator that sends Prepare and Commit/Abort phases, but suffers from blocking coordinator failure and high latency. The Saga pattern decomposes transactions into a series of asynchronous local transactions coordinated via choreography or orchestration, utilizing compensating transactions to undo actions on failure, prioritizing availability over immediate consistency.",
+    "conditions": [
+      {
+        "name": "Two-Phase Commit Synchronous Prepare and Commit Phases",
+        "keywords": [
+          "2pc",
+          "two-phase commit",
+          "coordinator",
+          "prepare phase",
+          "blocking"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Saga Pattern Choreography, Orchestration, and Compensation",
+        "keywords": [
+          "saga",
+          "compensating transaction",
+          "orchestration",
+          "choreography",
+          "local transaction"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Availability, Latency, and Eventual Consistency Trade-offs",
+        "keywords": [
+          "eventual consistency",
+          "availability",
+          "latency",
+          "failure recovery"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Systems",
+    "difficulty": "Hard",
+    "text": "How do Conflict-Free Replicated Data Types (CRDTs) and Vector Clocks enable decentralized conflict resolution without central locks?",
+    "idealAnswer": "Vector clocks track causal ordering in distributed systems by maintaining a vector of logical timestamps across nodes, allowing detection of concurrent concurrent updates versus causally dependent events. CRDTs provide mathematically convergent data structures (state-based CvRDT with monotonic join semilattices, or operation-based CmRDT with commutative operations) that guarantee identical state on all replicas once all updates are delivered without central locks.",
+    "conditions": [
+      {
+        "name": "Vector Clocks and Causality Tracking Mechanics",
+        "keywords": [
+          "vector clock",
+          "causality",
+          "logical timestamp",
+          "concurrency",
+          "happens-before"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CRDT Mathematical Convergence and Join Semilattices",
+        "keywords": [
+          "crdt",
+          "convergence",
+          "semilattice",
+          "commutative",
+          "idempotent"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Decentralized Peer-to-Peer Replication Guarantees",
+        "keywords": [
+          "peer-to-peer",
+          "offline-first",
+          "conflict resolution",
+          "replica"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "System Design",
+    "difficulty": "Hard",
+    "text": "Design a distributed rate limiter supporting millions of requests per second, comparing Token Bucket against Sliding Window Counter algorithms.",
+    "idealAnswer": "A high-throughput distributed rate limiter uses a Token Bucket algorithm allowing configurable burst capacity refilled at a constant rate, or a Sliding Window Counter combining current and previous sub-window counts for memory-efficient smoothed limits. To achieve low latency and horizontal scale, rate state is stored in Redis clusters using atomic Lua scripts or local memory caches with async batch synchronization to avoid central network bottlenecks.",
+    "conditions": [
+      {
+        "name": "Token Bucket vs Sliding Window Counter Mechanics",
+        "keywords": [
+          "token bucket",
+          "sliding window counter",
+          "burst",
+          "refill rate",
+          "granularity"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Distributed Storage with Redis Clusters and Atomic Lua Scripts",
+        "keywords": [
+          "redis",
+          "lua script",
+          "atomic",
+          "distributed counter",
+          "race conditions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "High-Throughput Caching and Asynchronous Batching",
+        "keywords": [
+          "high throughput",
+          "caching",
+          "batching",
+          "latency",
+          "millions of requests"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Systems Architecture",
+    "difficulty": "Hard",
+    "text": "Explain zero-copy I/O techniques, comparing standard read/write syscalls with sendfile, mmap, and Linux epoll for high-concurrency servers.",
+    "idealAnswer": "Standard read/write syscalls incur multiple CPU data copies between disk, kernel page cache, and user space buffers, plus costly user/kernel context switches. Zero-copy techniques like sendfile and splice transfer data directly between kernel buffers and network sockets without user-space duplication. Paired with Linux epoll O(1) event-driven notification, high-concurrency servers handle tens of thousands of connections with minimal CPU overhead.",
+    "conditions": [
+      {
+        "name": "Kernel Buffer Copies and Context Switch Overhead",
+        "keywords": [
+          "zero-copy",
+          "context switch",
+          "page cache",
+          "kernel buffer",
+          "user space"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "sendfile, mmap, and Direct Socket Streaming Protocols",
+        "keywords": [
+          "sendfile",
+          "mmap",
+          "splice",
+          "dma",
+          "dma transfer"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Linux epoll O(1) Event-Driven Concurrency Scaling",
+        "keywords": [
+          "epoll",
+          "event-driven",
+          "o(1)",
+          "concurrency",
+          "file descriptors"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "System Design",
+    "difficulty": "Hard",
+    "text": "How do you design high-scale caching architectures to prevent Cache Stampede (Thundering Herd) and Cache Penetration?",
+    "idealAnswer": "Cache stampede occurs when a high-traffic key expires, causing hundreds of concurrent requests to hit the database simultaneously; it is mitigated using distributed mutex locking (e.g. Redis Redlock), probabilistic early expiration (XFetch algorithm), or background asynchronous cache refreshing. Cache penetration by non-existent keys is solved using Bloom Filters in front of the cache and caching null values with short TTLs.",
+    "conditions": [
+      {
+        "name": "Cache Stampede / Thundering Herd Root Cause and Mutex Locks",
+        "keywords": [
+          "cache stampede",
+          "thundering herd",
+          "expiration",
+          "mutex",
+          "distributed lock"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Probabilistic Early Expiration (XFetch) and Async Warmup",
+        "keywords": [
+          "xfetch",
+          "probabilistic",
+          "early expiration",
+          "asynchronous refresh",
+          "background"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cache Penetration Defense via Bloom Filters and Null Caching",
+        "keywords": [
+          "cache penetration",
+          "bloom filter",
+          "null value",
+          "ttl",
+          "database protection"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]

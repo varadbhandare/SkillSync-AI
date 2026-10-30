@@ -1,0 +1,1518 @@
+[
+  {
+    "topic": "Statistics Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is the Central Limit Theorem (CLT) and why is it foundational to inferential statistics?",
+    "idealAnswer": "The Central Limit Theorem states that as sample size n becomes sufficiently large (typically n >= 30), the sampling distribution of the sample mean approaches a Gaussian normal distribution regardless of the underlying population distribution shape, provided samples are independent and identically distributed with finite variance.",
+    "conditions": [
+      {
+        "name": "Sampling Distribution Convergence to Normal Distribution",
+        "keywords": [
+          "central limit theorem",
+          "clt",
+          "sampling distribution",
+          "normal distribution",
+          "gaussian"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Sample Size (n >= 30) and Finite Variance Preconditions",
+        "keywords": [
+          "sample size",
+          "n >= 30",
+          "finite variance",
+          "iid",
+          "independent"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Application to Hypothesis Testing and Confidence Intervals",
+        "keywords": [
+          "hypothesis testing",
+          "confidence interval",
+          "standard error",
+          "inference"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Statistical Testing",
+    "difficulty": "Easy",
+    "text": "What is a p-value in hypothesis testing, and how does it relate to the significance level alpha?",
+    "idealAnswer": "A p-value is the probability of observing test results at least as extreme as the observed sample data, assuming the null hypothesis (H0) is strictly true. If the p-value is less than or equal to the pre-determined significance level alpha (commonly 0.05), we reject the null hypothesis in favor of the alternative hypothesis.",
+    "conditions": [
+      {
+        "name": "Probability of Observing Extreme Data Given Null Hypothesis",
+        "keywords": [
+          "p-value",
+          "null hypothesis",
+          "h0",
+          "extreme data",
+          "probability"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Significance Threshold Alpha (0.05) Comparison",
+        "keywords": [
+          "alpha",
+          "significance level",
+          "0.05",
+          "threshold",
+          "decision rule"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Type I Error Rate and Decision Implications",
+        "keywords": [
+          "type i error",
+          "false positive",
+          "reject null",
+          "statistically significant"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Statistics",
+    "difficulty": "Easy",
+    "text": "Explain the difference between Type I and Type II errors in statistical hypothesis testing.",
+    "idealAnswer": "A Type I error (false positive) occurs when we reject a null hypothesis that is actually true, with probability equal to significance level alpha. A Type II error (false negative) occurs when we fail to reject a false null hypothesis, with probability beta. Statistical power (1 - beta) represents the probability of correctly rejecting a false null hypothesis.",
+    "conditions": [
+      {
+        "name": "Type I Error (False Positive) and Alpha Relationship",
+        "keywords": [
+          "type i error",
+          "false positive",
+          "alpha",
+          "reject true null"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Type II Error (False Negative) and Beta Probability",
+        "keywords": [
+          "type ii error",
+          "false negative",
+          "beta",
+          "fail to reject"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Statistical Power (1 - Beta) and Sample Size Trade-off",
+        "keywords": [
+          "statistical power",
+          "1 - beta",
+          "trade-off",
+          "sample size",
+          "sensitivity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Exploratory Data Analysis",
+    "difficulty": "Easy",
+    "text": "How do you detect and handle outliers in a continuous numerical feature distribution?",
+    "idealAnswer": "Outliers can be detected using statistical boundaries: the Interquartile Range (IQR) method flags points outside [Q1 - 1.5*IQR, Q3 + 1.5*IQR], while Z-score flags points with absolute standard deviation > 3 for Gaussian distributions. Handling strategies include data verification, Winsorizing (capping percentiles), log/power transformations, or robust non-parametric models like tree ensembles.",
+    "conditions": [
+      {
+        "name": "IQR Interquartile Range and Boxplot Boundaries",
+        "keywords": [
+          "iqr",
+          "interquartile range",
+          "q1",
+          "q3",
+          "1.5",
+          "boxplot"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Z-score Standard Deviation Thresholding",
+        "keywords": [
+          "z-score",
+          "standard deviation",
+          "gaussian",
+          "threshold",
+          "distance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Treatment Strategies (Capping, Winsorizing, Transformation)",
+        "keywords": [
+          "winsorizing",
+          "capping",
+          "log transform",
+          "robust",
+          "imputation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Linear Models",
+    "difficulty": "Easy",
+    "text": "What are the core Gauss-Markov assumptions of Ordinary Least Squares (OLS) Linear Regression?",
+    "idealAnswer": "OLS assumes: linearity in parameters, random sampling of data, no perfect multicollinearity among predictors, zero conditional mean of errors (exogeneity: E(u|x) = 0), homoscedasticity (constant error variance across predictor levels), and no auto-correlation among error residuals.",
+    "conditions": [
+      {
+        "name": "Linearity and No Perfect Multicollinearity",
+        "keywords": [
+          "linearity",
+          "multicollinearity",
+          "rank",
+          "parameters",
+          "predictors"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Exogeneity (Zero Conditional Mean of Residuals)",
+        "keywords": [
+          "exogeneity",
+          "zero conditional mean",
+          "unbiased",
+          "error terms"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Homoscedasticity and Error Independence",
+        "keywords": [
+          "homoscedasticity",
+          "constant variance",
+          "autocorrelation",
+          "independence"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Classification Metrics",
+    "difficulty": "Easy",
+    "text": "Explain the ROC curve and the Area Under the Curve (AUC-ROC) metric for binary classifiers.",
+    "idealAnswer": "The Receiver Operating Characteristic (ROC) curve plots True Positive Rate (Sensitivity/Recall) on the y-axis against False Positive Rate (1 - Specificity) on the x-axis across all classification probability thresholds from 0 to 1. The AUC-ROC measures the two-dimensional area under this curve, quantifying the probability that the classifier ranks a randomly chosen positive sample higher than a randomly chosen negative sample, where 0.5 is random chance and 1.0 is perfect separation.",
+    "conditions": [
+      {
+        "name": "TPR vs FPR Across All Classification Thresholds",
+        "keywords": [
+          "roc curve",
+          "tpr",
+          "fpr",
+          "sensitivity",
+          "specificity",
+          "thresholds"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Area Under Curve (AUC) Probability Ranking Interpretation",
+        "keywords": [
+          "auc-roc",
+          "auc",
+          "area under curve",
+          "ranking",
+          "discrimination"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Threshold-Invariance and Class Distribution Robustness",
+        "keywords": [
+          "threshold-invariant",
+          "scale-invariant",
+          "random guessing",
+          "imbalance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Dimensionality Reduction",
+    "difficulty": "Easy",
+    "text": "What is Principal Component Analysis (PCA) and how does it reduce feature dimensionality while preserving variance?",
+    "idealAnswer": "PCA is an unsupervised linear dimensionality reduction technique that transforms correlated features into a smaller set of orthogonal, uncorrelated axes called principal components. It standardizes data, computes the covariance matrix, and performs eigendecomposition (or SVD) to find eigenvectors that maximize variance along successive orthogonal directions, projecting high-dimensional data onto the top-k components.",
+    "conditions": [
+      {
+        "name": "Covariance Matrix and Orthogonal Eigenvector Decomposition",
+        "keywords": [
+          "pca",
+          "covariance matrix",
+          "eigenvectors",
+          "eigenvalues",
+          "orthogonal",
+          "svd"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Variance Maximization on Successive Projection Axes",
+        "keywords": [
+          "variance",
+          "maximum variance",
+          "principal components",
+          "projection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Information Loss and Scree Plot Explained Variance Ratio",
+        "keywords": [
+          "explained variance",
+          "scree plot",
+          "dimensionality reduction",
+          "compression"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Clustering",
+    "difficulty": "Easy",
+    "text": "Explain the K-Means clustering algorithm, the role of inertia, and the Elbow method for choosing k.",
+    "idealAnswer": "K-Means partitions n samples into k clusters by iteratively: assigning each point to its nearest centroid based on Euclidean distance, and recalculating centroids as the arithmetic mean of all assigned points until convergence. Inertia measures within-cluster sum of squares (WCSS). The Elbow method plots inertia across various k values, selecting the inflection point (elbow) where diminishing returns in variance reduction occur.",
+    "conditions": [
+      {
+        "name": "Centroid Assignment and Mean Recalculation Iteration",
+        "keywords": [
+          "k-means",
+          "centroids",
+          "assignment",
+          "euclidean distance",
+          "convergence"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Inertia and Within-Cluster Sum of Squares (WCSS)",
+        "keywords": [
+          "inertia",
+          "wcss",
+          "sum of squares",
+          "objective function",
+          "compactness"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Elbow Method and Inflection Point Selection",
+        "keywords": [
+          "elbow method",
+          "inflection point",
+          "optimal k",
+          "diminishing returns"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Model Validation",
+    "difficulty": "Easy",
+    "text": "What is Data Leakage in machine learning, and how does improper feature preprocessing cause it?",
+    "idealAnswer": "Data leakage occurs when information from outside the training dataset (specifically target or validation/test data) inadvertently influences model training, producing artificially inflated validation scores that fail to generalize to production. A classic cause is performing feature scaling, imputation, or target encoding on the full dataset before splitting into train/test sets, rather than fitting transformers strictly on training folds.",
+    "conditions": [
+      {
+        "name": "Data Leakage Definition and Over-optimistic Evaluation",
+        "keywords": [
+          "data leakage",
+          "validation inflation",
+          "unrealistic performance",
+          "target leakage"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Full-Dataset Preprocessing Anti-pattern (Scaling/Imputation)",
+        "keywords": [
+          "preprocessing",
+          "train-test split",
+          "fit_transform",
+          "scaling",
+          "imputation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pipeline Encapsulation to Isolate Training Folds",
+        "keywords": [
+          "pipeline",
+          "cross-validation",
+          "isolation",
+          "leakage prevention"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "A/B Testing",
+    "difficulty": "Easy",
+    "text": "What are the core steps in designing and analyzing a basic online A/B experiment?",
+    "idealAnswer": "Designing an A/B test involves: defining the primary metric (e.g. conversion rate), formulating null and alternative hypotheses, conducting power analysis to calculate required sample size and experiment duration, randomly splitting traffic into control (A) and treatment (B) variants to ensure no bias, and evaluating statistical significance via two-sample t-test or z-test post-experiment.",
+    "conditions": [
+      {
+        "name": "Hypothesis Formulation and Metric Selection",
+        "keywords": [
+          "a/b testing",
+          "null hypothesis",
+          "primary metric",
+          "conversion rate",
+          "variant"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Statistical Power Analysis and Sample Size Sizing",
+        "keywords": [
+          "power analysis",
+          "sample size",
+          "mde",
+          "minimum detectable effect",
+          "duration"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Random Assignment and Two-Sample Significance Testing",
+        "keywords": [
+          "randomization",
+          "control vs treatment",
+          "t-test",
+          "z-test",
+          "p-value"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Statistics",
+    "difficulty": "Easy",
+    "text": "Explain the difference between covariance and correlation, and why correlation does not imply causation.",
+    "idealAnswer": "Covariance measures the joint directional variability of two random variables, but its magnitude depends on the units of measurement, making cross-dataset comparisons difficult. Pearson correlation is normalized covariance divided by the product of their standard deviations, bounded strictly between -1 and +1. Correlation does not imply causation because observed relationships may be driven by confounding variables, reverse causality, or pure coincidence.",
+    "conditions": [
+      {
+        "name": "Covariance Unbounded Metric and Directionality",
+        "keywords": [
+          "covariance",
+          "joint variability",
+          "scale dependent",
+          "units of measurement"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pearson Correlation Normalized [-1, +1] Bounds",
+        "keywords": [
+          "correlation",
+          "pearson",
+          "normalized",
+          "-1 to 1",
+          "linear relationship"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Causation vs Correlation: Confounding and Spuriousness",
+        "keywords": [
+          "causation",
+          "confounding variable",
+          "spurious correlation",
+          "lurking variable"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Data Preparation",
+    "difficulty": "Easy",
+    "text": "Compare One-Hot Encoding with Target Encoding for categorical variables in high-cardinality datasets.",
+    "idealAnswer": "One-Hot Encoding converts each categorical category into a binary column, which causes the curse of dimensionality and memory bloat on high-cardinality features (e.g. ZIP codes with 40,000 values). Target (Mean) Encoding replaces categories with the mean target value for that category, retaining a single compact column, but requires smoothing and cross-fold regularization to prevent severe target leakage and overfitting.",
+    "conditions": [
+      {
+        "name": "One-Hot Encoding Dimensionality Explosion",
+        "keywords": [
+          "one-hot encoding",
+          "binary columns",
+          "cardinality",
+          "curse of dimensionality",
+          "sparse matrix"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Target Encoding Mean Value Mapping",
+        "keywords": [
+          "target encoding",
+          "mean encoding",
+          "target value",
+          "compact representation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Target Leakage Risk and Smoothing Regularization",
+        "keywords": [
+          "target leakage",
+          "smoothing",
+          "overfitting",
+          "k-fold target encoding"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Time Series",
+    "difficulty": "Easy",
+    "text": "What is stationarity in time series analysis, and why is it required for ARIMA modeling?",
+    "idealAnswer": "A time series is strictly stationary (or weakly stationary) if its statistical properties—specifically mean, variance, and autocovariance—are constant over time and independent of time t. ARIMA modeling requires stationarity because forecasting algorithms assume future behavior follows past statistical distributions; non-stationary series exhibiting trends or seasonality must be differenced (d parameter in ARIMA) or transformed.",
+    "conditions": [
+      {
+        "name": "Constant Mean and Variance Over Time Definition",
+        "keywords": [
+          "stationarity",
+          "constant mean",
+          "constant variance",
+          "autocovariance",
+          "time independent"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Differencing and Transformation for Non-stationary Series",
+        "keywords": [
+          "differencing",
+          "trend",
+          "seasonality",
+          "log transform",
+          "arima"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Statistical Testing for Stationarity (ADF Test)",
+        "keywords": [
+          "augmented dicky-fuller",
+          "adf test",
+          "unit root",
+          "p-value"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Model Interpretability",
+    "difficulty": "Easy",
+    "text": "What are SHAP values, and how do they use game theory to explain individual machine learning predictions?",
+    "idealAnswer": "SHAP (SHapley Additive exPlanations) values assign each feature an importance value for a specific model prediction, rooted in cooperative game theory (Shapley values). It evaluates the marginal contribution of a feature across all possible feature coalitions, satisfying fairness properties like local accuracy, missingness, and consistency, allowing granular local and global model interpretability.",
+    "conditions": [
+      {
+        "name": "Cooperative Game Theory and Shapley Value Foundations",
+        "keywords": [
+          "shap",
+          "shapley values",
+          "game theory",
+          "marginal contribution",
+          "coalitions"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Local Prediction Attribution Breakdown",
+        "keywords": [
+          "local explanation",
+          "feature attribution",
+          "prediction breakdown",
+          "base value"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Fairness Axioms (Efficiency, Symmetry, Additivity)",
+        "keywords": [
+          "axioms",
+          "efficiency",
+          "consistency",
+          "interpretability",
+          "global importance"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Causal Inference",
+    "difficulty": "Medium",
+    "text": "How do Propensity Score Matching (PSM) and Difference-in-Differences (DiD) estimate causal treatment effects in observational data?",
+    "idealAnswer": "When randomized controlled trials are impossible, observational data suffers from confounding selection bias. Propensity Score Matching estimates the conditional probability of receiving treatment given baseline covariates via logistic regression, pairing treated and control units with similar propensity scores to balance confounders. Difference-in-Differences estimates causal effects across longitudinal data by comparing changes over time between treatment and control groups, relying on the parallel trends assumption.",
+    "conditions": [
+      {
+        "name": "Selection Bias and Confounder Imbalance in Observational Studies",
+        "keywords": [
+          "causal inference",
+          "selection bias",
+          "confounders",
+          "observational data",
+          "treatment effect"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Propensity Score Matching Logistic Pairing Protocol",
+        "keywords": [
+          "propensity score",
+          "matching",
+          "covariates",
+          "logistic regression",
+          "balance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Difference-in-Differences Parallel Trends Identification",
+        "keywords": [
+          "difference-in-differences",
+          "did",
+          "parallel trends",
+          "counterfactual",
+          "time fixed effects"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Statistical Testing",
+    "difficulty": "Medium",
+    "text": "What is the Multiple Testing Problem in statistical analysis, and how do Bonferroni and Benjamini-Hochberg (FDR) corrections handle it?",
+    "idealAnswer": "When testing m simultaneous hypotheses at alpha=0.05, the cumulative probability of at least one false positive (Family-Wise Error Rate) inflates to 1 - (1 - alpha)^m. The Bonferroni correction controls FWER strictly by testing each hypothesis at alpha/m, but is overly conservative, causing high Type II errors. The Benjamini-Hochberg procedure controls the False Discovery Rate (FDR)—the expected proportion of false positives among all rejected hypotheses—offering higher statistical power.",
+    "conditions": [
+      {
+        "name": "Family-Wise Error Rate (FWER) Alpha Inflation",
+        "keywords": [
+          "multiple testing",
+          "fwer",
+          "family-wise error",
+          "alpha inflation",
+          "simultaneous tests"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Bonferroni Conservative Threshold Scaling (alpha/m)",
+        "keywords": [
+          "bonferroni",
+          "alpha/m",
+          "conservative",
+          "type ii error"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Benjamini-Hochberg False Discovery Rate (FDR) Control",
+        "keywords": [
+          "benjamini-hochberg",
+          "fdr",
+          "false discovery rate",
+          "ranked p-values",
+          "power"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Linear Regression Diagnostics",
+    "difficulty": "Medium",
+    "text": "What is Multicollinearity, how does Variance Inflation Factor (VIF) detect it, and what are its remedies?",
+    "idealAnswer": "Multicollinearity occurs when two or more independent predictor variables in a multiple regression model are highly linearly correlated, causing unstable coefficient estimates, inflated standard errors, and wide confidence intervals. Variance Inflation Factor (VIF = 1 / (1 - R_i^2)) measures how much coefficient variance is inflated due to collinearity; VIF > 5 or 10 indicates severe multicollinearity, remedied by removing collinear features, feature engineering (PCA), or applying L2 Ridge regression.",
+    "conditions": [
+      {
+        "name": "Inflated Standard Errors and Unstable Coefficient Estimates",
+        "keywords": [
+          "multicollinearity",
+          "standard error",
+          "unstable coefficients",
+          "p-value distortion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Variance Inflation Factor (VIF) Mathematical Detection",
+        "keywords": [
+          "vif",
+          "variance inflation factor",
+          "r-squared",
+          "threshold 5",
+          "threshold 10"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Remediation Strategies (Ridge Regularization, PCA, Feature Pruning)",
+        "keywords": [
+          "remedies",
+          "ridge regression",
+          "pca",
+          "feature selection",
+          "correlation matrix"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Dimensionality Reduction",
+    "difficulty": "Medium",
+    "text": "Compare t-SNE and UMAP for non-linear high-dimensional data visualization and clustering.",
+    "idealAnswer": "t-SNE models pairwise similarities as conditional probabilities under Gaussian distributions in high-dimensional space and Student-t distributions in low-dimensional space, minimizing Kullback-Leibler divergence; it preserves local neighbor structures well but destroys global geometry and scales poorly O(N^2). UMAP models Riemannian manifold fuzzy simplicial sets, preserving both local neighborhoods and superior global cluster topology with much faster O(N log N) scalability.",
+    "conditions": [
+      {
+        "name": "t-SNE Probabilistic Distance and Student-t Distribution",
+        "keywords": [
+          "t-sne",
+          "kullback-leibler",
+          "student-t",
+          "crowding problem",
+          "local structure"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "UMAP Manifold Fuzzy Simplicial Sets and Global Topology",
+        "keywords": [
+          "umap",
+          "manifold",
+          "fuzzy simplicial sets",
+          "global structure",
+          "topology"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Computational Scalability and Hyperparameter Differences",
+        "keywords": [
+          "scalability",
+          "perplexity",
+          "n_neighbors",
+          "min_dist",
+          "computational complexity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Imbalanced Learning",
+    "difficulty": "Medium",
+    "text": "Explain SMOTE (Synthetic Minority Over-sampling Technique) and how it generates synthetic data without simple duplication.",
+    "idealAnswer": "Simple random oversampling duplicates minority samples, which increases overfitting risks without adding new information. SMOTE synthesizes new minority samples along feature space lines connecting k-nearest neighbors: for each minority instance x, it finds its k-nearest minority neighbors, selects one at random x_zi, and creates a synthetic instance x_new = x + lambda * (x_zi - x), where lambda is a uniform random number between 0 and 1.",
+    "conditions": [
+      {
+        "name": "Oversampling Duplication Overfitting Drawbacks",
+        "keywords": [
+          "smote",
+          "oversampling",
+          "duplication",
+          "overfitting",
+          "minority class"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "K-Nearest Neighbors Vector Interpolation Formulation",
+        "keywords": [
+          "k-nearest neighbors",
+          "knn",
+          "interpolation",
+          "convex combination",
+          "feature space"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Borderline-SMOTE and Tomek Links Cleanup Strategies",
+        "keywords": [
+          "borderline-smote",
+          "tomek links",
+          "decision boundary",
+          "noise reduction"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Advanced Testing",
+    "difficulty": "Medium",
+    "text": "What is Variance Reduction in A/B testing using CUPED (Controlled-Experiment Using Pre-Experiment Data)?",
+    "idealAnswer": "CUPED uses pre-experiment metric data X (correlated with experiment metric Y) to remove known pre-existing variance: Y_cuped = Y - theta * (X - E[X]), where optimal theta = Cov(Y, X) / Var(X). This reduces variance by a factor of (1 - rho^2), where rho is the correlation between pre and post metrics. Lower variance shrinks standard errors, enabling teams to achieve required statistical power with up to 50% smaller sample sizes or shorter runtimes.",
+    "conditions": [
+      {
+        "name": "Pre-experiment Covariate Regression Formulation",
+        "keywords": [
+          "cuped",
+          "variance reduction",
+          "covariate",
+          "pre-experiment data",
+          "theta"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mathematical Variance Reduction Factor (1 - rho^2)",
+        "keywords": [
+          "correlation rho",
+          "variance reduction",
+          "covariance",
+          "standard error"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Business Impact: Sample Size Shrinkage and Fast Iteration",
+        "keywords": [
+          "sample size",
+          "experiment duration",
+          "statistical power",
+          "faster decisions"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Bayesian Statistics",
+    "difficulty": "Medium",
+    "text": "Compare Frequentist and Bayesian statistical inference, detailing Priors, Likelihood, and Posterior distributions.",
+    "idealAnswer": "Frequentist inference treats parameters as fixed, unknown constants and probabilities as long-run frequencies over infinite hypothetical repetitions. Bayesian inference treats parameters as random variables with probability distributions reflecting uncertainty. Bayes Theorem updates Prior beliefs P(theta) using the Likelihood of observed data P(D|theta) to compute the Posterior distribution P(theta|D) = (P(D|theta) * P(theta)) / P(D).",
+    "conditions": [
+      {
+        "name": "Fixed Constant vs Random Variable Parameter Philosophy",
+        "keywords": [
+          "frequentist",
+          "bayesian",
+          "fixed parameter",
+          "random variable",
+          "subjective probability"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Bayes Theorem Prior, Likelihood, and Posterior Components",
+        "keywords": [
+          "prior",
+          "likelihood",
+          "posterior",
+          "evidence",
+          "bayes theorem"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Credible Intervals vs Frequentist Confidence Intervals",
+        "keywords": [
+          "credible interval",
+          "confidence interval",
+          "mcmc",
+          "conjugate prior"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Time Series Forecasting",
+    "difficulty": "Medium",
+    "text": "Explain Autoregressive Integrated Moving Average (ARIMA) and how ACF and PACF plots identify p, d, q parameters.",
+    "idealAnswer": "ARIMA(p, d, q) models non-stationary time series by combining Autoregression of order p (regression on past lags), Differencing of degree d (to achieve stationarity), and Moving Average of order q (linear combination of past white-noise forecast errors). The Autocorrelation Function (ACF) plot identifies MA order q from the lag after which autocorrelations cut off; the Partial Autocorrelation Function (PACF) identifies AR order p from the lag after which partial correlations cut off.",
+    "conditions": [
+      {
+        "name": "AR(p), I(d), and MA(q) Component Formulations",
+        "keywords": [
+          "arima",
+          "autoregression",
+          "differencing",
+          "moving average",
+          "lags"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ACF Autocorrelation Function for MA Order (q) Identification",
+        "keywords": [
+          "acf",
+          "autocorrelation",
+          "cutoff",
+          "moving average order",
+          "q"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "PACF Partial Autocorrelation for AR Order (p) Identification",
+        "keywords": [
+          "pacf",
+          "partial autocorrelation",
+          "ar order",
+          "p",
+          "stationarity"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Clustering Validation",
+    "difficulty": "Medium",
+    "text": "How do you evaluate clustering quality without ground truth labels using Silhouette Score and Davies-Bouldin Index?",
+    "idealAnswer": "In unsupervised clustering, internal validation metrics quantify cluster separation and compactness. The Silhouette Score s(i) = (b(i) - a(i)) / max(a(i), b(i)) compares intra-cluster distance a(i) with nearest-cluster distance b(i), bounded between -1 (misclustered) and +1 (dense, well-separated). The Davies-Bouldin Index calculates the similarity between each cluster and its most similar peer as the ratio of within-cluster scatter to between-cluster separation; lower Davies-Bouldin values indicate better clustering.",
+    "conditions": [
+      {
+        "name": "Silhouette Score Formulation (a vs b Distances)",
+        "keywords": [
+          "silhouette score",
+          "intra-cluster",
+          "nearest-cluster",
+          "compactness",
+          "separation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Davies-Bouldin Index Scatter-to-Separation Ratio",
+        "keywords": [
+          "davies-bouldin",
+          "scatter",
+          "centroid separation",
+          "clustering index",
+          "lower is better"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Optimal Cluster Count Determination Strategy",
+        "keywords": [
+          "optimal clusters",
+          "k selection",
+          "unsupervised evaluation",
+          "validation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Loss Formulations",
+    "difficulty": "Medium",
+    "text": "Compare Logistic Loss (Log-Loss) with Hinge Loss in binary classification, detailing margin optimization.",
+    "idealAnswer": "Logistic Loss (Binary Cross-Entropy) models probabilistic class likelihoods, penalizing predictions continuously with smooth gradients even when correctly classified, encouraging confident probability calibration. Hinge Loss (max(0, 1 - y * f(x))) is utilized in Support Vector Machines, imposing zero penalty for points correctly classified beyond the margin threshold (y * f(x) >= 1), creating sparse support vectors and focusing strictly on decision boundary maximization rather than calibrated probabilities.",
+    "conditions": [
+      {
+        "name": "Log-Loss Probabilistic Smooth Continuous Optimization",
+        "keywords": [
+          "log-loss",
+          "binary cross-entropy",
+          "logistic regression",
+          "probabilities",
+          "smooth gradient"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hinge Loss Maximum Margin and Zero-Penalty Flat Region",
+        "keywords": [
+          "hinge loss",
+          "max(0, 1 - yf(x))",
+          "svm",
+          "margin",
+          "zero penalty"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Support Vectors Sparsity vs Probability Calibration Trade-off",
+        "keywords": [
+          "support vectors",
+          "calibration",
+          "sparsity",
+          "decision boundary"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Statistical Sampling",
+    "difficulty": "Medium",
+    "text": "What is Bootstrapping in non-parametric statistics, and how does it generate empirical confidence intervals?",
+    "idealAnswer": "Bootstrapping is a resampling technique that approximates the sampling distribution of an estimator by drawing B replacement samples of size n from the original observed dataset. By computing the target statistic on each bootstrap replicate, we build an empirical distribution, allowing construction of confidence intervals (such as percentile or BCa intervals) and standard error estimates without making parametric distributional assumptions.",
+    "conditions": [
+      {
+        "name": "Resampling with Replacement from Observed Data",
+        "keywords": [
+          "bootstrapping",
+          "resampling",
+          "with replacement",
+          "replicate",
+          "sample size n"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Empirical Sampling Distribution Construction",
+        "keywords": [
+          "empirical distribution",
+          "sampling distribution",
+          "estimator",
+          "variance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Percentile Confidence Intervals Without Parametric Assumptions",
+        "keywords": [
+          "confidence interval",
+          "percentile interval",
+          "non-parametric",
+          "standard error"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "A/B Testing Advanced",
+    "difficulty": "Medium",
+    "text": "What are Network Spillover Effects in marketplace A/B tests (e.g. Uber/Airbnb) and how do Cluster-Based Randomization mitigate them?",
+    "idealAnswer": "In two-sided marketplace platforms, user-level A/B testing suffers from network interference (SUTVA violation): treating one rider or seller affects supply and price for control riders in the same geography. Cluster-based randomization mitigates spillovers by randomizing intact geographical clusters (e.g. entire cities or grid zones) or temporal switchback windows (alternating treatment/control by hour across the entire market), containing treatment interactions within the cluster.",
+    "conditions": [
+      {
+        "name": "SUTVA Violation and Cannibalization / Supply Interference",
+        "keywords": [
+          "sutva",
+          "spillover",
+          "network interference",
+          "marketplace",
+          "cannibalization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cluster-Based Spatial Randomization Design",
+        "keywords": [
+          "cluster randomization",
+          "spatial",
+          "geographic zones",
+          "city-level"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Temporal Switchback Experimentation Protocols",
+        "keywords": [
+          "switchback",
+          "time windows",
+          "temporal",
+          "alternating",
+          "bias reduction"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Feature Engineering",
+    "difficulty": "Medium",
+    "text": "Explain Weight of Evidence (WoE) and Information Value (IV) in credit scoring and logistic regression modeling.",
+    "idealAnswer": "Weight of Evidence (WoE) recodes categorical or binned continuous variables into linear log-odds: WoE_i = ln(% Goods / % Bads), transforming non-linear relationships into a monotonic linear scale with respect to the logit target. Information Value (IV = sum((% Goods - % Bads) * WoE)) quantifies the overall predictive strength of a feature, used to rank and filter features (<0.02 useless, 0.1-0.3 medium, >0.5 suspiciously high/overfitting).",
+    "conditions": [
+      {
+        "name": "Weight of Evidence Log-Odds Formulation",
+        "keywords": [
+          "woe",
+          "weight of evidence",
+          "log-odds",
+          "binning",
+          "goods vs bads"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Information Value Predictive Ranking Formulation",
+        "keywords": [
+          "information value",
+          "iv",
+          "predictive power",
+          "feature ranking",
+          "threshold"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Credit Risk Modeling and Monotonic Transformation",
+        "keywords": [
+          "credit scoring",
+          "logistic regression",
+          "monotonic",
+          "scorecard"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Statistical Modeling",
+    "difficulty": "Medium",
+    "text": "How does Survival Analysis handle right-censored event data using the Kaplan-Meier estimator and Cox Proportional Hazards model?",
+    "idealAnswer": "Standard regression fails on time-to-event data because some subjects have not experienced the event by the study conclusion (right-censoring). The Kaplan-Meier non-parametric estimator calculates survival probabilities at each observed event time, properly incorporating censored subjects up to their last observation. The Cox Proportional Hazards semi-parametric model estimates the impact of covariates on hazard rates (h(t) = h0(t) * exp(beta*X)) under the assumption of constant hazard ratios over time.",
+    "conditions": [
+      {
+        "name": "Right-Censoring and Incomplete Observation Mechanics",
+        "keywords": [
+          "survival analysis",
+          "right-censored",
+          "time-to-event",
+          "censoring",
+          "event time"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Kaplan-Meier Non-Parametric Survival Curve Estimation",
+        "keywords": [
+          "kaplan-meier",
+          "survival function",
+          "product-limit",
+          "survival probability"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cox Proportional Hazards and Hazard Ratio Assumption",
+        "keywords": [
+          "cox proportional hazards",
+          "hazard ratio",
+          "proportionality assumption",
+          "covariates"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Bayesian Optimization",
+    "difficulty": "Hard",
+    "text": "Explain Bayesian Optimization for hyperparameter tuning using Gaussian Processes and Acquisition Functions (Expected Improvement).",
+    "idealAnswer": "Bayesian Optimization finds the global maximum of expensive black-box objective functions by maintaining a Gaussian Process (GP) prior over objective functions. The GP provides both a posterior mean prediction mu(x) and uncertainty variance sigma(x) at any parameter coordinate. Acquisition functions like Expected Improvement (EI) or Upper Confidence Bound (UCB) balance exploration (high uncertainty sigma) and exploitation (high predicted mean mu) to sample the next optimal evaluation point with minimal objective evaluations.",
+    "conditions": [
+      {
+        "name": "Gaussian Process Surrogate Model Posterior Distribution",
+        "keywords": [
+          "bayesian optimization",
+          "gaussian process",
+          "surrogate model",
+          "posterior mean",
+          "uncertainty variance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Exploration vs Exploitation Trade-off Formulation",
+        "keywords": [
+          "exploration",
+          "exploitation",
+          "trade-off",
+          "uncertainty",
+          "black-box"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Acquisition Functions (Expected Improvement / UCB)",
+        "keywords": [
+          "expected improvement",
+          "acquisition function",
+          "ucb",
+          "hyperparameter tuning",
+          "sampling"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Markov Chain Monte Carlo",
+    "difficulty": "Hard",
+    "text": "How does the Metropolis-Hastings MCMC algorithm sample from unnormalized posterior probability distributions?",
+    "idealAnswer": "When posterior distributions have intractable high-dimensional normalization integrals (the denominator P(D) in Bayes rule), Metropolis-Hastings generates a stationary Markov chain whose equilibrium distribution matches the target posterior. At step t, a candidate state x_star is proposed from transition density q(x_star | x_t) and accepted with probability alpha = min(1, [P(x_star)*q(x_t|x_star)] / [P(x_t)*q(x_star|x_t)]). Because P(x) appears in numerator and denominator, intractable normalization constants cancel out.",
+    "conditions": [
+      {
+        "name": "Intractable Normalization Constant (Evidence Integral) Challenge",
+        "keywords": [
+          "mcmc",
+          "metropolis-hastings",
+          "unnormalized",
+          "intractable integral",
+          "posterior"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Proposal Distribution Transition and Acceptance Ratio Alpha",
+        "keywords": [
+          "proposal distribution",
+          "acceptance probability",
+          "alpha",
+          "transition kernel",
+          "detailed balance"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Stationary Distribution Convergence and Burn-in Period",
+        "keywords": [
+          "stationary distribution",
+          "markov chain",
+          "burn-in",
+          "autocorrelation",
+          "trace plot"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "High-Dimensional Statistics",
+    "difficulty": "Hard",
+    "text": "Explain the Curse of Dimensionality and its geometric implications on distances and data sparsity in high-dimensional spaces.",
+    "idealAnswer": "As dimension d increases, the volume of a hypersphere of radius r relative to a bounding hypercube of edge 2r approaches zero (volume concentrated in corners). Data points become exponentially sparse, requiring exponential sample sizes to maintain density. Furthermore, distance metrics concentrate: the distance between the nearest and furthest neighbors approaches zero in relative terms ((d_max - d_min) / d_min -> 0), rendering Euclidean distance metrics ineffective for clustering and classification.",
+    "conditions": [
+      {
+        "name": "Hypercube Corner Volume Concentration and Exponential Sparsity",
+        "keywords": [
+          "curse of dimensionality",
+          "hypersphere",
+          "hypercube",
+          "sparsity",
+          "volume"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Distance Concentration Phenomenon ((d_max - d_min) / d_min -> 0)",
+        "keywords": [
+          "distance concentration",
+          "euclidean distance",
+          "nearest neighbor",
+          "metrics breakdown"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mitigation via Manifold Learning and Regularized Projections",
+        "keywords": [
+          "manifold learning",
+          "regularization",
+          "pca",
+          "intrinsic dimension"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Extreme Value Theory",
+    "difficulty": "Hard",
+    "text": "How does Extreme Value Theory (EVT) model rare tail risks using Block Maxima and Peaks Over Threshold (POT)?",
+    "idealAnswer": "Standard Gaussian statistics underestimate heavy-tailed events. Extreme Value Theory characterizes the asymptotic distribution of tail extremes. The Block Maxima approach divides observations into equal time blocks (e.g. years) and models block maximums using the Generalized Extreme Value (GEV) distribution (Gumbel, Frechet, Weibull). The Peaks Over Threshold (POT) approach models all observations exceeding a high threshold u using the Generalized Pareto Distribution (GPD), enabling estimation of extreme Value at Risk (VaR) and Expected Shortfall.",
+    "conditions": [
+      {
+        "name": "Heavy-Tailed Risk Underestimation of Gaussian Assumptions",
+        "keywords": [
+          "extreme value theory",
+          "evt",
+          "heavy tails",
+          "tail risk",
+          "fat tails"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Block Maxima and Generalized Extreme Value (GEV) Modeling",
+        "keywords": [
+          "block maxima",
+          "gev",
+          "generalized extreme value",
+          "gumbel",
+          "frechet"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Peaks Over Threshold (POT) and Generalized Pareto Distribution (GPD)",
+        "keywords": [
+          "peaks over threshold",
+          "pot",
+          "gpd",
+          "generalized pareto",
+          "var"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Causal Graphical Models",
+    "difficulty": "Hard",
+    "text": "Explain d-separation, back-door criterion, and Judea Pearl do-calculus for causal effect identification in DAGs.",
+    "idealAnswer": "In Directed Acyclic Graphs (DAGs), d-separation determines whether two nodes X and Y are conditionally independent given set Z by checking active paths across chains, forks, and colliders (where conditioning on a collider opens the path). Pearl Back-Door Criterion identifies a set of variables Z that blocks all spurious non-causal paths between X and Y without conditioning on descendants of X. Do-calculus P(Y | do(X)) maps physical interventions to observational distributions by severing incoming arrows to X.",
+    "conditions": [
+      {
+        "name": "d-separation, Colliders, Forks, and Chains in DAGs",
+        "keywords": [
+          "d-separation",
+          "dag",
+          "collider",
+          "fork",
+          "chain",
+          "conditional independence"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Pearl Back-Door Criterion for Confounder Adjustment",
+        "keywords": [
+          "back-door criterion",
+          "spurious paths",
+          "confounders",
+          "descendants",
+          "adjustment"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Do-Calculus Interventional Distribution Identification",
+        "keywords": [
+          "do-calculus",
+          "do(x)",
+          "interventional distribution",
+          "judea pearl",
+          "causal identification"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Sequential Testing",
+    "difficulty": "Hard",
+    "text": "How do Sequential Probability Ratio Tests (SPRT) allow continuous monitoring in A/B testing without inflating false positive rates?",
+    "idealAnswer": "Repeatedly checking p-values during an A/B test (peeking) drastically inflates false positive rates beyond nominal alpha. Wald Sequential Probability Ratio Test (SPRT) computes the cumulative log-likelihood ratio of data under alternative vs null hypotheses after each observation. The test continuously evaluates boundaries: if the ratio exceeds upper threshold A, reject H0; if it falls below lower threshold B, accept H0; otherwise continue sampling. This guarantees exact Type I and Type II error rates while stopping early on large treatment effects.",
+    "conditions": [
+      {
+        "name": "Peeking Problem and Continuous P-Value Checking Inflation",
+        "keywords": [
+          "peeking",
+          "continuous monitoring",
+          "alpha inflation",
+          "multiple looks",
+          "false positives"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Wald Cumulative Log-Likelihood Ratio Updating Protocol",
+        "keywords": [
+          "sprt",
+          "wald",
+          "likelihood ratio",
+          "sequential testing",
+          "cumulative log-likelihood"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Stopping Boundaries (A and B) and Sample Size Efficiency",
+        "keywords": [
+          "stopping boundaries",
+          "early stopping",
+          "sample efficiency",
+          "error bounds"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Information Theory",
+    "difficulty": "Hard",
+    "text": "Explain Kullback-Leibler (KL) Divergence, Cross-Entropy, and Mutual Information in statistical learning.",
+    "idealAnswer": "Entropy H(P) = -sum(P(x)*log P(x)) measures the fundamental uncertainty of a probability distribution. Cross-Entropy H(P, Q) = -sum(P(x)*log Q(x)) measures the expected coding length when using approximate distribution Q to encode true distribution P. KL Divergence D_KL(P || Q) = H(P, Q) - H(P) quantifies the information loss (relative entropy) from approximating P with Q, non-negative by Gibbs inequality. Mutual Information I(X; Y) = D_KL(P(X,Y) || P(X)P(Y)) measures mutual statistical dependence.",
+    "conditions": [
+      {
+        "name": "Shannon Entropy and Information Uncertainty Definition",
+        "keywords": [
+          "entropy",
+          "shannon entropy",
+          "uncertainty",
+          "information theory",
+          "expected coding"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cross-Entropy and KL Divergence Relative Entropy Formulation",
+        "keywords": [
+          "cross-entropy",
+          "kl divergence",
+          "relative entropy",
+          "gibbs inequality",
+          "divergence"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mutual Information Non-Linear Dependence Quantification",
+        "keywords": [
+          "mutual information",
+          "joint distribution",
+          "statistical dependence",
+          "independence"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Algorithmic Optimization",
+    "difficulty": "Hard",
+    "text": "Explain the Expectation-Maximization (EM) algorithm and its mathematical convergence proof via Jensen Inequality.",
+    "idealAnswer": "The Expectation-Maximization algorithm estimates maximum likelihood parameters in latent variable models (e.g. Gaussian Mixture Models). In the E-step, it computes the expected value of the complete-data log-likelihood with respect to the posterior distribution of latent variables given current parameters. In the M-step, it maximizes this expectation to update parameters. By Jensen inequality on the convex logarithm, each EM iteration maximizes an Evidence Lower Bound (ELBO), guaranteeing monotonic convergence to local likelihood maxima.",
+    "conditions": [
+      {
+        "name": "Latent Variable Models and Incomplete Data Log-Likelihood",
+        "keywords": [
+          "expectation-maximization",
+          "em algorithm",
+          "latent variables",
+          "gmm",
+          "unobserved"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "E-Step Expectation Calculation and M-Step Parameter Maximization",
+        "keywords": [
+          "e-step",
+          "m-step",
+          "q-function",
+          "posterior expectation",
+          "maximization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Jensen Inequality and ELBO Monotonic Convergence Proof",
+        "keywords": [
+          "jensen inequality",
+          "elbo",
+          "evidence lower bound",
+          "monotonic convergence",
+          "likelihood"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]

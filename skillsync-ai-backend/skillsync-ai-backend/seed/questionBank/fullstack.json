@@ -1,0 +1,1549 @@
+[
+  {
+    "topic": "Web Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain the Document Object Model (DOM) and how the browser constructs the render tree from HTML and CSS.",
+    "idealAnswer": "The DOM is a hierarchical tree representation of HTML markup parsed into node objects that JavaScript can manipulate. In parallel, the CSSOM is constructed from CSS rules. The browser combines the DOM and CSSOM into a Render Tree containing only visible nodes and computed styles, which proceeds through Layout (geometry calculation) and Painting (pixel rasterization).",
+    "conditions": [
+      {
+        "name": "DOM and CSSOM Tree Construction",
+        "keywords": [
+          "dom",
+          "cssom",
+          "html parsing",
+          "nodes",
+          "tree representation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Render Tree Formulation of Visible Elements",
+        "keywords": [
+          "render tree",
+          "computed styles",
+          "visibility",
+          "display none"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Layout Reflow and Paint Rasterization Stages",
+        "keywords": [
+          "layout",
+          "reflow",
+          "paint",
+          "rasterization",
+          "compositing"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "Easy",
+    "text": "What is the Event Loop in JavaScript, and how do the Call Stack, Microtask Queue, and Macrotask Queue interact?",
+    "idealAnswer": "JavaScript is single-threaded with a non-blocking concurrency model driven by the Event Loop. Synchronous code executes on the Call Stack. When asynchronous operations resolve, their callbacks are queued: Microtasks (Promises, queueMicrotask) take strict priority and are executed completely before the Event Loop processes the next Macrotask (setTimeout, setInterval, I/O events).",
+    "conditions": [
+      {
+        "name": "Single-Threaded Call Stack Execution",
+        "keywords": [
+          "call stack",
+          "single-threaded",
+          "synchronous",
+          "frame"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Microtask Queue Priority (Promises)",
+        "keywords": [
+          "microtask",
+          "promise",
+          "then",
+          "priority",
+          "exhaustion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Macrotask Queue Scheduling (Timers, I/O)",
+        "keywords": [
+          "macrotask",
+          "settimeout",
+          "event loop",
+          "tick",
+          "scheduling"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "JavaScript Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain JavaScript closures and lexical scoping with a practical programming example.",
+    "idealAnswer": "A closure is the combination of a function bundled together with references to its surrounding lexical environment. In JavaScript, inner functions retain access to outer function variables even after the outer function has completed execution and returned from the call stack, enabling private variables, factory functions, and currying.",
+    "conditions": [
+      {
+        "name": "Lexical Scoping and Scope Chain Definition",
+        "keywords": [
+          "lexical scope",
+          "closure",
+          "outer function",
+          "inner function",
+          "scope chain"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Persistent Variable Retention After Execution",
+        "keywords": [
+          "retention",
+          "memory",
+          "call stack",
+          "persistence",
+          "reference"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Practical Applications (Encapsulation and Currying)",
+        "keywords": [
+          "data privacy",
+          "encapsulation",
+          "factory function",
+          "currying",
+          "private"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Web Security",
+    "difficulty": "Easy",
+    "text": "What is the Same-Origin Policy (SOP), and how does Cross-Origin Resource Sharing (CORS) safely relax it?",
+    "idealAnswer": "The Same-Origin Policy is a fundamental browser security mechanism that restricts a document or script loaded from one origin from accessing resources on another origin, defined by protocol, domain, and port. CORS is an HTTP-header based protocol where servers specify Access-Control-Allow-Origin headers and handle preflight OPTIONS requests to allow authorized cross-origin requests.",
+    "conditions": [
+      {
+        "name": "Same-Origin Policy Triple (Protocol, Domain, Port)",
+        "keywords": [
+          "same-origin policy",
+          "origin",
+          "protocol",
+          "domain",
+          "port",
+          "browser security"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CORS Access-Control Response Headers Protocol",
+        "keywords": [
+          "cors",
+          "access-control-allow-origin",
+          "headers",
+          "white-list",
+          "credentials"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Preflight OPTIONS Request Mechanism",
+        "keywords": [
+          "preflight",
+          "options",
+          "http method",
+          "browser verification"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Modern Frontend",
+    "difficulty": "Easy",
+    "text": "What is the Virtual DOM in React, and how does the reconciliation diffing algorithm optimize UI rendering?",
+    "idealAnswer": "The Virtual DOM is a lightweight in-memory JavaScript representation of the actual DOM. When component state changes, React creates a new virtual DOM tree and runs a heuristic O(n) diffing algorithm against the previous tree (reconciliation). It computes the minimal set of changes and batches them to update only the modified real DOM nodes, avoiding costly full-page reflows.",
+    "conditions": [
+      {
+        "name": "In-Memory JavaScript Representation Concept",
+        "keywords": [
+          "virtual dom",
+          "in-memory",
+          "lightweight",
+          "javascript object",
+          "state change"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Heuristic Reconciliation Diffing Algorithm",
+        "keywords": [
+          "reconciliation",
+          "diffing",
+          "o(n)",
+          "heuristic",
+          "keys"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Batching and Minimal Real DOM Mutations",
+        "keywords": [
+          "batching",
+          "real dom",
+          "mutation",
+          "reflow",
+          "re-render"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Web Storage",
+    "difficulty": "Easy",
+    "text": "Compare LocalStorage, SessionStorage, and Cookies regarding storage limits, lifecycle, and security.",
+    "idealAnswer": "LocalStorage persists ~5-10MB of key-value string data indefinitely until cleared by user or script, accessible only on client. SessionStorage holds ~5MB scoped strictly to the browser tab lifecycle. Cookies store ~4KB, sent automatically on every HTTP request; when configured with HttpOnly, Secure, and SameSite flags, cookies prevent XSS theft and mitigate CSRF.",
+    "conditions": [
+      {
+        "name": "Storage Capacity and Lifecycle Durability Differences",
+        "keywords": [
+          "localstorage",
+          "sessionstorage",
+          "cookies",
+          "capacity",
+          "lifecycle",
+          "tab"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HTTP Transmission and Header Overhead",
+        "keywords": [
+          "http request",
+          "headers",
+          "payload",
+          "client-side only"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Security Attributes (HttpOnly, Secure, SameSite)",
+        "keywords": [
+          "httponly",
+          "secure",
+          "samesite",
+          "xss",
+          "csrf"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Backend Architecture",
+    "difficulty": "Easy",
+    "text": "What is middleware in Express.js, and what is the role of the next() function?",
+    "idealAnswer": "In Express.js, middleware functions have access to the request (req), response (res), and next middleware function in the application request-response cycle. Middleware executes code, mutates request objects (like parsing JSON or attaching user sessions), and must either send a response or call next() to pass execution to the next handler; omitting next() causes requests to hang indefinitely.",
+    "conditions": [
+      {
+        "name": "Request-Response Cycle Pipeline Interception",
+        "keywords": [
+          "middleware",
+          "request",
+          "response",
+          "req",
+          "res",
+          "pipeline"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Next() Function and Chain Control Flow",
+        "keywords": [
+          "next()",
+          "chain",
+          "control flow",
+          "pass execution",
+          "hanging"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Common Middleware Use Cases (Auth, Logging, Parsing)",
+        "keywords": [
+          "authentication",
+          "body-parser",
+          "cors",
+          "logging",
+          "validation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Database Fundamentals",
+    "difficulty": "Easy",
+    "text": "Explain database normalization and the requirements for First, Second, and Third Normal Forms (1NF, 2NF, 3NF).",
+    "idealAnswer": "Normalization organizes relational tables to reduce data redundancy and eliminate insertion, update, and deletion anomalies. 1NF requires atomic column values and unique rows. 2NF requires 1NF and that all non-key columns be fully functionally dependent on the primary key (no partial dependencies). 3NF requires 2NF and that no non-key column depends on another non-key column (no transitive dependencies).",
+    "conditions": [
+      {
+        "name": "Normalization Objectives and Anomaly Prevention",
+        "keywords": [
+          "normalization",
+          "redundancy",
+          "insertion anomaly",
+          "update anomaly",
+          "deletion"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "1NF Atomicity and 2NF Partial Dependency Removal",
+        "keywords": [
+          "1nf",
+          "atomic",
+          "2nf",
+          "partial dependency",
+          "primary key"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "3NF Transitive Dependency Elimination",
+        "keywords": [
+          "3nf",
+          "transitive dependency",
+          "non-key",
+          "foreign key"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "HTTP Protocol",
+    "difficulty": "Easy",
+    "text": "What is HTTP method idempotency, and how does PUT differ from POST and PATCH?",
+    "idealAnswer": "An HTTP method is idempotent if executing it multiple times with identical parameters yields the exact same server resource state as a single invocation. GET, PUT, and DELETE are idempotent; POST is non-idempotent because repeating it creates multiple subordinate resources. PUT replaces an entire resource representation, while PATCH performs partial updates on specific fields.",
+    "conditions": [
+      {
+        "name": "Idempotency Definition and Side-Effect Predictability",
+        "keywords": [
+          "idempotency",
+          "idempotent",
+          "side effects",
+          "multiple requests",
+          "state"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "POST Non-Idempotent Resource Creation",
+        "keywords": [
+          "post",
+          "non-idempotent",
+          "create",
+          "subordinate",
+          "duplicate"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "PUT Full Replacement vs PATCH Partial Mutation",
+        "keywords": [
+          "put",
+          "patch",
+          "replacement",
+          "partial update",
+          "fields"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "CSS & Layout",
+    "difficulty": "Easy",
+    "text": "Explain CSS Box Model and how box-sizing: border-box alters layout sizing calculations.",
+    "idealAnswer": "The CSS Box Model wraps every HTML element in four concentric areas: Content, Padding, Border, and Margin. Under the default content-box sizing, setting width: 200px specifies only the content width, so adding padding and border increases the rendered box width. Setting box-sizing: border-box includes padding and border within the specified width, simplifying responsive grid layouts.",
+    "conditions": [
+      {
+        "name": "Four Concentric Box Model Components",
+        "keywords": [
+          "box model",
+          "content",
+          "padding",
+          "border",
+          "margin"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Default content-box Dimension Inflation",
+        "keywords": [
+          "content-box",
+          "width calculation",
+          "inflation",
+          "dimension"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "border-box Containment for Responsive Design",
+        "keywords": [
+          "border-box",
+          "box-sizing",
+          "containment",
+          "responsive",
+          "predictable"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Asynchronous JavaScript",
+    "difficulty": "Easy",
+    "text": "How does async/await improve asynchronous code over Promise .then() chains and callback pyramids?",
+    "idealAnswer": "Promises represent eventual completion or failure of an asynchronous operation, preventing callback hell. Async/await is syntactic sugar built on top of Promises and Generators, allowing developers to write asynchronous non-blocking code that reads sequentially like synchronous code. It enables clean try/catch error handling and avoids deeply nested .then() callback chains.",
+    "conditions": [
+      {
+        "name": "Callback Hell and Inversion of Control Issues",
+        "keywords": [
+          "callback hell",
+          "pyramid of doom",
+          "nested",
+          "inversion of control"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Promise Chains and Syntactic Sugar Mechanics",
+        "keywords": [
+          "promises",
+          "then",
+          "async await",
+          "syntactic sugar",
+          "sequential"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Synchronous-Style Try/Catch Error Handling",
+        "keywords": [
+          "try catch",
+          "error handling",
+          "readable",
+          "clean code"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "State Management",
+    "difficulty": "Easy",
+    "text": "What is component state versus props in modern UI libraries like React or Vue?",
+    "idealAnswer": "Props (properties) are read-only inputs passed down from parent to child components, enforcing unidirectional data flow. State is an internal mutable data store managed within a component that changes over time in response to user actions or network events. When state updates, the component and its children re-render to reflect the updated data.",
+    "conditions": [
+      {
+        "name": "Props Read-Only Immutable Parameter Passing",
+        "keywords": [
+          "props",
+          "immutable",
+          "parent to child",
+          "read-only",
+          "unidirectional"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "State Internal Mutable Component Memory",
+        "keywords": [
+          "state",
+          "mutable",
+          "component state",
+          "local",
+          "usestate"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Re-rendering Trigger on State Mutations",
+        "keywords": [
+          "re-render",
+          "ui update",
+          "reactivity",
+          "lifecycle"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Web Security",
+    "difficulty": "Easy",
+    "text": "What is Cross-Site Scripting (XSS), and what measures prevent it in modern web applications?",
+    "idealAnswer": "XSS occurs when malicious JavaScript code is injected into trusted web applications and executed in victims browsers, allowing attackers to steal session cookies, access tokens, or hijack accounts. Defense mechanisms include context-aware HTML escaping, Content Security Policy (CSP) HTTP headers, sanitizing user inputs with DOMPurify, and storing auth tokens in HttpOnly cookies.",
+    "conditions": [
+      {
+        "name": "XSS Injection and Client Script Execution",
+        "keywords": [
+          "xss",
+          "cross-site scripting",
+          "malicious javascript",
+          "session hijacking",
+          "cookie theft"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Input Sanitization and Context-Aware HTML Escaping",
+        "keywords": [
+          "sanitization",
+          "html escaping",
+          "dompurify",
+          "encoding",
+          "untrusted input"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Content Security Policy (CSP) and HttpOnly Defenses",
+        "keywords": [
+          "csp",
+          "content security policy",
+          "httponly",
+          "headers",
+          "defense-in-depth"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Backend Performance",
+    "difficulty": "Easy",
+    "text": "What is an N+1 query problem in Object-Relational Mappings (ORMs) and how do you resolve it?",
+    "idealAnswer": "The N+1 query problem occurs when an ORM executes 1 initial SQL query to fetch N parent records, and then issues N subsequent individual queries to fetch associated child records in a loop, resulting in N+1 database roundtrips. It is resolved using eager loading (SQL JOINs or prefetching with IN clauses) rather than lazy loading child relations individually.",
+    "conditions": [
+      {
+        "name": "N+1 Query Manifestation and Database Latency",
+        "keywords": [
+          "n+1",
+          "query problem",
+          "orm",
+          "roundtrip",
+          "loop queries",
+          "latency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Lazy Loading Anti-pattern Root Cause",
+        "keywords": [
+          "lazy loading",
+          "child records",
+          "associations",
+          "overhead"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Eager Loading with SQL Joins and Prefetching",
+        "keywords": [
+          "eager loading",
+          "joins",
+          "include",
+          "populate",
+          "prefetching"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 90,
+    "isActive": true
+  },
+  {
+    "topic": "Database Optimization",
+    "difficulty": "Medium",
+    "text": "Explain how you optimize database indexing (B-Tree vs Hash) for high-frequency write versus read-heavy analytical workloads.",
+    "idealAnswer": "B-Tree indexes maintain a balanced sorted hierarchical structure optimal for range scans, sorting, and inequality comparisons with O(log n) complexity, whereas Hash indexes provide O(1) point lookups for exact equality queries but suffer write overhead and cannot serve range scans. For write-heavy workloads, excess indexing must be minimized due to write amplification, while read-heavy analytical workloads benefit from composite indexes and covering indexes.",
+    "conditions": [
+      {
+        "name": "B-Tree Range Queries and Balanced Tree Ordering",
+        "keywords": [
+          "b-tree",
+          "range",
+          "scan",
+          "order",
+          "tree",
+          "sorted",
+          "log n"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Hash Index Exact Match Point Lookups",
+        "keywords": [
+          "hash",
+          "exact",
+          "point",
+          "lookup",
+          "bucket",
+          "o(1)"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Write Amplification and Analytical Workload Trade-offs",
+        "keywords": [
+          "write",
+          "read",
+          "amplification",
+          "split",
+          "analytical",
+          "overhead"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Web Security",
+    "difficulty": "Medium",
+    "text": "How do you handle API security, JWT authentication token expiration, and CSRF protection in a distributed web service?",
+    "idealAnswer": "Secure authentication employs short-lived JWT access tokens with cryptographically signed headers, paired with rotating refresh tokens stored in HttpOnly SameSite cookies to protect against XSS and CSRF token theft. Refresh token rotation invalidates old tokens upon exchange, and token blacklisting via Redis handles immediate revocations in stateless architectures.",
+    "conditions": [
+      {
+        "name": "Access and Refresh Token Expiration Lifecycle",
+        "keywords": [
+          "jwt",
+          "access",
+          "refresh",
+          "token",
+          "expiration",
+          "stateless"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CSRF and HttpOnly Cookie Hardening",
+        "keywords": [
+          "csrf",
+          "cookie",
+          "httponly",
+          "samesite",
+          "header",
+          "cors"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Signature Verification and Distributed Token Revocation",
+        "keywords": [
+          "signature",
+          "secret",
+          "verify",
+          "revocation",
+          "blacklist",
+          "authorization"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Fullstack Architecture",
+    "difficulty": "Medium",
+    "text": "Compare Server-Side Rendering (SSR), Client-Side Rendering (CSR), and Static Site Generation (SSG) in terms of SEO, TTFB, and interactivity.",
+    "idealAnswer": "CSR renders HTML via JavaScript in the browser, providing rich app transitions but suffering poor Time to First Byte (TTFB), slow Largest Contentful Paint (LCP), and SEO indexing issues. SSR generates HTML dynamically on every request on the server, ensuring great SEO and fast initial paint but increasing server compute load and Time to First Byte. SSG pre-renders HTML at build time, offering near-instant TTFB from CDNs and optimal SEO, suited for content that changes infrequently.",
+    "conditions": [
+      {
+        "name": "CSR Client Execution and First Contentful Paint Bottlenecks",
+        "keywords": [
+          "csr",
+          "client-side",
+          "bundle size",
+          "fcp",
+          "lcp",
+          "seo drawbacks"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SSR Dynamic Server Execution and TTFB Latency",
+        "keywords": [
+          "ssr",
+          "server-side",
+          "ttfb",
+          "seo",
+          "hydration",
+          "dynamic"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SSG Build-Time Pre-rendering and CDN Edge Distribution",
+        "keywords": [
+          "ssg",
+          "static generation",
+          "build time",
+          "cdn",
+          "edge cache"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Real-Time Communication",
+    "difficulty": "Medium",
+    "text": "Compare WebSockets, Server-Sent Events (SSE), and HTTP Long-Polling for real-time application updates.",
+    "idealAnswer": "WebSockets establish a persistent full-duplex TCP connection over port 80/443 after an HTTP upgrade handshake, enabling bidirectional binary/text communication ideal for multiplayer gaming and live chat. Server-Sent Events (SSE) use a standard HTTP connection with text/event-stream headers for efficient unidirectional server-to-client streaming with automatic reconnection, ideal for LLM token streaming. Long-polling repeatedly holds HTTP connections open until updates occur, creating heavy connection overhead.",
+    "conditions": [
+      {
+        "name": "WebSocket Full-Duplex Bidirectional TCP Protocol",
+        "keywords": [
+          "websocket",
+          "full-duplex",
+          "bidirectional",
+          "tcp",
+          "upgrade handshake"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "SSE Unidirectional Text/Event-Stream Architecture",
+        "keywords": [
+          "sse",
+          "server-sent events",
+          "unidirectional",
+          "text/event-stream",
+          "reconnection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HTTP Long-Polling Connection Overhead and Latency",
+        "keywords": [
+          "long-polling",
+          "polling",
+          "overhead",
+          "http",
+          "latency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Database Concurrency",
+    "difficulty": "Medium",
+    "text": "Compare Optimistic vs Pessimistic Concurrency Control in relational and document databases.",
+    "idealAnswer": "Pessimistic locking assumes conflicts are frequent and locks database rows explicitly (e.g. SELECT FOR UPDATE) for the transaction duration, preventing concurrent reads or writes but creating severe lock contention and deadlock risks. Optimistic Concurrency Control (OCC) assumes conflicts are rare, allowing concurrent updates and verifying record version numbers or timestamps at commit time; if the version changed, the transaction rolls back and retries.",
+    "conditions": [
+      {
+        "name": "Pessimistic Locking Mechanisms and Contention",
+        "keywords": [
+          "pessimistic",
+          "locking",
+          "select for update",
+          "contention",
+          "deadlock"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Optimistic Concurrency Control (OCC) Version Checking",
+        "keywords": [
+          "optimistic",
+          "occ",
+          "version",
+          "timestamp",
+          "rollback",
+          "retry"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Throughput vs Collision Frequency Architectural Trade-offs",
+        "keywords": [
+          "throughput",
+          "collision",
+          "high concurrency",
+          "trade-offs"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "JavaScript Engine",
+    "difficulty": "Medium",
+    "text": "How does garbage collection work in V8 (Node.js/Chrome), comparing Generational Scavenging with Mark-Sweep-Compact?",
+    "idealAnswer": "V8 manages heap memory using Generational Garbage Collection based on the weak generational hypothesis (most objects die young). The heap is split into Young and Old Generations. The Young Generation uses Scavenge (Cheney algorithm), dividing space into From and To spaces and copying live objects during fast minor GC. Objects surviving multiple scavenges are promoted to the Old Generation, which uses Mark-Sweep-Compact major GC to mark reachable objects and compact fragmented memory.",
+    "conditions": [
+      {
+        "name": "Weak Generational Hypothesis and Heap Partitioning",
+        "keywords": [
+          "garbage collection",
+          "v8",
+          "generational",
+          "young generation",
+          "old generation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Scavenge Minor GC with Semi-Space Copying",
+        "keywords": [
+          "scavenge",
+          "semi-space",
+          "from space",
+          "to space",
+          "copying",
+          "minor gc"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Mark-Sweep-Compact Major GC and Memory Fragmentation",
+        "keywords": [
+          "mark-sweep",
+          "compact",
+          "major gc",
+          "fragmentation",
+          "promotion"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Microservices & APIs",
+    "difficulty": "Medium",
+    "text": "What is an API Gateway pattern, and what responsibilities does it offload from downstream microservices?",
+    "idealAnswer": "An API Gateway sits as the single reverse proxy entrypoint between external clients and downstream microservices. It offloads cross-cutting concerns including SSL termination, centralized authentication/JWT validation, rate limiting, request routing, API versioning, response caching, and payload transformation, insulating internal service topologies from client coupling.",
+    "conditions": [
+      {
+        "name": "Single Entrypoint Reverse Proxy Routing",
+        "keywords": [
+          "api gateway",
+          "reverse proxy",
+          "entrypoint",
+          "routing",
+          "microservices"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cross-Cutting Concerns Offloading (Auth, SSL, Rate Limits)",
+        "keywords": [
+          "ssl termination",
+          "authentication",
+          "rate limiting",
+          "jwt",
+          "cross-cutting"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Topology Encapsulation and Payload Aggregation",
+        "keywords": [
+          "encapsulation",
+          "aggregation",
+          "coupling",
+          "backend-for-frontend"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Performance Optimization",
+    "difficulty": "Medium",
+    "text": "Explain Core Web Vitals (LCP, INP, CLS) and frontend strategies to optimize each metric.",
+    "idealAnswer": "Core Web Vitals measure real-world user experience: Largest Contentful Paint (LCP) measures loading performance (<2.5s), optimized via image compression, CDN preloading, and critical CSS inlining. Interaction to Next Paint (INP) measures responsiveness (<200ms), optimized by breaking up long tasks, using web workers, and yielding to main thread via requestIdleCallback. Cumulative Layout Shift (CLS) measures visual stability (<0.1), optimized by reserving explicit width/height dimensions on images and ads.",
+    "conditions": [
+      {
+        "name": "LCP Loading Metric Optimization Strategies",
+        "keywords": [
+          "lcp",
+          "largest contentful paint",
+          "loading",
+          "cdn",
+          "image optimization",
+          "preloading"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "INP Responsiveness and Main Thread Task Splitting",
+        "keywords": [
+          "inp",
+          "interaction to next paint",
+          "main thread",
+          "long tasks",
+          "responsiveness"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "CLS Visual Stability and Aspect Ratio Reservation",
+        "keywords": [
+          "cls",
+          "cumulative layout shift",
+          "aspect ratio",
+          "dimensions",
+          "stability"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Frontend Architecture",
+    "difficulty": "Medium",
+    "text": "Explain React Hydration, Server Components (RSC), and how they reduce client JavaScript bundle sizes.",
+    "idealAnswer": "Hydration attaches client-side event listeners to server-rendered HTML DOM nodes, which historically required downloading the entire component JavaScript tree to the browser. React Server Components (RSC) execute exclusively on the server with direct database/filesystem access; their dependencies and component code remain on the server and are serialized into a JSON-like stream, drastically reducing client JS bundle size while preserving client interactivity in leaf Client Components.",
+    "conditions": [
+      {
+        "name": "Client-Side Hydration and Event Listener Attachment",
+        "keywords": [
+          "hydration",
+          "event listeners",
+          "reconciliation",
+          "server rendered html"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "React Server Components (RSC) Zero-Bundle Execution",
+        "keywords": [
+          "rsc",
+          "server components",
+          "zero bundle",
+          "server execution",
+          "serialization"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Client Components Boundary and Streaming Architecture",
+        "keywords": [
+          "client components",
+          "use client",
+          "boundary",
+          "streaming",
+          "bundle size"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Data Modeling",
+    "difficulty": "Medium",
+    "text": "When designing a MongoDB document schema, how do you decide between embedding sub-documents versus referencing ObjectIds?",
+    "idealAnswer": "Embedding sub-documents is optimal for 1-to-few relationships where data is accessed together, modified atomically, and bounded in size (e.g. addresses), benefiting from single-document ACID atomicity and eliminating expensive joins. Referencing ObjectIds with $lookup is required for 1-to-many or many-to-many relationships, unbounded collections (e.g. user activity logs), or frequently updated shared entities to prevent exceeding MongoDB 16MB document size limit.",
+    "conditions": [
+      {
+        "name": "Embedding for 1-to-Few Bounded Atomic Access",
+        "keywords": [
+          "embedding",
+          "sub-documents",
+          "1-to-few",
+          "atomicity",
+          "single read"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Referencing for Unbounded 1-to-Many Collections",
+        "keywords": [
+          "referencing",
+          "objectid",
+          "1-to-many",
+          "unbounded",
+          "$lookup"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "MongoDB 16MB Document Limit and Growth Patterns",
+        "keywords": [
+          "16mb limit",
+          "document size",
+          "growth pattern",
+          "anti-pattern"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Node.js Internals",
+    "difficulty": "Medium",
+    "text": "Explain how Node.js utilizes libuv for asynchronous I/O and thread pool offloading.",
+    "idealAnswer": "Node.js runs single-threaded JavaScript in V8, but offloads asynchronous I/O to libuv. Libuv delegates network sockets directly to operating system kernel event demultiplexers (epoll on Linux, kqueue on macOS, IOCP on Windows) without blocking threads. For operations unsupported by OS async APIs (filesystem I/O, DNS lookups, crypto hashing), libuv dispatches tasks to an internal multi-threaded Worker Pool (default 4 threads, configurable via UV_THREADPOOL_SIZE).",
+    "conditions": [
+      {
+        "name": "Libuv Architecture and Kernel Event Demultiplexers",
+        "keywords": [
+          "libuv",
+          "epoll",
+          "kqueue",
+          "iocp",
+          "non-blocking",
+          "event loop"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Worker Thread Pool for Filesystem and Crypto Tasks",
+        "keywords": [
+          "thread pool",
+          "worker threads",
+          "fs",
+          "crypto",
+          "dns"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "UV_THREADPOOL_SIZE Configuration and Scaling Limits",
+        "keywords": [
+          "uv_threadpool_size",
+          "concurrency",
+          "blocking",
+          "threads"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Security Architecture",
+    "difficulty": "Medium",
+    "text": "Explain SQL Injection and NoSQL Injection vulnerabilities and how parameterized queries prevent them.",
+    "idealAnswer": "SQL and NoSQL Injections occur when untrusted user inputs are concatenated directly into database query strings or query objects, allowing attackers to manipulate query logic (e.g. injecting $gt: \"\" in MongoDB or OR 1=1 in SQL) to bypass authentication or dump data. Parameterized queries and Object Relational/Document Mappings use prepared statements where input data is strictly bound as parameters, ensuring input is treated as literal values, never executable code.",
+    "conditions": [
+      {
+        "name": "SQL String Concatenation and NoSQL Operator Injections",
+        "keywords": [
+          "sql injection",
+          "nosql injection",
+          "concatenation",
+          "$gt",
+          "operator injection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Parameterized Queries and Prepared Statements Principle",
+        "keywords": [
+          "parameterized",
+          "prepared statements",
+          "placeholders",
+          "data binding"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Input Validation and Sanitization Defenses",
+        "keywords": [
+          "sanitization",
+          "input validation",
+          "escaping",
+          "mongo-sanitize"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Message Queues",
+    "difficulty": "Medium",
+    "text": "What are the benefits of introducing an asynchronous message queue (e.g. RabbitMQ, BullMQ) into a web backend?",
+    "idealAnswer": "Introducing a message queue decouples producer and consumer services, moving slow, non-critical background jobs (email dispatch, PDF rendering, video transcoding) out of the synchronous HTTP request-response cycle. It provides traffic smoothing (load leveling) during traffic surges, automatic retry policies with exponential backoff, and dead-letter queues (DLQ) to isolate poisonous messages without failing API requests.",
+    "conditions": [
+      {
+        "name": "Decoupling and Async HTTP Offloading",
+        "keywords": [
+          "message queue",
+          "decoupling",
+          "asynchronous",
+          "background jobs",
+          "producer consumer"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Traffic Smoothing and Load Leveling During Spikes",
+        "keywords": [
+          "traffic smoothing",
+          "load leveling",
+          "backpressure",
+          "rate control"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Retry Mechanisms and Dead Letter Queues (DLQ)",
+        "keywords": [
+          "retry",
+          "exponential backoff",
+          "dead letter queue",
+          "dlq",
+          "reliability"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Web Performance",
+    "difficulty": "Medium",
+    "text": "How does HTTP/2 multiplexing improve performance over HTTP/1.1, and what is Head-of-Line (HoL) blocking?",
+    "idealAnswer": "HTTP/1.1 requires sequential request-response cycles per TCP connection, suffering from application-layer Head-of-Line (HoL) blocking where slow requests stall subsequent requests, forcing browsers to open up to 6 parallel TCP connections. HTTP/2 introduces a binary framing layer that multiplexes multiple concurrent bi-directional request-response streams over a single TCP connection, eliminating application HoL blocking and providing header compression via HPACK.",
+    "conditions": [
+      {
+        "name": "HTTP/1.1 Application Head-of-Line Blocking and Multiple Connections",
+        "keywords": [
+          "http/1.1",
+          "head-of-line",
+          "hol blocking",
+          "pipelining",
+          "tcp connections"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HTTP/2 Binary Framing Layer and Stream Multiplexing",
+        "keywords": [
+          "http/2",
+          "multiplexing",
+          "binary framing",
+          "streams",
+          "single connection"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HPACK Header Compression and Server Push",
+        "keywords": [
+          "hpack",
+          "header compression",
+          "server push",
+          "latency reduction"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 120,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Database Systems",
+    "difficulty": "Hard",
+    "text": "Explain Multi-Version Concurrency Control (MVCC) in PostgreSQL and how VACUUM handles dead row tuples.",
+    "idealAnswer": "PostgreSQL implements MVCC to allow concurrent reads and writes without read-write locking (\"readers do not block writers, writers do not block readers\"). Every row tuple stores transaction boundaries (xmin for creation txid, xmax for deletion/update txid). When a row is updated, a new physical tuple version is inserted and the old tuple is marked dead. VACUUM scans page blocks to reclaim space occupied by dead tuples whose xmax is older than any active transaction, preventing table bloat and transaction ID wraparound.",
+    "conditions": [
+      {
+        "name": "Tuple Versioning with xmin and xmax Transaction IDs",
+        "keywords": [
+          "mvcc",
+          "xmin",
+          "xmax",
+          "tuple",
+          "txid",
+          "snapshot"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Non-Blocking Concurrent Snapshot Isolation",
+        "keywords": [
+          "snapshot isolation",
+          "readers do not block writers",
+          "concurrency",
+          "visibility"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "VACUUM Tuple Reclaiming and Transaction ID Wraparound",
+        "keywords": [
+          "vacuum",
+          "dead tuples",
+          "table bloat",
+          "wraparound",
+          "autovacuum"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Fullstack Microservices",
+    "difficulty": "Hard",
+    "text": "Design an end-to-end Idempotent Payment Processing API that prevents double-charging under network retries.",
+    "idealAnswer": "An idempotent payment API requires clients to generate a unique UUID v4 Idempotency-Key sent in request headers. The API Gateway or payment service checks an in-memory Redis distributed lock on the key. If an in-flight request exists, subsequent calls return 409 Conflict. If a cached completed payment response exists, it returns the stored response immediately without re-executing. The database uses an atomic transaction with a unique idempotency constraint and two-phase commit with external payment gateways.",
+    "conditions": [
+      {
+        "name": "Client Idempotency-Key Header and Distributed Locking",
+        "keywords": [
+          "idempotency-key",
+          "uuid",
+          "distributed lock",
+          "redis",
+          "in-flight"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Atomic Database Constraints and State Machine Tracking",
+        "keywords": [
+          "atomic",
+          "unique constraint",
+          "state machine",
+          "pending",
+          "settled"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Cached Response Replaying and Safe Network Retry Protocol",
+        "keywords": [
+          "cached response",
+          "replaying",
+          "double charge",
+          "network retry",
+          "webhook"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Web Performance & Protocols",
+    "difficulty": "Hard",
+    "text": "Compare HTTP/2 TCP Head-of-Line blocking with HTTP/3 QUIC UDP architecture, detailing 0-RTT handshakes.",
+    "idealAnswer": "While HTTP/2 multiplexes streams over a single TCP connection, TCP guarantees in-order packet delivery; thus, a single dropped packet stalls all streams on that connection (TCP-level Head-of-Line blocking). HTTP/3 replaces TCP with QUIC built over UDP. QUIC implements independent stream flow control at the transport layer, so dropped packets on one stream do not stall independent streams. QUIC integrates TLS 1.3 encryption directly into transport handshakes, enabling 0-RTT connection resumption.",
+    "conditions": [
+      {
+        "name": "HTTP/2 TCP Packet Loss Head-of-Line Bottleneck",
+        "keywords": [
+          "http/2",
+          "tcp head-of-line",
+          "packet loss",
+          "congestion control",
+          "stall"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "HTTP/3 QUIC over UDP Independent Stream Transport",
+        "keywords": [
+          "http/3",
+          "quic",
+          "udp",
+          "independent streams",
+          "transport layer"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "TLS 1.3 Integration and 0-RTT Connection Resumption",
+        "keywords": [
+          "0-rtt",
+          "tls 1.3",
+          "connection migration",
+          "handshake",
+          "low latency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Caching",
+    "difficulty": "Hard",
+    "text": "How do you maintain cache-aside consistency with a relational database using write-through, write-behind, and Change Data Capture (CDC)?",
+    "idealAnswer": "In cache-aside, applications query cache first and populate on miss, but face race conditions when writing. In write-through, writes synchronously update cache and database together. In write-behind (write-back), writes update cache immediately and asynchronously batch flush to database, offering extreme write throughput at the risk of data loss. For high reliability, modern architectures use Change Data Capture (Debezium + Kafka) to tail database transaction logs (WAL) and invalidate or update cache asynchronously with guaranteed ordering.",
+    "conditions": [
+      {
+        "name": "Cache-Aside Read Miss Pattern and Race Conditions",
+        "keywords": [
+          "cache-aside",
+          "cache miss",
+          "race conditions",
+          "stale data",
+          "invalidation"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Write-Through Synchronous vs Write-Behind Asynchronous Flushes",
+        "keywords": [
+          "write-through",
+          "write-behind",
+          "write-back",
+          "durability",
+          "batching"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Change Data Capture (CDC) WAL Invalidation Pipelines",
+        "keywords": [
+          "cdc",
+          "change data capture",
+          "wal",
+          "debezium",
+          "kafka",
+          "consistency"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Frontend Compilers",
+    "difficulty": "Hard",
+    "text": "Explain how modern bundlers (e.g. Vite/Rollup/Webpack) implement Tree Shaking and why ES Modules (ESM) are required.",
+    "idealAnswer": "Tree shaking is dead-code elimination that removes unused exports from final production bundles. It relies strictly on the static syntax of ES Modules (import/export), where imports cannot be dynamic or conditional at compile time, allowing the compiler to build a deterministic Abstract Syntax Tree (AST) module dependency graph. In contrast, CommonJS (require/module.exports) is dynamic at runtime, preventing static analysis of used exports.",
+    "conditions": [
+      {
+        "name": "Dead Code Elimination and Bundle Size Optimization",
+        "keywords": [
+          "tree shaking",
+          "dead code elimination",
+          "bundle size",
+          "production build"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Static Analysis of ES Modules (ESM) vs Dynamic CommonJS",
+        "keywords": [
+          "esm",
+          "es modules",
+          "static analysis",
+          "commonjs",
+          "ast",
+          "import export"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Side Effects Flagging and Pure Annotation Verification",
+        "keywords": [
+          "sideeffects",
+          "pure annotations",
+          "dead export",
+          "rollup",
+          "webpack"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Distributed Systems",
+    "difficulty": "Hard",
+    "text": "Design a distributed WebSocket gateway supporting 500,000 concurrent connections across multiple server nodes.",
+    "idealAnswer": "A high-scale distributed WebSocket gateway uses an API Gateway / Load Balancer configured with least-connection routing and sticky sessions for initial handshake. Nodes maintain persistent TCP connections in memory, offloading shared state and cross-node pub/sub message broadcast to a clustered Redis Pub/Sub, Kafka, or RabbitMQ broker. Epoll/KQueue non-blocking I/O and horizontal scaling with heartbeat ping/pong keepalive management prevent connection drops and resource exhaustion.",
+    "conditions": [
+      {
+        "name": "Load Balancing and Sticky Handshake Protocol",
+        "keywords": [
+          "load balancer",
+          "least connections",
+          "sticky sessions",
+          "handshake",
+          "tcp"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Clustered Pub/Sub Bus for Cross-Node Message Routing",
+        "keywords": [
+          "redis pub/sub",
+          "kafka",
+          "message bus",
+          "cross-node",
+          "broadcast"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Kernel Socket Tuning and Heartbeat Connection Management",
+        "keywords": [
+          "epoll",
+          "file descriptors",
+          "heartbeat",
+          "ping pong",
+          "horizontal scaling"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Security Engineering",
+    "difficulty": "Hard",
+    "text": "How do Timing Attacks compromise cryptographic token comparisons, and how does constant-time comparison mitigate them?",
+    "idealAnswer": "Standard string equality comparisons (like === or strcmp) iterate character-by-character and return early on the first mismatched character. Attackers measure microsecond differences in server response latency to iteratively infer correct secret tokens character by character. Constant-time comparison (e.g. crypto.timingSafeEqual in Node.js) executes the exact same number of bitwise XOR operations across all bytes regardless of mismatches, eliminating timing leakage.",
+    "conditions": [
+      {
+        "name": "Early-Exit String Equality Comparison Vulnerability",
+        "keywords": [
+          "timing attack",
+          "early-exit",
+          "character-by-character",
+          "side-channel",
+          "latency"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Statistical Timing Variance and Iterative Key Inference",
+        "keywords": [
+          "timing variance",
+          "statistical",
+          "microsecond",
+          "inference",
+          "leakage"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Bitwise Constant-Time Cryptographic Primitives (timingSafeEqual)",
+        "keywords": [
+          "constant-time",
+          "timingsafeequal",
+          "crypto",
+          "bitwise xor",
+          "mitigation"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  },
+  {
+    "topic": "Database Internals",
+    "difficulty": "Hard",
+    "text": "Explain Write-Ahead Logging (WAL) and ARIES crash recovery protocols in database engines.",
+    "idealAnswer": "Write-Ahead Logging guarantees ACID durability by appending transaction changes to a sequential log on non-volatile disk before modifying dirty pages in memory or flushing data files. Under the ARIES recovery algorithm, when a crash occurs, the engine executes three sequential phases: Analysis phase (identifies dirty pages and active transactions from the last checkpoint), Redo phase (replays all logged actions forward to restore pre-crash state), and Undo phase (rolls back uncommitted active transactions backwards).",
+    "conditions": [
+      {
+        "name": "Write-Ahead Log Sequential Disk Durability Invariant",
+        "keywords": [
+          "write-ahead log",
+          "wal",
+          "durability",
+          "dirty pages",
+          "sequential io"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "ARIES Recovery Algorithm Three Phases (Analysis, Redo, Undo)",
+        "keywords": [
+          "aries",
+          "analysis phase",
+          "redo phase",
+          "undo phase",
+          "crash recovery"
+        ],
+        "maxPoints": 3.5
+      },
+      {
+        "name": "Checkpoints and Compensation Log Records (CLR)",
+        "keywords": [
+          "checkpoint",
+          "compensation log records",
+          "clr",
+          "lsn",
+          "rollback"
+        ],
+        "maxPoints": 3
+      }
+    ],
+    "timeLimitSec": 180,
+    "isActive": true
+  }
+]
