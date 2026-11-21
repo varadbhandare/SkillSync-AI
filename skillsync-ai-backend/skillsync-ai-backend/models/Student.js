@@ -16,10 +16,9 @@ const StudentSchema = new mongoose.Schema(
       trim: true,
       lowercase: true,
       match: [
-        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
         'Please provide a valid email address'
-      ],
-      default: 'student@university.edu'
+      ]
     },
     phone: {
       type: String,

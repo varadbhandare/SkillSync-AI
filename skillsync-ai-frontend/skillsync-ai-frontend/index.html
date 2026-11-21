@@ -748,8 +748,8 @@
 
         <!-- Auth Tabs -->
         <div class="grid grid-cols-2 p-1 rounded-xl bg-[var(--bg)] border border-[var(--line)] text-xs font-semibold">
-          <button id="tabBtnLogin" onclick="switchAuthTab('login')" class="py-1.5 rounded-lg bg-[var(--card)] text-[var(--text)] shadow-sm transition">Sign In</button>
-          <button id="tabBtnRegister" onclick="switchAuthTab('register')" class="py-1.5 rounded-lg text-[var(--sub)] hover:text-[var(--text)] transition">Register</button>
+          <button type="button" id="tabBtnLogin" onclick="switchAuthTab('login')" class="py-1.5 rounded-lg bg-[var(--card)] text-[var(--text)] shadow-sm transition">Sign In</button>
+          <button type="button" id="tabBtnRegister" onclick="switchAuthTab('register')" class="py-1.5 rounded-lg text-[var(--sub)] hover:text-[var(--text)] transition">Register</button>
         </div>
 
         <!-- Error Alert -->
@@ -2940,32 +2940,49 @@
       const formLogin = document.getElementById('loginForm');
       const formReg = document.getElementById('registerForm');
       const title = document.getElementById('authModalTitle');
+      const alertBox = document.getElementById('authAlert');
+
+      if (alertBox) alertBox.classList.add('hidden');
 
       if (tab === 'login') {
-        tabLogin.className = "pb-2 px-3 text-xs font-bold text-indigo-600 border-b-2 border-indigo-600";
-        tabReg.className = "pb-2 px-3 text-xs font-semibold text-slate-400 hover:text-slate-600";
-        formLogin.classList.remove('hidden');
-        formReg.classList.add('hidden');
-        title.textContent = "Sign In to SkillSync AI";
+        if (tabLogin) tabLogin.className = "py-1.5 rounded-lg bg-[var(--card)] text-[var(--text)] shadow-sm transition";
+        if (tabReg) tabReg.className = "py-1.5 rounded-lg text-[var(--sub)] hover:text-[var(--text)] transition";
+        if (formLogin) formLogin.classList.remove('hidden');
+        if (formReg) formReg.classList.add('hidden');
+        if (title) title.textContent = "Sign In to SkillSync AI";
       } else {
-        tabReg.className = "pb-2 px-3 text-xs font-bold text-indigo-600 border-b-2 border-indigo-600";
-        tabLogin.className = "pb-2 px-3 text-xs font-semibold text-slate-400 hover:text-slate-600";
-        formReg.classList.remove('hidden');
-        formLogin.classList.add('hidden');
-        title.textContent = "Register New Student Account";
+        if (tabReg) tabReg.className = "py-1.5 rounded-lg bg-[var(--card)] text-[var(--text)] shadow-sm transition";
+        if (tabLogin) tabLogin.className = "py-1.5 rounded-lg text-[var(--sub)] hover:text-[var(--text)] transition";
+        if (formReg) formReg.classList.remove('hidden');
+        if (formLogin) formLogin.classList.add('hidden');
+        if (title) title.textContent = "Register New Student Account";
       }
     }
 
     async function handleAuthLogin() {
-      const email = document.getElementById('loginEmail').value.trim();
-      const password = document.getElementById('loginPassword').value;
+      const emailInput = document.getElementById('loginEmail');
+      const passwordInput = document.getElementById('loginPassword');
+      const email = emailInput ? emailInput.value.trim() : '';
+      const password = passwordInput ? passwordInput.value : '';
       const alertBox = document.getElementById('authAlert');
       const submitBtn = document.getElementById('btnSubmitLogin');
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Authenticating...';
+      if (!email || !password) {
+        if (alertBox) {
+          alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+          alertBox.textContent = 'Please provide both email and password.';
+          alertBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Authenticating...';
+      }
 
       try {
+        console.log('[Auth] Attempting login for:', email, 'to endpoint:', `${API_BASE_URL}/auth/login`);
         const res = await fetch(`${API_BASE_URL}/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -2995,33 +3012,67 @@
           loadCodingProfilesFromAPI();
           loadTemplateResume(false);
         } else {
-          alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
-          alertBox.textContent = json.error || 'Authentication failed. Please check your credentials.';
-          alertBox.classList.remove('hidden');
+          if (alertBox) {
+            alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+            alertBox.textContent = json.error || 'Authentication failed. Please check your credentials.';
+            alertBox.classList.remove('hidden');
+          }
         }
       } catch (err) {
-        alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
-        alertBox.textContent = `Login failed: ${err.message}. Ensure backend is running.`;
-        alertBox.classList.remove('hidden');
+        console.error('[Auth Error]:', err);
+        if (alertBox) {
+          alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+          alertBox.textContent = `Login failed: ${err.message}. Please verify server connection.`;
+          alertBox.classList.remove('hidden');
+        }
       } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Sign In with JWT Token';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Sign In to Profile';
+        }
       }
     }
 
     async function handleAuthRegister() {
-      const name = document.getElementById('regFullName').value.trim();
-      const email = document.getElementById('regEmail').value.trim();
-      const password = document.getElementById('regPassword').value;
-      const college = document.getElementById('regCollege').value.trim();
-      const targetRole = document.getElementById('regTargetRole').value;
+      const nameInput = document.getElementById('regFullName');
+      const emailInput = document.getElementById('regEmail');
+      const passwordInput = document.getElementById('regPassword');
+      const collegeInput = document.getElementById('regCollege');
+      const targetRoleInput = document.getElementById('regTargetRole');
       const alertBox = document.getElementById('authAlert');
       const submitBtn = document.getElementById('btnSubmitRegister');
 
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Creating Account...';
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const password = passwordInput ? passwordInput.value : '';
+      const college = collegeInput ? collegeInput.value.trim() : '';
+      const targetRole = targetRoleInput ? targetRoleInput.value : 'ai_ml';
+
+      if (!name || !email || !password) {
+        if (alertBox) {
+          alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+          alertBox.textContent = 'Please fill in name, email, and password.';
+          alertBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (password.length < 6) {
+        if (alertBox) {
+          alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+          alertBox.textContent = 'Password must be at least 6 characters long.';
+          alertBox.classList.remove('hidden');
+        }
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating Account...';
+      }
 
       try {
+        console.log('[Auth] Attempting register for:', email, 'to endpoint:', `${API_BASE_URL}/auth/register`);
         const res = await fetch(`${API_BASE_URL}/auth/register`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -3051,17 +3102,24 @@
           loadCodingProfilesFromAPI();
           loadTemplateResume(false);
         } else {
-          alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
-          alertBox.textContent = json.error || 'Registration failed. Try again.';
-          alertBox.classList.remove('hidden');
+          if (alertBox) {
+            alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+            alertBox.textContent = json.error || 'Registration failed. Please try again.';
+            alertBox.classList.remove('hidden');
+          }
         }
       } catch (err) {
-        alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
-        alertBox.textContent = `Registration failed: ${err.message}`;
-        alertBox.classList.remove('hidden');
+        console.error('[Auth Error]:', err);
+        if (alertBox) {
+          alertBox.className = "p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium";
+          alertBox.textContent = `Registration error: ${err.message}. Please verify server connection.`;
+          alertBox.classList.remove('hidden');
+        }
       } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Create Account & Link Profile';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Create Student Account';
+        }
       }
     }
 
@@ -3804,7 +3862,6 @@ PROJECTS:
 2. Deep Learning Classification Pipeline
    - Developed deep convolutional and transformer neural networks achieving 94% accuracy.`;
 
-      const textarea = document.getElementById('resumeTextInput');
       if (textarea) {
         textarea.value = resumeContent;
         updateWordCount();

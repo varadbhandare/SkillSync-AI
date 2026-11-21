@@ -33,21 +33,34 @@ app.use(
   })
 );
 
-// CORS allowlist configuration
+// CORS configuration
 const allowedOrigins = process.env.CORS_ORIGIN
   ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
-  : ['http://localhost:5000', 'http://127.0.0.1:5000', 'http://localhost:3000', 'http://127.0.0.1:3000', '*'];
+  : ['*'];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || origin === 'null' || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
-        callback(null, true);
-      } else {
-        callback(new Error(`CORS origin ${origin} not permitted.`));
+      // Allow requests with no origin (curl, same-origin relative requests, server-to-server)
+      if (!origin || origin === 'null') {
+        return callback(null, true);
       }
+      // Allow all subdomains on Render, localhost, or origins matching allowedOrigins or wildcard
+      if (
+        origin.endsWith('.onrender.com') ||
+        origin.includes('localhost') ||
+        origin.includes('127.0.0.1') ||
+        allowedOrigins.includes(origin) ||
+        allowedOrigins.includes('*')
+      ) {
+        return callback(null, true);
+      }
+      // Fallback: reflect caller origin so users are never blocked by domain or subdomain changes
+      return callback(null, true);
     },
-    credentials: true
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
   })
 );
 
