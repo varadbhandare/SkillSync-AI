@@ -9,21 +9,35 @@ const MentorChat = require('../models/MentorChat');
 const Student = require('../models/Student');
 const { optionalAuth } = require('../middleware/authMiddleware');
 
+// Helper to resolve student strictly for current user or demo fallback
+const resolveStudentForReq = async (req) => {
+  let student = null;
+  if (req.user) {
+    if (req.user.student) {
+      student = await Student.findById(req.user.student);
+    }
+    if (!student && req.user.email) {
+      student = await Student.findOne({ email: req.user.email.toLowerCase() });
+    }
+  }
+  if (!student) {
+    student = await Student.findOne({ email: 'student@university.edu' });
+  }
+  return student;
+};
+
 /* =========================================================================
    1. SKILL GAP DETECTION CRUD ENDPOINTS
    ========================================================================= */
 
 // @route   GET /api/modules/skill-gaps
 // @desc    READ skill gaps & cosine similarity diagnostics
-router.get('/skill-gaps', async (req, res) => {
+router.get('/skill-gaps', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
     let data = null;
     if (student) {
       data = await SkillGap.findOne({ student: student._id }).sort({ updatedAt: -1 });
-    }
-    if (!data) {
-      data = await SkillGap.findOne().sort({ updatedAt: -1 });
     }
     res.json({ success: true, data });
   } catch (err) {
@@ -33,9 +47,9 @@ router.get('/skill-gaps', async (req, res) => {
 
 // @route   POST /api/modules/skill-gaps/recalculate
 // @desc    UPDATE / RECALCULATE skill gap analysis
-router.post('/skill-gaps/recalculate', async (req, res) => {
+router.post('/skill-gaps/recalculate', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
     const targetRole = student ? student.targetRole : 'ai_ml';
 
     const updated = await SkillGap.findOneAndUpdate(
@@ -652,25 +666,11 @@ function buildSuggestedRoadmap(targetRole = 'ai_ml', customRole = '') {
 // @desc    READ learning roadmap & milestone tasks
 router.get('/roadmaps', optionalAuth, async (req, res) => {
   try {
-    let student = null;
-    if (req.user) {
-      if (req.user.student) {
-        student = await Student.findById(req.user.student);
-      }
-      if (!student) {
-        student = await Student.findOne({ email: req.user.email });
-      }
-    }
-    if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
-    }
+    const student = await resolveStudentForReq(req);
 
     let data = null;
     if (student) {
       data = await Roadmap.findOne({ student: student._id }).sort({ updatedAt: -1 });
-    }
-    if (!data) {
-      data = await Roadmap.findOne().sort({ updatedAt: -1 });
     }
 
     if (!data) {
@@ -773,27 +773,13 @@ router.get('/roadmaps', optionalAuth, async (req, res) => {
 // @desc    Generate a custom 4-week roadmap based on analyzed resume skill gaps with real platform tutorials
 router.post('/roadmaps/generate-from-resume', optionalAuth, async (req, res) => {
   try {
-    let student = null;
-    if (req.user) {
-      if (req.user.student) {
-        student = await Student.findById(req.user.student);
-      }
-      if (!student) {
-        student = await Student.findOne({ email: req.user.email });
-      }
-    }
-    if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
-    }
+    const student = await resolveStudentForReq(req);
     if (!student) {
       return res.status(404).json({ success: false, error: 'Student profile not found.' });
     }
 
-    // Find latest resume
+    // Find latest resume for this student
     let resume = await Resume.findOne({ student: student._id }).sort({ updatedAt: -1 });
-    if (!resume) {
-      resume = await Resume.findOne().sort({ updatedAt: -1 });
-    }
 
     const targetRole = student.targetRole || 'ai_ml';
     const customRole = student.customTargetRole || '';
@@ -937,7 +923,11 @@ router.post('/roadmaps/generate-from-resume', optionalAuth, async (req, res) => 
 router.put('/roadmaps/toggle-task', optionalAuth, async (req, res) => {
   try {
     const { weekNumber, taskIndex, isDone, overallProgress } = req.body;
-    let roadmap = await Roadmap.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
+    let roadmap = student ? await Roadmap.findOne({ student: student._id }).sort({ updatedAt: -1 }) : null;
+    if (!roadmap) {
+      roadmap = await Roadmap.findOne().sort({ updatedAt: -1 });
+    }
     if (roadmap) {
       const week = roadmap.weeks.find((w) => w.weekNumber === weekNumber);
       if (week && week.tasks && week.tasks[taskIndex]) {
@@ -959,7 +949,11 @@ router.put('/roadmaps/toggle-task', optionalAuth, async (req, res) => {
 router.post('/roadmaps/add-task', optionalAuth, async (req, res) => {
   try {
     const { weekNumber, taskName } = req.body;
-    let roadmap = await Roadmap.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
+    let roadmap = student ? await Roadmap.findOne({ student: student._id }).sort({ updatedAt: -1 }) : null;
+    if (!roadmap) {
+      roadmap = await Roadmap.findOne().sort({ updatedAt: -1 });
+    }
     if (roadmap) {
       const week = roadmap.weeks.find((w) => w.weekNumber === weekNumber);
       if (week) {
@@ -985,10 +979,10 @@ router.use('/interviews', require('./interviewRoutes'));
 
 // @route   GET /api/modules/placement-readiness
 // @desc    READ composite readiness scoring & predicted CTC
-router.get('/placement-readiness', async (req, res) => {
+router.get('/placement-readiness', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
-    let readiness = await PlacementReadiness.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
+    let readiness = student ? await PlacementReadiness.findOne({ student: student._id }).sort({ updatedAt: -1 }) : null;
     
     if (!readiness && student) {
       readiness = await PlacementReadiness.create({
@@ -2092,10 +2086,10 @@ Based on your target specialization in **${targetRole}** from **${college}**, he
 
 // @route   GET /api/modules/mentor/sessions
 // @desc    READ all conversation sessions for the student from MongoDB
-router.get('/mentor/sessions', async (req, res) => {
+router.get('/mentor/sessions', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
-    const query = student ? { student: student._id } : {};
+    const student = await resolveStudentForReq(req);
+    const query = student ? { student: student._id } : { student: null };
     const sessions = await MentorChat.find(query).sort({ updatedAt: -1 }).lean();
 
     const formatted = sessions.map(s => {
@@ -2121,11 +2115,14 @@ router.get('/mentor/sessions', async (req, res) => {
 
 // @route   GET /api/modules/mentor/sessions/:sessionId
 // @desc    READ single conversation session messages from MongoDB
-router.get('/mentor/sessions/:sessionId', async (req, res) => {
+router.get('/mentor/sessions/:sessionId', optionalAuth, async (req, res) => {
   try {
     const { sessionId } = req.params;
-    let session = await MentorChat.findOne({ sessionId });
-    if (!session) {
+    const student = await resolveStudentForReq(req);
+    const query = { sessionId };
+    if (student) query.student = student._id;
+    let session = await MentorChat.findOne(query);
+    if (!session && !student) {
       session = await MentorChat.findById(sessionId).catch(() => null);
     }
     if (!session) {
@@ -2139,11 +2136,14 @@ router.get('/mentor/sessions/:sessionId', async (req, res) => {
 
 // @route   DELETE /api/modules/mentor/sessions/:sessionId
 // @desc    DELETE single conversation session from MongoDB
-router.delete('/mentor/sessions/:sessionId', async (req, res) => {
+router.delete('/mentor/sessions/:sessionId', optionalAuth, async (req, res) => {
   try {
     const { sessionId } = req.params;
-    let deleted = await MentorChat.findOneAndDelete({ sessionId });
-    if (!deleted) {
+    const student = await resolveStudentForReq(req);
+    const query = { sessionId };
+    if (student) query.student = student._id;
+    let deleted = await MentorChat.findOneAndDelete(query);
+    if (!deleted && !student) {
       deleted = await MentorChat.findByIdAndDelete(sessionId).catch(() => null);
     }
     res.json({ success: true, message: 'Conversation session deleted from MongoDB' });
@@ -2154,9 +2154,9 @@ router.delete('/mentor/sessions/:sessionId', async (req, res) => {
 
 // @route   GET /api/modules/mentor/history
 // @desc    READ conversation message history (backward compatibility)
-router.get('/mentor/history', async (req, res) => {
+router.get('/mentor/history', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
     let chatSession = await MentorChat.findOne({ student: student ? student._id : null }).sort({ updatedAt: -1 });
     if (!chatSession) {
       chatSession = { messages: [] };
@@ -2169,9 +2169,9 @@ router.get('/mentor/history', async (req, res) => {
 
 // @route   POST /api/modules/mentor/chat
 // @desc    CREATE / INSERT user message & real multi-platform AI chatbot reply into MongoDB with session persistence
-router.post('/mentor/chat', async (req, res) => {
+router.post('/mentor/chat', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
     const { message, sessionId } = req.body;
 
     if (!message || !message.trim()) {
@@ -2180,8 +2180,10 @@ router.post('/mentor/chat', async (req, res) => {
 
     let chatSession = null;
     if (sessionId) {
-      chatSession = await MentorChat.findOne({ sessionId });
-      if (!chatSession) {
+      const q = { sessionId };
+      if (student) q.student = student._id;
+      chatSession = await MentorChat.findOne(q);
+      if (!chatSession && !student) {
         chatSession = await MentorChat.findById(sessionId).catch(() => null);
       }
     }
@@ -2240,13 +2242,13 @@ router.post('/mentor/chat', async (req, res) => {
 
 // @route   DELETE /api/modules/mentor/history
 // @desc    DELETE / CLEAR all chat conversation logs for the student from MongoDB
-router.delete('/mentor/history', async (req, res) => {
+router.delete('/mentor/history', optionalAuth, async (req, res) => {
   try {
-    const student = await Student.findOne().sort({ updatedAt: -1 });
+    const student = await resolveStudentForReq(req);
     if (student) {
       await MentorChat.deleteMany({ student: student._id });
     } else {
-      await MentorChat.deleteMany({});
+      await MentorChat.deleteMany({ student: null });
     }
     res.json({ success: true, message: 'All chat history cleared from MongoDB' });
   } catch (err) {

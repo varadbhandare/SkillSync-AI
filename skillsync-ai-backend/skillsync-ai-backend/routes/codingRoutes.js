@@ -529,12 +529,12 @@ router.get('/', optionalAuth, async (req, res) => {
       if (req.user.student) {
         student = await Student.findById(req.user.student);
       }
-      if (!student) {
-        student = await Student.findOne({ email: req.user.email });
+      if (!student && req.user.email) {
+        student = await Student.findOne({ email: req.user.email.toLowerCase() });
       }
     }
     if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
+      student = await Student.findOne({ email: 'student@university.edu' });
     }
 
     if (!student) {
@@ -591,12 +591,12 @@ router.post('/sync', optionalAuth, async (req, res) => {
       if (req.user.student) {
         student = await Student.findById(req.user.student);
       }
-      if (!student) {
-        student = await Student.findOne({ email: req.user.email });
+      if (!student && req.user.email) {
+        student = await Student.findOne({ email: req.user.email.toLowerCase() });
       }
     }
     if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
+      student = await Student.findOne({ email: 'student@university.edu' });
     }
 
     if (!student) {

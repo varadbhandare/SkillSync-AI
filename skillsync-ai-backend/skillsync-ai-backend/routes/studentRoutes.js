@@ -5,7 +5,7 @@ const User = require('../models/User');
 const { optionalAuth } = require('../middleware/authMiddleware');
 
 // @route   GET /api/students/profile
-// @desc    Get primary student profile (authenticated user or latest)
+// @desc    Get primary student profile (authenticated user or isolated demo fallback)
 router.get('/profile', optionalAuth, async (req, res) => {
   try {
     let student = null;
@@ -13,22 +13,30 @@ router.get('/profile', optionalAuth, async (req, res) => {
       if (req.user.student) {
         student = await Student.findById(req.user.student);
       }
-      if (!student) {
-        student = await Student.findOne({ email: req.user.email });
+      if (!student && req.user.email) {
+        student = await Student.findOne({ email: req.user.email.toLowerCase() });
       }
-    }
-
-    if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
-    }
-
-    if (!student) {
-      student = await Student.create({
-        fullName: req.user ? req.user.name : 'Alex Morgan',
-        email: req.user ? req.user.email : 'student@university.edu',
-        college: 'Annasaheb Dange College of Engineering and Technology, Ashta',
-        department: 'Department of Artificial Intelligence & Data Science'
-      });
+      if (!student) {
+        student = await Student.create({
+          fullName: req.user.name || 'Student',
+          email: req.user.email.toLowerCase(),
+          college: 'Annasaheb Dange College of Engineering and Technology, Ashta',
+          department: 'Department of Artificial Intelligence & Data Science'
+        });
+        req.user.student = student._id;
+        await req.user.save();
+      }
+    } else {
+      // Unauthenticated fallback strictly targets demo account, never other students' data
+      student = await Student.findOne({ email: 'student@university.edu' });
+      if (!student) {
+        student = await Student.create({
+          fullName: 'Alex Morgan',
+          email: 'student@university.edu',
+          college: 'Annasaheb Dange College of Engineering and Technology, Ashta',
+          department: 'Department of Artificial Intelligence & Data Science'
+        });
+      }
     }
 
     res.json({ success: true, data: student });
@@ -46,27 +54,40 @@ router.put('/profile', optionalAuth, async (req, res) => {
       if (req.user.student) {
         student = await Student.findById(req.user.student);
       }
+      if (!student && req.user.email) {
+        student = await Student.findOne({ email: req.user.email.toLowerCase() });
+      }
       if (!student) {
-        student = await Student.findOne({ email: req.user.email });
+        student = new Student({
+          ...req.body,
+          fullName: req.user.name || req.body.fullName || 'Student',
+          email: req.user.email.toLowerCase()
+        });
+        await student.save();
+        req.user.student = student._id;
+        await req.user.save();
       }
-    }
-
-    if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
-    }
-
-    if (!student) {
-      student = new Student(req.body);
     } else {
-      // Clean targetRole and customTargetRole
-      if (req.body.targetRole) {
-        student.targetRole = req.body.targetRole;
+      student = await Student.findOne({ email: 'student@university.edu' });
+      if (!student) {
+        student = new Student(req.body);
       }
-      if (req.body.customTargetRole !== undefined) {
-        student.customTargetRole = req.body.customTargetRole;
-      }
-      Object.assign(student, req.body);
     }
+
+    // Clean targetRole and customTargetRole
+    if (req.body.targetRole) {
+      student.targetRole = req.body.targetRole;
+    }
+    if (req.body.customTargetRole !== undefined) {
+      student.customTargetRole = req.body.customTargetRole;
+    }
+    
+    // Prevent overriding email with another user's email if authenticated
+    if (req.user && req.user.email) {
+      req.body.email = req.user.email.toLowerCase();
+    }
+    
+    Object.assign(student, req.body);
     await student.save();
 
     res.json({

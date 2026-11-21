@@ -109,20 +109,17 @@ router.get('/current', optionalAuth, async (req, res) => {
       if (req.user.student) {
         student = await Student.findById(req.user.student);
       }
-      if (!student) {
-        student = await Student.findOne({ email: req.user.email });
+      if (!student && req.user.email) {
+        student = await Student.findOne({ email: req.user.email.toLowerCase() });
       }
     }
     if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
+      student = await Student.findOne({ email: 'student@university.edu' });
     }
 
     let resume = null;
     if (student) {
       resume = await Resume.findOne({ student: student._id }).sort({ updatedAt: -1 });
-    }
-    if (!resume) {
-      resume = await Resume.findOne().sort({ updatedAt: -1 });
     }
 
     res.json({ success: true, data: resume });
@@ -151,17 +148,25 @@ router.post('/scan', optionalAuth, async (req, res) => {
       if (req.user.student) {
         student = await Student.findById(req.user.student);
       }
+      if (!student && req.user.email) {
+        student = await Student.findOne({ email: req.user.email.toLowerCase() });
+      }
       if (!student) {
-        student = await Student.findOne({ email: req.user.email });
+        student = await Student.create({
+          fullName: req.user.name || 'Student',
+          email: req.user.email.toLowerCase()
+        });
+        req.user.student = student._id;
+        await req.user.save();
       }
     }
     if (!student) {
-      student = await Student.findOne().sort({ updatedAt: -1 });
+      student = await Student.findOne({ email: 'student@university.edu' });
     }
     if (!student) {
       student = await Student.create({
-        fullName: req.user ? req.user.name : 'Alex Morgan',
-        email: req.user ? req.user.email : 'student@university.edu'
+        fullName: 'Alex Morgan',
+        email: 'student@university.edu'
       });
     }
 

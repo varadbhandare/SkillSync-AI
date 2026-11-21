@@ -507,9 +507,32 @@
         border: 1px solid #ccc !important;
       }
     }
+
+    /* Mandatory Pre-Opening Authentication Lock */
+    body.auth-locked #mainIconRail,
+    body.auth-locked #topHeaderBar,
+    body.auth-locked main,
+    body.auth-locked #mobileBottomNav {
+      display: none !important;
+    }
+    body.auth-locked #authModal {
+      display: flex !important;
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 9999 !important;
+      background: var(--bg) !important;
+    }
+    body.auth-locked #authModalCloseBtn {
+      display: none !important;
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased">
+  <script>
+    if (!localStorage.getItem('skillsync_auth_token')) {
+      document.body.classList.add('auth-locked');
+    }
+  </script>
 
   <!-- Slim Left Icon Rail (Desktop, ~68px) -->
   <aside id="mainIconRail" class="fixed left-0 top-0 bottom-0 z-40 w-[68px] hidden md:flex flex-col items-center py-4 bg-[var(--rail)] border-r border-[var(--line)] select-none">
@@ -718,7 +741,7 @@
               <p class="text-[11px] text-[var(--sub)]">SkillSync AI Secure Sign-In</p>
             </div>
           </div>
-          <button onclick="closeAuthModal()" class="w-7 h-7 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-[var(--text)] hover:bg-[var(--bg)] transition">
+          <button id="authModalCloseBtn" onclick="closeAuthModal()" class="w-7 h-7 rounded-lg flex items-center justify-center text-[var(--sub)] hover:text-[var(--text)] hover:bg-[var(--bg)] transition">
             <i class="fa-solid fa-xmark text-xs"></i>
           </button>
         </div>
@@ -1349,7 +1372,7 @@
           </p>
         </div>
         <div class="flex items-center gap-2">
-          <button onclick="loadTemplateResume()" class="btn-ghost !text-xs font-semibold">
+          <button onclick="loadTemplateResume(true)" class="btn-ghost !text-xs font-semibold">
             Load Profile Template
           </button>
           <button onclick="analyzeResume()" class="btn-primary !text-xs font-semibold">
@@ -2893,9 +2916,20 @@
       switchAuthTab(tab);
       const alertBox = document.getElementById('authAlert');
       if (alertBox) alertBox.classList.add('hidden');
+      const closeBtn = document.getElementById('authModalCloseBtn');
+      if (closeBtn) {
+        if (document.body.classList.contains('auth-locked') || !authToken) {
+          closeBtn.classList.add('hidden');
+        } else {
+          closeBtn.classList.remove('hidden');
+        }
+      }
     }
 
     function closeAuthModal() {
+      if (document.body.classList.contains('auth-locked') && !authToken) {
+        return; // Enforce mandatory pre-opening authentication
+      }
       const modal = document.getElementById('authModal');
       if (modal) modal.classList.add('hidden');
     }
@@ -2942,18 +2976,24 @@
         if (res.ok && json.success) {
           authToken = json.token;
           currentUser = json.user;
+          document.body.classList.remove('auth-locked');
           localStorage.setItem('skillsync_auth_token', authToken);
           localStorage.setItem('skillsync_current_user', JSON.stringify(currentUser));
 
           if (json.student) {
             studentProfile = { ...studentProfile, ...json.student };
+            const userKey = currentUser.id || currentUser.email || 'user';
+            localStorage.setItem(`skillsync_profile_${userKey}`, JSON.stringify(studentProfile));
             localStorage.setItem('skillsync_user_profile', JSON.stringify(studentProfile));
             loadProfileIntoUI();
           }
 
           updateAuthUI();
           closeAuthModal();
-          showToast(`Welcome back, ${currentUser.name}! Authenticated securely with JWT 🔒`);
+          showToast(`Welcome back, ${currentUser.name}! Authenticated securely 🔒`);
+          fetchStudentProfile();
+          loadCodingProfilesFromAPI();
+          loadTemplateResume(false);
         } else {
           alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
           alertBox.textContent = json.error || 'Authentication failed. Please check your credentials.';
@@ -2992,11 +3032,14 @@
         if (res.ok && json.success) {
           authToken = json.token;
           currentUser = json.user;
+          document.body.classList.remove('auth-locked');
           localStorage.setItem('skillsync_auth_token', authToken);
           localStorage.setItem('skillsync_current_user', JSON.stringify(currentUser));
 
           if (json.student) {
             studentProfile = { ...studentProfile, ...json.student };
+            const userKey = currentUser.id || currentUser.email || 'user';
+            localStorage.setItem(`skillsync_profile_${userKey}`, JSON.stringify(studentProfile));
             localStorage.setItem('skillsync_user_profile', JSON.stringify(studentProfile));
             loadProfileIntoUI();
           }
@@ -3004,6 +3047,9 @@
           updateAuthUI();
           closeAuthModal();
           showToast(`Account registered successfully! Welcome, ${currentUser.name} 🎓`);
+          fetchStudentProfile();
+          loadCodingProfilesFromAPI();
+          loadTemplateResume(false);
         } else {
           alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
           alertBox.textContent = json.error || 'Registration failed. Try again.';
@@ -3041,15 +3087,20 @@
       currentUser = null;
       localStorage.removeItem('skillsync_auth_token');
       localStorage.removeItem('skillsync_current_user');
+      localStorage.removeItem('skillsync_user_profile');
+      document.body.classList.add('auth-locked');
+      openAuthModal('login');
       updateAuthUI();
       try {
         fetch(`${API_BASE_URL}/auth/logout`, { method: 'POST' });
       } catch (e) {}
-      showToast('Logged out successfully. Public session active.');
+      showToast('Logged out successfully. Platform locked.');
     }
 
     async function checkCurrentUserSession() {
       if (!authToken) {
+        document.body.classList.add('auth-locked');
+        openAuthModal('login');
         updateAuthUI();
         return;
       }
@@ -3065,13 +3116,137 @@
             localStorage.setItem('skillsync_current_user', JSON.stringify(currentUser));
             if (json.data.student) {
               studentProfile = { ...studentProfile, ...json.data.student };
+              const userKey = currentUser.id || currentUser.email || 'user';
+              localStorage.setItem(`skillsync_profile_${userKey}`, JSON.stringify(studentProfile));
               localStorage.setItem('skillsync_user_profile', JSON.stringify(studentProfile));
               loadProfileIntoUI();
             }
+            document.body.classList.remove('auth-locked');
+            closeAuthModal();
+            updateAuthUI();
+            return;
+          }
+        } else {
+          // Token expired or invalid
+          authToken = '';
+          currentUser = null;
+          localStorage.removeItem('skillsync_auth_token');
+          localStorage.removeItem('skillsync_current_user');
+          document.body.classList.add('auth-locked');
+          openAuthModal('login');
+          const alertBox = document.getElementById('authAlert');
+          if (alertBox) {
+            alertBox.className = "mb-3 p-2.5 rounded-lg text-xs font-medium bg-rose-50 text-rose-700 border border-rose-200";
+            alertBox.textContent = 'Session expired. Please sign in to access your platform.';
+            alertBox.classList.remove('hidden');
           }
         }
-      } catch (e) {}
+      } catch (e) {
+        if (currentUser && authToken) {
+          document.body.classList.remove('auth-locked');
+          closeAuthModal();
+        } else {
+          document.body.classList.add('auth-locked');
+          openAuthModal('login');
+        }
+      }
       updateAuthUI();
+    }
+
+    /* =========================================================================
+       FORM DATA AUTO-PRESERVATION & DEBOUNCED PERSISTENCE
+       ========================================================================= */
+    function debounce(func, wait = 300) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    const debouncedSyncProfileToBackend = debounce(async () => {
+      if (!authToken) return;
+      try {
+        await fetch(`${API_BASE_URL}/students/profile`, {
+          method: 'PUT',
+          headers: getApiHeaders(),
+          body: JSON.stringify(studentProfile)
+        });
+      } catch (e) {}
+    }, 600);
+
+    function autoSaveCurrentFormFields() {
+      if (!studentProfile) return;
+      const fn = document.getElementById('profFullName')?.value?.trim();
+      if (fn) studentProfile.fullName = fn;
+      const em = document.getElementById('profEmail')?.value?.trim();
+      if (em) studentProfile.email = em;
+      
+      studentProfile.phone = document.getElementById('profPhone')?.value?.trim() || '';
+      studentProfile.location = document.getElementById('profLocation')?.value?.trim() || '';
+      studentProfile.bio = document.getElementById('profBio')?.value?.trim() || '';
+      studentProfile.college = document.getElementById('profCollege')?.value?.trim() || '';
+      studentProfile.department = document.getElementById('profDepartment')?.value?.trim() || '';
+      studentProfile.degree = document.getElementById('profDegree')?.value?.trim() || '';
+      studentProfile.rollNo = document.getElementById('profRollNo')?.value?.trim() || '';
+      studentProfile.cgpa = document.getElementById('profCgpa')?.value?.trim() || '';
+      studentProfile.gradYear = document.getElementById('profGradYear')?.value?.trim() || '';
+      studentProfile.guide = document.getElementById('profGuide')?.value?.trim() || '';
+
+      const gh = document.getElementById('profGithub')?.value?.trim() || '';
+      const lc = document.getElementById('profLeetcode')?.value?.trim() || '';
+      const solved = parseInt(document.getElementById('profLeetcodeSolved')?.value) || 0;
+      const rating = parseInt(document.getElementById('profLeetcodeRating')?.value) || 0;
+      const li = document.getElementById('profLinkedin')?.value?.trim() || '';
+      const kg = document.getElementById('profKaggle')?.value?.trim() || '';
+      const pf = document.getElementById('profPortfolio')?.value?.trim() || '';
+
+      studentProfile.platforms = { github: gh, leetcode: lc, linkedin: li, kaggle: kg, portfolio: pf };
+      studentProfile.github = gh;
+      studentProfile.leetcode = lc;
+      studentProfile.leetcodeSolved = solved;
+      studentProfile.leetcodeRating = rating;
+      studentProfile.linkedin = li;
+      studentProfile.kaggle = kg;
+      studentProfile.portfolio = pf;
+
+      const userKey = currentUser?.id || currentUser?.email || 'default';
+      localStorage.setItem(`skillsync_profile_${userKey}`, JSON.stringify(studentProfile));
+      localStorage.setItem('skillsync_user_profile', JSON.stringify(studentProfile));
+      
+      syncProfileDisplays();
+      debouncedSyncProfileToBackend();
+    }
+
+    function autoSaveResumeFields() {
+      const resumeEl = document.getElementById('resumeTextInput');
+      if (resumeEl) {
+        const text = resumeEl.value;
+        const userKey = currentUser?.id || currentUser?.email || 'default';
+        localStorage.setItem(`skillsync_resume_${userKey}`, text);
+        localStorage.setItem('skillsync_resume_text', text);
+        updateWordCount();
+      }
+    }
+
+    function attachAutoSaveListeners() {
+      const form = document.getElementById('studentProfileForm');
+      if (form) {
+        form.addEventListener('input', autoSaveCurrentFormFields);
+        form.addEventListener('change', autoSaveCurrentFormFields);
+      }
+      const resumeEl = document.getElementById('resumeTextInput');
+      if (resumeEl) {
+        resumeEl.addEventListener('input', autoSaveResumeFields);
+      }
+      window.addEventListener('beforeunload', () => {
+        autoSaveCurrentFormFields();
+        autoSaveResumeFields();
+      });
     }
 
     /* =========================================================================
@@ -3083,7 +3258,8 @@
       initTheme();
       initCharts();
       initCommitHeatmap();
-      loadTemplateResume();
+      loadTemplateResume(false);
+      attachAutoSaveListeners();
       initIdleCameraGuideOverlay();
       checkBackendConnection(true);
       initMentorModule();
@@ -3587,7 +3763,24 @@
     /* =========================================================================
        RESUME & ATS LOGIC (MONGODB CRUD: INSERT / UPDATE / READ)
        ========================================================================= */
-    function loadTemplateResume() {
+    function loadTemplateResume(force = false) {
+      const textarea = document.getElementById('resumeTextInput');
+      const userKey = currentUser?.id || currentUser?.email || 'default';
+      const savedResume = localStorage.getItem(`skillsync_resume_${userKey}`) || localStorage.getItem('skillsync_resume_text');
+
+      // Preserve already filled/typed resume content if not an explicit reset
+      if (!force && savedResume && savedResume.trim().length > 0) {
+        if (textarea) {
+          textarea.value = savedResume;
+          updateWordCount();
+        }
+        return;
+      }
+      if (!force && textarea && textarea.value && textarea.value.trim().length > 0) {
+        updateWordCount();
+        return;
+      }
+
       const ghLine = studentProfile.github ? `GitHub: github.com/${studentProfile.github} | ` : '';
       const resumeContent = `${(studentProfile.fullName || 'Alex Morgan').toUpperCase()}
 Email: ${studentProfile.email || 'student@university.edu'} | Phone: ${studentProfile.phone || '+91 9876543210'} | Roll No: ${studentProfile.rollNo || '4005'}
